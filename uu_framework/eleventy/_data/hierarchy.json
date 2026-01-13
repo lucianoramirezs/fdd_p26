@@ -19,20 +19,6 @@
       "title": "Introducción"
     },
     {
-      "name": "images",
-      "path": "images",
-      "type": "directory",
-      "order": [
-        2,
-        999,
-        0,
-        "images"
-      ],
-      "children": [],
-      "has_index": false,
-      "title": "Images"
-    },
-    {
       "name": "docs",
       "path": "docs",
       "url": "/docs/",
