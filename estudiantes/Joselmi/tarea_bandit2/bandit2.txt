@@ -1,0 +1,86 @@
+=== NIVEL 6 === 
+1. ¿Qué necesito hacer? (en tus palabras) 
+Utilizar find y ciertas banderas para encontrar un archivo con características específicas.
+2. ¿Qué comando(s) creo que necesito? 
+Claramente necesito find. 
+3. ¿Dónde busqué información? (link o man page) Utilicé man para find. Sin embargo, como no me acordaba como redirigir los errores (stderr) a un output normal (stdout) en grep, busqué un ejemplo en internet: https://unix.stackexchange.com/questions/3514/how-to-grep-standard-error-stream-stderr 
+4. Comandos que ejecuté: $ ls -lah 
+	$ find ~ -user bandit7 -group bandit6 -size 33c 
+	$ find ~ -user bandit7 -group bandit6 -size 33c -type f 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f 
+	$ man find | grep -C 3 "Permission denied" 
+	$ man find | grep -C 3 "Permission denied" 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f -readable 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f -readable -writable
+	$ find / -user bandit7 -group bandit6 -size 33c -type f -readable -writable -executable 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f | grep -P "^[^f]" 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f > | grep -P "^[^f]" 
+	$ find / -user bandit7 -group bandit6 -size 33c -type f 2>&1 | grep -P "^[^f]" 
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Aunque mi idea de usar find sí funcionó, en el resultado aparecían muchos mensajes con el formato “find: ‘/etc/ssl/private’: Permission denied”. Esto hizo que fuera difícil identificar cuál archivo contenía la contraseña. Por ello, intenté ajustar el comando para que grep redujera la salida; sin embargo, al inicio no funcionaba. Después de varios intentos me di cuenta de que el problema era que esos mensajes correspondían a errores, ya que “Permission denied” es un error típico y se imprime por stderr. Entonces intenté redirigir la salida de errores, pero no recordaba exactamente cómo hacerlo, por lo que busqué un ejemplo en internet. Una vez que los errores se enviaron a la salida estándar, simplemente filtré todas las líneas que no empezaban con la letra “f”, pues así comenzaban los mensajes de error, y con ello pude llegar a la solución.
+
+=== NIVEL 7 === 
+1. ¿Qué necesito hacer? (en tus palabras) 
+Analizar el contenido de data.txt y buscar la palabra “millionth” 
+2. ¿Qué comando(s) creo que necesito? 
+Claramente cat para imprimir la información del archivo y grep para filtrar por lo que necesito. 
+3. ¿Dónde busqué información? (link o man page) 
+Específicamente para este problema no necesite buscar información. 
+4. Comandos que ejecuté: 
+	$ ls 
+	$ cat data.txt | grep "millionth" 
+5. ¿Funcionó? Si no, ¿qué ajusté? 
+Sí, funcionó correctamente
+
+=== NIVEL 8=== 
+1. ¿Qué necesito hacer? (en tus palabras) 
+Tengo que analizar el contenido de data.txt y buscar la contraseña. Encontrando la única línea que no se repite. 
+2. ¿Qué comando(s) creo que necesito? 
+Para mostrar el contenido necesito cat y para filtrar por unicidad uniq (es de los comandos que recomienda bandit) 
+3. ¿Dónde busqué información? (link o man page)
+Todo en man y –help. 
+4. Comandos que ejecuté: 
+	$ man uniq 
+	$ uniq -u data.txt 
+	$ uniq -u data.txt | grep "UihXKNyBT1s5ltAlCDIiEofJa6A3hW6O" 
+	$ uniq - -help 
+	$ man sort 
+	$ cat data.txt | sort -b | uniq -u
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funciono.
+En un inicio no funcionó, ya que utilicé uniq directamente sobre data.txt. Posteriormente, probé si alguno de los strings obtenidos en el output se repetía usando grep, y observé que efectivamente sí se repetía. Por ello, consulté el --help de uniq, donde encontré una nota que indicaba que este comando solo identifica líneas repetidas cuando aparecen de forma consecutiva. A partir de esto, revisé cómo funcionaba el comando sort, entendí su comportamiento y, finalmente, logré encontrar el valor único.
+
+=== NIVEL 9 === 
+1. ¿Qué necesito hacer? (en tus palabras) 
+Buscar en data.txt una cadena de = y después la contraseña. 
+2. ¿Qué comando(s) creo que necesito? 
+Claramente necesito cat y grep, pero no estoy seguro si necesito alguno de los que recomiendan en bandit.
+3. ¿Dónde busqué información? (link o man page) 
+Todo lo busque en man y - - help. 
+4. Comandos que ejecuté: $ man strings
+	$ stirngs –help 
+	$ tr –help 
+	$ gzip --help 
+	$ man xxd 
+	$ gzip –help 
+	$ cat data.txt $ cat data.txt | grep -P "=+[a-z|A-z]+" 
+	$ man grep | grep -C 10 "binary file matches" 
+	$ cat data.txt | grep --binary-files=text -P "=+[a-zA-Z]+" 
+	$ cat data.txt | grep --binary-files=text -P "=+([ ]*)[a-z|A-Z||\d]{5,100}"
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funciono.
+No funcionó en un inicio, ya que después de revisar los manuales de varias funciones recomendadas no encontré alguna que se ajustara directamente al problema. Por ello, intenté utilizar grep, pero este me arrojaba el error “grep: (standard input): binary file matches”. Ante esto, busqué la frase “binary file matches” en el manual de grep y descubrí la existencia de la bandera --binary-files. Con esta opción le indico a grep que trate el archivo, aunque contenga datos binarios, como si fuera texto.
+
+Posteriormente, busqué cualquier cadena de letras que apareciera después de al menos un signo de igual. Sin embargo, observé que había muchos matches del tipo =[letra], por lo que añadí una restricción de longitud mínima de cinco caracteres y un máximo suficientemente grande. Además, contemplé el caso en el que pudiera haber uno o más espacios entre el signo de igual y la contraseña.
+
+=== NIVEL 10=== 
+1. ¿Qué necesito hacer? (en tus palabras) 
+Ver como funciona base64 y encontrar la contraseña dentro de data.txt.
+ 2. ¿Qué comando(s) creo que necesito? 
+Por la descripción del problema es claro que tengo que utilizar base64. 
+3. ¿Dónde busqué información? (link o man page) 
+Todo lo busqué en man. 
+4. Comandos que ejecuté: 
+	$ man base64 
+	$ base64 -d data.txt 
+5. ¿Funcionó? Si no, ¿qué ajusté? 
+Sí funciono.
+

@@ -1,0 +1,24 @@
+Regex Golf 
+@IkerAb 
+
+=== NIVEL: Warmup ===
+Regex usado: foo 
+Explicación: solo busca cosas que tienen foo
+Proceso de pensamiento: fue mi primrer nivel y nadams typee el patron que vi 
+
+=== NIVEL: Solución Anchors===
+Regex usado: ick$
+Explicación: ick busca esa cadena y $ busca que ese string este al final 
+Proceso de pensamiento: vi que todas las cadenas tenian el string "ick" pero en especifoco las deseadas acababan en eso 
+
+=== NIVEL: It never Ends  ===
+Regex usado: fu\b
+Explicación: No se podia usar $ asi que \b denota una frontera  
+Proceso de pensamiento: todas las palabras contenian fu, pero las deseadas acababan con fu, asi que necesitaba delimitar a que no hubiera cadenas despues 
+
+
+
+=== NIVEL: Backrefs===
+Regex usado: (\w{3,}).*\1 
+Explicación: (\w{3,}) captura tres caracteres de la palabra, .* cualquier cosa en medio, \1 la misma secuencia otra vez 
+Proceso de pensamiento: todas las palabras deseadas tenian una repeticion de mínimo 3 caracteres y aunque no tenian la misma repeticion todas la tenian 

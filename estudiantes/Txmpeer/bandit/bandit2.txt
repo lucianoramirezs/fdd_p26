@@ -1,0 +1,107 @@
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer?
+   Encontrar el archivo que contiene la contraseña para el nivel 7.
+   El archivo tiene tamaño de 33 bytes, pertenece al usuario bandit7
+   y al grupo bandit6.
+
+2. ¿Qué comando(s) creo que necesito?
+   find, cat
+
+3. ¿Dónde busqué información?
+   man find
+   explainshell.com
+
+4. Comandos que ejecuté:
+   find / -size 33c -user bandit7 -group bandit6 2>/dev/null
+   cat /var/lib/dpkg/info/bandit7.password
+
+5. ¿Funcionó?
+   Sí, el comando find localizó el archivo correcto y cat mostró
+   la contraseña del siguiente nivel:
+   morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+=== NIVEL 7 ===
+1. ¿Qué necesito hacer?
+   Encontrar la contraseña del nivel 8 en el archivo data.txt,
+   que se encuentra junto a la palabra "millionth".
+
+2. ¿Qué comando(s) creo que necesito?
+   grep
+
+3. ¿Dónde busqué información?
+   man grep
+
+4. Comandos que ejecuté:
+   ls
+   grep millionth data.txt
+
+5. ¿Funcionó?
+   Sí, grep encontró la línea correcta y mostró la contraseña:
+   dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+=== NIVEL 8 ===
+1. ¿Qué necesito hacer?
+   Encontrar la contraseña del nivel 9, que es la única línea de texto
+   que aparece solo una vez en el archivo data.txt.
+
+2. ¿Qué comando(s) creo que necesito?
+   sort, uniq
+
+3. ¿Dónde busqué información?
+   man uniq
+   man sort
+
+4. Comandos que ejecuté:
+   ls
+   sort data.txt | uniq -u
+
+5. ¿Funcionó?
+   Sí, después de ordenar el archivo, uniq -u mostró la única línea
+   que no se repite, que es la contraseña:
+   4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+=== NIVEL 9 ===
+1. ¿Qué necesito hacer?
+   Encontrar la contraseña del nivel 10 dentro del archivo data.txt,
+   que está oculta entre cadenas legibles precedidas por varios
+   caracteres '='.
+
+2. ¿Qué comando(s) creo que necesito?
+   strings, grep
+
+3. ¿Dónde busqué información?
+   man strings
+   man grep
+
+4. Comandos que ejecuté:
+   ls
+   strings data.txt
+   strings data.txt | grep =
+
+5. ¿Funcionó?
+   Sí, el comando strings mostró las cadenas legibles y grep filtró
+   las que contenían '=', revelando la contraseña:
+   FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+=== NIVEL 10 ===
+1. ¿Qué necesito hacer?
+   Obtener la contraseña del nivel 11, que está en el archivo data.txt
+   codificada en base64.
+
+2. ¿Qué comando(s) creo que necesito?
+   ls, cat, base64
+
+3. ¿Dónde busqué información?
+   man base64
+   explainshell.com
+
+4. Comandos que ejecuté:
+   ls
+   cat data.txt
+   base64 -d data.txt
+
+5. ¿Funcionó?
+   Sí, el comando base64 -d decodificó el contenido del archivo y mostró
+   la contraseña del siguiente nivel:
+   dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

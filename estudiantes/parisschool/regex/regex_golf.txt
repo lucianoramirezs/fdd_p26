@@ -1,0 +1,33 @@
+=== NIVEL: [Warmup] ===
+Regex usado: foo
+Explicación: busca las palabras que tengan foo en algun lugar
+Proceso de pensamiento: Me di cuenta que todas las palabras que debía de acptar
+    tenían "foo", a diferencia de las demás que por más parecido tenían "oo"
+
+=== NIVEL: [Anchor] ===
+Regex usado: ick$
+Explicación: letras$ me dice que la palabra debe de terminar con esas letras
+Proceso de pensamiento: Todas las palabras aceptadas tenían terminación ick, y
+    ninguna de las demás lo tenía, era la diferencia clave.
+
+=== NIVEL: [It never ends] ===
+Regex usado: fu\b
+Explicación: \b es como una pared que limita a que ahí pare de buscar.
+Proceso de pensamiento: En este nivel vi que debía igual encontrar palabras con terminación
+    pareida, el problema es que no se podía usar $, estuve buscando y encontre algo para delimitar 
+    palabras como esto "\bhola\b", donde se busca literal la palabra "hola", jugué con ese límite,
+    y poniendo solo el final, funciona.
+
+=== NIVEL: [Backrefs] ===
+Regex usado: ([a-z]{3}).*\1
+Explicación: () agrupa, hace un grupo, [a-z] acepta letras minúsculas, {3} permite que solo sean
+    3 de o que tiene a su izquierda, en este caso letras minúsculas, .* deja que exista cualquier
+    caracter entre el grupo y \1 usa el grupo dentro del paréntesis, si hay más el número sería el
+    orden en que aparecen los grupos.
+Proceso de pensamiento: Lo primero que note es que se repetían cosas en las palabras que queriamos
+    aceptar, primero pensaba que eran solo las vocales, pero había excepciones en algunas que no
+    debían de ser aceptadas, hasta que vi que las primeras 3 letras eran las que se repetían después
+    dentro de la misma palabra, para poder lograr hacerlo busque si se podían hacer variables o 
+    memoria, en donde encontre eso de los grupos, depués limite el grupo a las primeras 3 letras,
+    usé el .* que permite cualqueir caracter excepto saltos de línea, y despues \1 para decir que el
+    grupo, dentro de parénteis, número uno se repetía.

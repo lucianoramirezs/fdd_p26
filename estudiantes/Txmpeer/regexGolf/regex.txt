@@ -1,0 +1,49 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+
+Explicación:
+- `foo` busca literalmente la secuencia de caracteres "foo".
+- No se usan anclas ni operadores especiales, solo coincidencia directa.
+
+Proceso de pensamiento:
+- Observé que todas las palabras válidas contienen la cadena exacta "foo".
+- No era necesario restringir posición, así que usé el patrón más simple posible.
+
+
+=== NIVEL: Anchors ===
+Regex usado: ^foo
+
+Explicación:
+- `^` ancla el patrón al inicio de la línea.
+- `foo` busca la palabra "foo" exactamente al comienzo del string.
+
+Proceso de pensamiento:
+- Noté que los strings correctos empezaban con "foo" y los incorrectos no.
+- Para evitar coincidencias en medio de la palabra, utilicé el ancla de inicio `^`.
+
+
+=== NIVEL: It never ends ===
+Regex usado: fu$
+
+Explicación:
+- `fu` coincide literalmente con las letras "fu".
+- `$` ancla el patrón al final del string.
+
+Proceso de pensamiento:
+- Analicé los ejemplos válidos y todos terminaban en "fu".
+- Las palabras inválidas contenían "fu" pero no al final.
+- Usé `$` para asegurar que el patrón solo coincidiera al final.
+
+
+=== NIVEL: Backrefs ===
+Regex usado: (..).*\1
+
+Explicación:
+- `(..)` captura cualquier par de caracteres consecutivos.
+- `.*` permite cualquier cantidad de caracteres entre medias.
+- `\1` es una referencia al primer grupo capturado, exigiendo que el mismo par de letras se repita.
+
+Proceso de pensamiento:
+- Observé que todas las palabras válidas repiten un mismo grupo de dos letras.
+- Las palabras inválidas no presentan ninguna repetición exacta de dos caracteres.
+- Usé un grupo de captura junto con un backreference para forzar esta repetición.

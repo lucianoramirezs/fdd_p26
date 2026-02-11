@@ -1,0 +1,55 @@
+José Malfavaun 213398
+
+Warmup
+Regex usado: foo
+
+Explicación:
+El patrón foo busca esa secuencia en toda la palabra
+
+Proceso de pensamiento:
+Tras no entender nada por un rato, vi que de la columna izquierda, todas las palabras,
+coincidían que contenían el patrón de foo y de la columna derecha ninguna tenía foo
+
+
+
+Anchors
+Regex usado: (ick)$
+
+Explicación:
+Ick busca esa secuencia, $ busqué y vi que era para obligar a que sea el final de la secuencia,
+los puse en paréntesis para que a todo le aplique el $
+
+Proceso de pensamiento:
+Vi que coincidía en todas la secuencia ick, pero si lo escribía entonces se refería al inicio de cada
+palabra; entonces busqué para regex cómo referirme solo al final de un string, vi que con $ se podía
+
+
+
+It never ends
+Regex usado: fu\b
+
+Explicación:
+Fu busca esa secuencia, \b es para ponerle límite a una palabra y así no usamos $
+
+Proceso de pensamiento:
+Pensé que sería igual al anterior e intenté fu$, pero se especifica que no se puede, entonces busqué cómo
+referirme al final de la palabra pero de otra manera; igual que el nivel anterior vi que otra opción era \b
+
+
+
+Backrefs
+Regex usado: (...).*\1
+
+Explicación:
+El paréntesis agrupa todo lo que le afecta de afuera, dentro van 3 puntitos porque quiero una secuencia
+de 3 caracteres; después puse un punto porque se refiere a cualquier carácter, le sigue * que significa
+que tenga 0 o más repeticiones; .* entonces juntos es que puede haber cualquier cantidad de caracteres o
+ninguno; y al final \1 exige que el mismo carácter vuelva a aparecer
+
+Proceso de pensamiento:
+Tras romperme la cabeza un rato vi que de la columna izquierda, cada palabra, tenía un patrón y es que
+se repetían 2 veces 3 caracteres, entonces busqué primero cómo referirme solo a 3 caracteres y vi que
+era con puntos, los agrupé con paréntesis; lo que más me costó fue lo de .*, ocupaba algo que estuviera
+entre las 2 apariciones de la secuencia que se repite, entonces después de muchos intentos y buscarle
+vi que .* se refería a una secuencia de caracteres que podía o no existir; para el final usé \1 que vi
+que era para repeticiones
