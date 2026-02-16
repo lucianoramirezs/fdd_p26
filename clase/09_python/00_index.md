@@ -61,7 +61,7 @@ Completa el curso y sube la certificacion a tu directorio de certificaciones, cr
 
 :::
 
-:::homework{id="9.3.1" title="Instalar VSCode" due="2026-02-19" points="20"}
+:::homework{id="9.3.1" title="Instalar VSCode" due="2026-02-19" points="0"}
 
 Isntalar VSCode y configurar el entorno de desarrollo.
 Asegurate de instalarlo de manera correcta en tu sistema oeprativo. Instalalo en WSL2 si usas windows no en toro lado. VSCOde tiende a tener errores, entonces investiga cual es la forma o la version mas estable apra tu sistema oeprativo en particular. Utiliza Perpelxity o Gemini con busqueda activada para que vaya al internet

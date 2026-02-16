@@ -1,0 +1,51 @@
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer? Encontrar el archivo en el servidor que tenga como propiedades que sea del usuario bandit7, del grupo bandit6 y que tenga 33 bytes de size.
+2. ¿Qué comando(s) creo que necesito? Voy a necesitar find y cat. Find para buscar el archivo con esas propiedades específicas como usuario, grupo y tamaño exacto en bytes, utilizando las opciones -user, -group y -size 33c. Cat para abrir el archivo y ver su contenido. También entendí que podía necesitar redirigir errores si aparecían muchos mensajes de permiso.
+3. ¿Dónde busqué información? (link o man page): man find y https://manpages.ubuntu.com/manpages/noble/man1/find.1.html
+4. Comandos que ejecuté:
+   $ find / -user bandit7 -group bandit6 -size 33c
+   $ cat /var/lib/dpkg/info/bandit7.password
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí sirvió, pero tuve que buscar en todos los archivos, los cuales muchos me salían en "Permission denied". Busqué una forma para quitarlos (https://stackoverflow.com/questions/27054609/suppressing-console-output-an-errors-while-running-shell-script) y utilicé el siguiente comando:
+   $ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Con esto evité que se mostraran los errores en pantalla y solo pude ver los resultados correctos.
+La contraseña que me dio fue la siguiente: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+=== NIVEL 7 ===
+1. ¿Qué necesito hacer? Tengo que buscar en el archivo data.txt la clave que esté al lado de la palabra millionth.
+2. ¿Qué comando(s) creo que necesito? Tengo que utilizar grep para buscar la palabra y ls para ver si el archivo está en donde estoy.
+3. ¿Dónde busqué información? (link o man page): man grep y notas de clase.
+4. Comandos que ejecuté:
+   $ ls
+   $ grep "millionth" data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó y la clave fue: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+=== NIVEL 8 ===
+1. ¿Qué necesito hacer? Tengo que buscar en el archivo data.txt la línea de texto que solo ocurre una vez.
+2. ¿Qué comando(s) creo que necesito? Tendré que usar uniq para buscar la línea de texto única y ls para ver si el archivo está donde estoy.
+3. ¿Dónde busqué información? (link o man page): man uniq y https://www.geeksforgeeks.org/linux-unix/uniq-command-in-linux-with-examples/
+4. Comandos que ejecuté:
+   $ ls
+   $ uniq -u data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? No funcionó, ya que salían muchos resultados. Encontré que uniq solo funciona correctamente cuando las líneas repetidas están una junto a la otra, por lo que necesitaba usar sort (man sort) antes para ordenar el archivo y que las líneas iguales quedaran agrupadas, por lo que utilicé el siguiente comando:
+   $ sort data.txt | uniq -u
+La clave fue la siguiente: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+=== NIVEL 9 ===
+1. ¿Qué necesito hacer? Tengo que encontrar un human-readable string que tiene muchos caracteres "=", ya que dentro del archivo data.txt ahí está la contraseña.
+2. ¿Qué comando(s) creo que necesito? ls y grep.
+3. ¿Dónde busqué información? (link o man page): https://stackoverflow.com/questions/74605937/how-to-find-the-particular-text-stored-in-the-file-data-bin-and-is-human-reada y man strings.
+4. Comandos que ejecuté:
+   $ ls
+   $ grep "=" data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? No, ya que me decía que había "binary file matches". Busqué cómo hacerlo y encontré que con el comando strings, que extrae secuencias de caracteres que son human-readables en un archivo binario. El nuevo comando que utilicé fue el siguiente:
+   $ strings data.txt | grep "="
+La clave fue la siguiente: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+=== NIVEL 10 ===
+1. ¿Qué necesito hacer? La clave está en el archivo data.txt, sin embargo está codificada en base64 data.
+2. ¿Qué comando(s) creo que necesito? Yo creo que necesito ls y base64.
+3. ¿Dónde busqué información? (link o man page): man base64.
+4. Comandos que ejecuté:
+   $ ls
+   $ base64 -d data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó y la clave fue: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
