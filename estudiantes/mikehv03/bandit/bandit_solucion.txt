@@ -1,0 +1,108 @@
+Miguel Ángel Herrera Varela - 206111
+=== NIVEL 0 ===
+1. ¿Qué necesito hacer? Necesito entrar al servidor de Bandit para que me conecte al juego y después entrar con el usuario y contraseña que me da el juego.
+2. ¿Qué comando(s) creo que necesito? Necesito usar ssh, ya que es el que me loggea a los servidores. Además, es el que aparece en el juego.
+3. ¿Dónde busqué información? ssh -h y https://manpages.ubuntu.com/manpages/noble/man1/ssh.1.html
+4. Comandos que ejecuté:
+$ ssh bandit.labs.overthewire.org
+5. ¿Funcionó? Si no, ¿qué ajusté? Al principio no funcionó, ya que me daba un error en el puerto, porque me estaba conectando al puerto 22. Por lo que busqué en ssh -h para ver cómo ingresaba la bandera del puerto y vi que era con -p, por lo que ahora corrí el siguiente comando:
+$ssh bandit.labs.overthewire.org -p 2220
+Sin embargo, me siguió marcando un error porque me aparecía mi username y no el que venía en la página, por lo que nuevamente ingresé a ssh -h y vi que había una bandera que es -l para login_name. Por lo que mi último comando fue:
+$ssh bandit.labs.overthewire.org -p 2220 -l bandit0
+Con este comando ya pude entrar al juego.
+
+=== NIVEL 1 ===
+1. ¿Qué necesito hacer? En este nivel tengo que ingresar al archivo readme, que está localizado en el directorio home.
+2. ¿Qué comandos creo que necesito? Yo creo que necesito ver primero en qué directorio estoy, por lo que usaré pwd. Después, si no estoy en el directorio, tendré que usar cd. Cuando ya esté en el directorio usaré ls para ver si está el archivo y después cat para abrir el archivo.
+3. ¿Dónde busqué información? Busqué cómo salirme de una conexión ssh y https://superuser.com/questions/467398/how-do-i-exit-an-ssh-connection
+4. Comandos que ejecuté:
+$ pwd
+$ ls
+$ cat readme
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó, ya que con pwd vi que estaba en el directorio home de bandit0, luego con ls confirmé que el archivo existiera y finalmente con cat entré. La contraseña que me dio fue ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If.
+Después tuve un problema de cómo tenía que volver a entrar, ya que pensé que se actualizaba solo, por lo que intenté hacer exit y después entrar con el comando del nivel 0, solo cambiando bandit0 por bandit1 y la clave que obtuve. Es decir, quedó así:
+$ ssh bandit.labs.overthewire.org -p 2220 -l bandit1.
+Desde aquí, cada que obtenía una clave ponía exit e ingresaba al siguiente nivel.
+
+=== NIVEL 2 ===
+1. ¿Qué necesito hacer? Necesito entrar al archivo -, que se encuentra en el directorio home.
+2. ¿Qué commandos creo que necesito? Yo creo que necesito pwd para ver si estoy en el directorio, cd para moverme en el caso de que no esté, ls solo para confirmar que está el archivo y cat para abrirlo.
+3. ¿Dónde busqué información? Busqué información en la terminal con cat --help, y en Stack Overflow encontré una respuesta a How to open "-" dashed filename using terminal?
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+4. Comandos que ejecuté:
+$pwd
+$ls
+$cat -
+5. ¿Funcionó? Si no, ¿qué ajusté? No funcionó, ya que creo que estaba identificando al - como si estuviera esperando una bandera. Por lo que primero hice CTRL+C, después intenté con:
+$ cat "-"
+y tampoco funcionó. En ese momento opté por meterme a cat --help a ver si encontraba algo. Como no encontré nada, me metí a Stack Overflow a buscar la respuesta de cómo leer un archivo que se llame -, y una vez que obtuve la respuesta encontré que se debe escribir como:
+$ cat ./-
+La contraseña fue 263JGJPfgU6LtdEvgfWU1XP5yac29mFx, por lo que me salí del juego y ahora entré con bandit2.
+
+=== NIVEL 3 ===
+1. ¿Qué necesito hacer? Ahora necesito entrar al archivo llamado --spaces in this filename--, que está localizado en el directorio home.
+2. ¿Qué comandos creo que necesito? Primero tengo que ver si estoy en home con pwd, después moverme con cd si es necesario, ver con ls si está el archivo y entrar al archivo con cat.
+3. ¿Dónde busqué información? No busqué en ningún lugar, solo me acordé que en clase vimos que cuando se utilizan espacios se tienen que poner comillas, y que como inicia con -- se tiene que poner el ./, como en el ejercicio pasado.
+4. Comandos que ejecuté:
+$ pwd
+$ ls
+$ cat ./"--spaces in this filename--"
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó y la clave fue MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx.
+
+=== NIVEL 4 ===
+1. ¿Qué necesito hacer? Entrar a un archivo oculto en el directorio inhere.
+2. ¿Qué comandos creo que necesito? Necesito pwd para ver dónde estoy, cd para moverme y ls para buscar el archivo.
+3. ¿Dónde busqué información? Busqué en las notas de clase y en ls --help para ver si ls podía encontrar archivos ocultos, y lo que encontré es que con -a se encuentran todos los archivos (incluyendo ocultos).
+4. Comandos que ejecuté:
+$ pwd
+$ cd inhere
+$ ls
+$ ls -a
+$ cat ./...Hiding-From-You
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó y la clave fue 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ.
+
+=== NIVEL 5 ===
+1. ¿Qué necesito hacer? Necesito encontrar el único archivo que puede ser leído por humanos que está en el directorio inhere.
+2. ¿Qué comandos creo que necesito? En un principio tengo que ver en qué directorio estoy, por lo que usaría pwd, después moverme con cd si es necesario, y usar ls para ver los archivos. Después file para ver cuáles son “humanos” y cat para abrirlo.
+3. ¿Dónde busqué información? file --help y en Google busqué File Linux. Con esta página vi lo del asterisco: https://www.hostinger.com/es/tutoriales/comando-file-de-linux
+4. Comandos que ejecuté:
+$ pwd 
+$ cd inhere
+$ ls
+$ file ./-file00
+$ file ./-file01
+$ file ./-file02
+$ file ./-file03
+$ file ./-file04
+$ file ./-file05
+$ file ./-file06
+$ file ./-file07
+$ file ./-file08
+$ file ./-file09
+$ cat ./-file07
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí funcionó, ya que me di cuenta de que el único archivo en ASCII text era -file07, lo pude abrir y me dio la clave 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw.
+Sin embargo, pensé que se podía simplificar. Me metí a Google y encontré que con un asterisco * se podían obtener todos los datos, por lo que intenté:
+$ file *
+pero me dijo que no se podían abrir los archivos. Supuse que era porque el archivo empezaba con -, por lo que mi comando final fue:
+$ file ./*
+y me salió el mismo resultado.
+
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer? Tengo que entrar a un archivo en inhere que tiene como características: human-readable, tamaño de 1033 bytes y no ejecutable.
+2. ¿Qué comandos creo que necesito? Creo que se necesita pwd para ver el directorio, cd para moverme, ls para ver los archivos, file para ver si es human-readable y si es ejecutable, find para recorrer la jerarquía de directorios, du para ver el tamaño y cat para entrar al archivo.
+3. ¿Dónde busqué información? Utilicé los manuales de Ubuntu de du, file y find. También utilicé Explain Shell y Stack Overflow para encontrar cómo poner non-executable (https://stackoverflow.com/questions/70539901/how-can-i-find-all-non-executable-files-in-a-directory-in-linux) y la sintaxis de size en el comando file (https://pimylifeup.com/find-command/)
+4. Comandos que ejecuté:
+$ pwd
+$ cd inhere
+$ ls
+$ file ./*
+$ find ./*
+$ find ./* file
+$ find ./* -type f -size c 1033 -executable!
+$ cat maybehere07/.file2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No funcionó al inicio, por lo que investigué y dejé mi comando final como:
+$ find ./* -type f -size 1033c ! -executable
+Con esto obtuve que el archivo estaba en maybehere07/.file2, y mi último comando fue:
+$ cat maybehere07/.file2
+La clave fue HWasnPhtq9AVKe0dmk45nxy20cvUa6EG.
