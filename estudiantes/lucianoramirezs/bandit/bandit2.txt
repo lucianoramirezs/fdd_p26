@@ -1,0 +1,133 @@
+﻿=== NIVEL 6 → 7 === 
+1. ¿Qué necesito hacer? (en tus palabras)
+Estoy buscando un archivo que cumple que: owned by user bandit7, owned by group, bandit6 y 33 bytes in size
+
+
+2. ¿Qué comando(s) creo que necesito?
+* find
+
+
+3. ¿Dónde busqué información? (link o man page)
+* man find
+* Después busqué en https://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find 
+
+
+4. Comandos que ejecuté:
+   $ ssh bandit6@bandit.labs.overthewire.org -p 2220
+   $ find -group bandit6 -user bandit7 -size 33c
+   $ find -group bandit6 -user bandit7 -size 33c  2>dev/null
+   $ cat ./var/lib/dpkg/info/bandit7.password
+   $ exit
+
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+* Al principio no, porque necesitaba algunos permisos; entonces busqué cómo no necesitar permisos para find y añadí el 2>dev/null.
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+
+
+
+=== NIVEL 7 → 8 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Estoy buscando la única línea de data.txt que está al lado de “millionth”
+
+
+2. ¿Qué comando(s) creo que necesito?
+* cat y grep 
+
+
+3. ¿Dónde busqué información? (link o man page)
+* No busqué información.
+
+
+4. Comandos que ejecuté:
+   $ ssh bandit7@bandit.labs.overthewire.org -p 2220
+   $ cat data.txt | grep millionth
+   $ exit
+
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí, no hubo necesidad de ajuste.
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+
+
+
+=== NIVEL 8 → 9 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Estoy buscando la única línea no repetida en el archivo data.txt.
+
+
+2. ¿Qué comando(s) creo que necesito?
+* cat y grep.
+
+
+3. ¿Dónde busqué información? (link o man page)
+* Busqué cómo buscar una línea única en un archivo y descubrí como era: https://stackoverflow.com/questions/13778273/find-unique-lines 
+
+
+4. Comandos que ejecuté:
+   $ ssh bandit8@bandit.labs.overthewire.org -p 2220
+   $ cat (no funcionó)
+   $ sort data.txt | uniq -u
+   $ exit
+
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Con cat no pude lograr nada, intenté buscar cómo sería el regex para buscar líneas NO duplicadas, pero ahí encontré que era más fácil con uniq -u (ya sorteado), porque el uniq se compara con la de arriba o con la de abajo. 
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+
+
+=== NIVEL 9 → 10 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Debo de buscar, en uno de los pocos human readable strings, que tiene antes algunos signos de “=”.
+
+
+2. ¿Qué comando(s) creo que necesito?
+* grep (para encontrar ={n}
+
+
+3. ¿Dónde busqué información? (link o man page)
+* No busqué información.
+
+
+4. Comandos que ejecuté:
+   $ ssh bandit9@bandit.labs.overthewire.org -p 2220
+   $ cat data.txt
+   $ strings data.txt | grep .*=====
+   $ exit
+
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Con sólo cat lo encontré porque el archivo está bastante corto. Pero, para hacerlo muy limpio, busqué cómo buscar human readable strings con grep.
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+
+
+=== NIVEL 10 → 11 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar la contraseña en un archivo encriptado base64.
+
+
+2. ¿Qué comando(s) creo que necesito?
+* base64
+
+
+3. ¿Dónde busqué información? (link o man page)
+* man base64
+
+
+4. Comandos que ejecuté:
+   $ bandit10@bandit.labs.overthewire.org -p 2220
+   $ base64 data.txt
+   $ man base64
+   $ base64 -d data.txt
+   $ exit
+
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí, al añadir la bandera -d (decode).
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
