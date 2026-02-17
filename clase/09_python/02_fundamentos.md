@@ -1,7 +1,7 @@
 # Fundamentos de Python
 
 > **Notebook interactivo**: este tema tiene un notebook con ejemplos ejecutables y explicaciones más profundas sobre memoria, el intérprete, y patrones eficientes.
-> [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sonder-art/fdd_p26/blob/main/clase/09_python/code/02_fundamentos.ipynb)
+> <a href="https://colab.research.google.com/github/sonder-art/fdd_p26/blob/main/clase/09_python/code/02_fundamentos.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 Ahora sí, vamos a escribir código. Esta sección cubre lo esencial: tipos de datos, variables, operadores, condicionales y ciclos. Si ya programaste en otro lenguaje, esto va a ser rápido — la sintaxis de Python es deliberadamente minimalista.
 

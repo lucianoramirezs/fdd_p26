@@ -1,7 +1,7 @@
 # Introducción a Python
 
 > **Notebook interactivo**: los fundamentos de Python con explicaciones profundas sobre memoria, el intérprete y patrones eficientes están en un notebook ejecutable.
-> [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sonder-art/fdd_p26/blob/main/clase/09_python/code/02_fundamentos.ipynb)
+> <a href="https://colab.research.google.com/github/sonder-art/fdd_p26/blob/main/clase/09_python/code/02_fundamentos.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 Python es el lenguaje dominante en ciencia de datos, machine learning, automatización y scripting. No porque sea el más rápido — no lo es — sino porque es **el más productivo**. La sintaxis es tan limpia que leer Python se parece a leer pseudocódigo.
 
