@@ -192,3 +192,26 @@ sequenceDiagram
 
 - [Documentación oficial de Mermaid](https://mermaid.js.org/)
 - [Editor en línea](https://mermaid.live/)
+
+---
+
+## En producción (uu_framework): cómo se renderiza Mermaid
+
+En este sitio, Mermaid se renderiza **del lado del cliente** (en el navegador) desde el layout base.
+
+Puntos importantes para que funcione en deployment:
+
+1. **Siempre usa un bloque fenced con `mermaid`** (esto es lo que genera la clase `language-mermaid`):
+
+````markdown
+```mermaid
+graph TD
+  A --> B
+```
+````
+
+2. **No indentes** el bloque ` ```mermaid ` (si lo indentas dentro de listas o quotes, a veces deja de detectarse como `language-mermaid`).
+3. **Tema automático**: el sitio configura Mermaid con tema oscuro/claro según el tema del sitio.  
+   - Recomendación: **evita hardcodear colores** salvo que sea necesario, porque pueden verse mal en modo claro.
+4. **Diagrama expandible**: los diagramas se envuelven en un contenedor con botón “Expandir” (modal).
+5. **Requisito de red**: Mermaid se carga desde un CDN. Si alguien abre el sitio sin internet, los diagramas no se renderizan.

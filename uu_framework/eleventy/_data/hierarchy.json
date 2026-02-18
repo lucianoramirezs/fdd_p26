@@ -714,7 +714,48 @@
         0,
         ""
       ],
-      "children": [],
+      "children": [
+        {
+          "name": "01_introduccion.md",
+          "path": "09_python/01_introduccion.md",
+          "type": "file",
+          "title": "Introducción a Python",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_fundamentos.md",
+          "path": "09_python/02_fundamentos.md",
+          "type": "file",
+          "title": "Fundamentos de Python",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "code",
+          "path": "09_python/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
       "has_index": true,
       "title": "Módulo 9: Python"
     },

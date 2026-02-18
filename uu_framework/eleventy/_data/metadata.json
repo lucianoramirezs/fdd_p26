@@ -149,6 +149,96 @@
     ],
     "has_frontmatter": false
   },
+  "09_python/01_introduccion.md": {
+    "path": "clase/09_python/01_introduccion.md",
+    "title": "Introducción a Python",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Tu entorno de Python",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Verifica tu versión de Python:\n\n```bash\npython3 --version\n```\n\n2. Abre el REPL y ejecuta:\n\n```python\n>>> import this\n```\n\nLee el Zen de Python. ¿Cuál de los 19 aforismos te parece más útil? No hay "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Proyecto con uv init",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea un proyecto con uv:\n\n```bash\nuv init mi-primer-proyecto\ncd mi-primer-proyecto\n```\n\n2. Observa los archivos creados:\n\n```bash\nls -la\ncat pyproject.toml\n```\n\n3. Agrega una dependencia:\n\n```bash\n"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Configurar entorno Python para ciencia de datos",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Necesito configurar un entorno de Python para ciencia de datos en mi máquina.\n\nMi sistema operativo es: [Linux / macOS / Windows con WSL2]\nMi versión de Python es: [resultado de python3 --version]\nTen"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "09_python/02_fundamentos.md": {
+    "path": "clase/09_python/02_fundamentos.md",
+    "title": "Fundamentos de Python",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Tipos y variables",
+          "difficulty": "1"
+        },
+        "content_preview": "En el REPL, ejecuta lo siguiente y **predice el resultado antes de presionar Enter**:\n\n```python\n>>> type(42)\n>>> type(42.0)\n>>> type(\"42\")\n>>> type(True)\n>>> type([1, 2, 3])\n>>> type({\"a\": 1})\n```\n\nA"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Control de flujo",
+          "difficulty": "1"
+        },
+        "content_preview": "Crea un archivo `notas.py` con el siguiente código:\n\n```python\nnotas = [85, 92, 67, 74, 95, 88, 71, 60, 99, 43]\n\nfor nota in notas:\n    if nota >= 90:\n        letra = \"A\"\n    elif nota >= 80:\n        "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Listas y diccionarios",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea un archivo `estudiantes.py`:\n\n```python\nestudiantes = [\n    {\"nombre\": \"Ana\", \"edad\": 22, \"carrera\": \"Actuaría\"},\n    {\"nombre\": \"Luis\", \"edad\": 21, \"carrera\": \"Economía\"},\n    {\"nombre\": \"María\""
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Funciones",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea un archivo `funciones.py` con las siguientes funciones:\n\n1. `es_par(n)` — retorna `True` si `n` es par, `False` si no\n2. `promedio(numeros)` — recibe una lista de números y retorna su promedio\n3."
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Depurar errores de Python",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy aprendiendo Python y tengo el siguiente error:\n\n```\n[pega aquí el mensaje de error completo]\n```\n\nMi código es:\n\n```python\n[pega aquí tu código]\n```\n\nExplícame:\n1. ¿Qué significa este error en e"
+      }
+    ],
+    "has_frontmatter": false
+  },
   "09_python/00_index.md": {
     "path": "clase/09_python/00_index.md",
     "title": "Módulo 9: Python",
@@ -205,7 +295,7 @@
           "id": "9.3.1",
           "title": "Instalar VSCode",
           "due": "2026-02-19",
-          "points": "20"
+          "points": "0"
         },
         "content_preview": "Isntalar VSCode y configurar el entorno de desarrollo.\nAsegurate de instalarlo de manera correcta en tu sistema oeprativo. Instalalo en WSL2 si usas windows no en toro lado. VSCOde tiende a tener erro"
       },

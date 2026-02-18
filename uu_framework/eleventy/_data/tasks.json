@@ -153,7 +153,7 @@
       "file": "08_containers/01_que_son_contenedores.md",
       "url": "/08_containers/01_que_son_contenedores/",
       "summary": "Hacer el curso de Docker basico de datacamp y subir el certificado pr github en pull request y agreg",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -208,7 +208,7 @@
       "id": "9.3.1",
       "title": "Instalar VSCode",
       "due": "2026-02-19",
-      "points": "20",
+      "points": "0",
       "chapter": "Python",
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
