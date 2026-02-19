@@ -11,6 +11,134 @@
     "components": [],
     "has_frontmatter": true
   },
+  "a_stack/01_introduction/01_cuentas.md": {
+    "path": "clase/a_stack/01_introduction/01_cuentas.md",
+    "title": "Configuración de Cuentas",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.1.1",
+          "title": "Crear cuentas: LLMs y DataCamp",
+          "due": "2026-01-15",
+          "points": "0"
+        },
+        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/01_introduction/00_index.md": {
+    "path": "clase/a_stack/01_introduction/00_index.md",
+    "title": "Módulo 1: Introducción",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/01_wsl_install.md": {
+    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
+    "title": "Guía de Sistema Operativo: WSL2 y Linux",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.1",
+          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/02_browser_env.md": {
+    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
+    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.2",
+          "title": "Crear cuenta de GitHub y solicitar Student Pack",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/00_index.md": {
+    "path": "clase/a_stack/03_os_setup/00_index.md",
+    "title": "Módulo 3: Configuración del Sistema Operativo",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/01_conceptos_llm.md": {
+    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
+    "title": "Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.2.1",
+          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
+          "due": "2026-01-15",
+          "points": "20"
+        },
+        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/00_index.md": {
+    "path": "clase/a_stack/02_llms/00_index.md",
+    "title": "Módulo 2: Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
   "06_git/03_workflow.md": {
     "path": "clase/06_git/03_workflow.md",
     "title": "Flujo de Trabajo para Entregar Tareas",
@@ -1261,6 +1389,154 @@
     ],
     "has_frontmatter": false
   },
+  "10_ides/06_proyecto_e2e_python_docker.md": {
+    "path": "clase/10_ides/06_proyecto_e2e_python_docker.md",
+    "title": "Ejercicio E2E: proyecto Python + Docker en VS Code",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "E2E: construir, ejecutar y debuggear (Python + Docker)",
+          "difficulty": "4"
+        },
+        "content_preview": "## Parte A — Crear el proyecto (local)\n\n1. Crea el directorio del proyecto y ábrelo en VS Code:\n\n```bash\nmkdir -p ~/e2e_ide_python_docker\ncd ~/e2e_ide_python_docker\ncode .\n```\n\n2. Crea un entorno virt"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/01_que_es_una_ide.md": {
+    "path": "clase/10_ides/01_que_es_una_ide.md",
+    "title": "¿Qué es una IDE?",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Proyecto vs archivo suelto",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Crea una carpeta:\n\n```bash\nmkdir -p ~/prueba-ide && cd ~/prueba-ide\n```\n\n2. Crea un archivo `hola.py`:\n\n```python\nprint(\"hola\")\n```\n\n3. Abre la carpeta en VS Code (lo veremos en la siguiente secció"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/05_jupyter_debugging.md": {
+    "path": "clase/10_ides/05_jupyter_debugging.md",
+    "title": "Jupyter notebooks, tabs y flujo de trabajo",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Notebook reproducible (sin estado oculto)",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea un proyecto y un venv:\n\n```bash\nmkdir -p ~/nb-repro && cd ~/nb-repro\nuv venv\nsource .venv/bin/activate\nuv pip install ipykernel pandas\n```\n\n2. En VS Code crea `exploracion.ipynb`.\n3. En la pri"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/03_python_en_vscode.md": {
+    "path": "clase/10_ides/03_python_en_vscode.md",
+    "title": "Python en VS Code (entornos, ejecutar y debuggear)",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Mi VS Code usa el Python incorrecto",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy en Linux/macOS/Windows(WSL2) y VS Code no está usando el intérprete correcto.\n\nMi estructura de proyecto es:\n```\n[pega el resultado de: ls -la]\n```\n\nEn VS Code seleccioné este intérprete:\n[pega "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/00_index.md": {
+    "path": "clase/10_ides/00_index.md",
+    "title": "Módulo 10: IDEs (VS Code)",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "10.0",
+          "title": "Instalar y configurar VS Code para Python",
+          "points": "0"
+        },
+        "content_preview": "Tu meta es que al final puedas:\n- Abrir un proyecto Python (con entorno virtual)\n- Ejecutar y debuggear código desde VS Code\n- Usar Jupyter notebooks dentro de VS Code\n- Correr tu proyecto dentro de D"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/04_extensiones_y_config.md": {
+    "path": "clase/10_ides/04_extensiones_y_config.md",
+    "title": "Extensiones, settings y personalización",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Setup mínimo: Python + Ruff + Jupyter + Docker",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Instala las extensiones: Python, Pylance, Jupyter, Ruff, Docker, Dev Containers.\n2. Reinicia VS Code (sí, a veces ayuda).\n3. Abre un proyecto Python con `.venv/`.\n4. Verifica:\n   - VS Code detecta "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "10_ides/02_vscode_instalacion_layout.md": {
+    "path": "clase/10_ides/02_vscode_instalacion_layout.md",
+    "title": "VS Code: instalación, layout y shortcuts",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Instalación verificada + navegación básica",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Abre VS Code.\n2. Abre una carpeta de trabajo (cualquiera).\n3. Abre la terminal integrada y ejecuta:\n\n```bash\npwd\nls\npython3 --version\n```\n\n4. Usa `Ctrl+P` / `Cmd+P` para abrir un archivo por nombre"
+      }
+    ],
+    "has_frontmatter": false
+  },
   "04_terminal/05_comandos_utiles.md": {
     "path": "clase/04_terminal/05_comandos_utiles.md",
     "title": "Comandos Útiles",
@@ -2007,133 +2283,5 @@
       }
     ],
     "has_frontmatter": true
-  },
-  "a_stack/01_introduction/01_cuentas.md": {
-    "path": "clase/a_stack/01_introduction/01_cuentas.md",
-    "title": "Configuración de Cuentas",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.1.1",
-          "title": "Crear cuentas: LLMs y DataCamp",
-          "due": "2026-01-15",
-          "points": "0"
-        },
-        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/01_introduction/00_index.md": {
-    "path": "clase/a_stack/01_introduction/00_index.md",
-    "title": "Módulo 1: Introducción",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/01_wsl_install.md": {
-    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
-    "title": "Guía de Sistema Operativo: WSL2 y Linux",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.3.1",
-          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
-          "due": "2026-01-20",
-          "points": "0"
-        },
-        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/02_browser_env.md": {
-    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
-    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
-    "type": "lesson",
-    "order": 2,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.3.2",
-          "title": "Crear cuenta de GitHub y solicitar Student Pack",
-          "due": "2026-01-20",
-          "points": "0"
-        },
-        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/00_index.md": {
-    "path": "clase/a_stack/03_os_setup/00_index.md",
-    "title": "Módulo 3: Configuración del Sistema Operativo",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/02_llms/01_conceptos_llm.md": {
-    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
-    "title": "Large Language Models (LLMs)",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.2.1",
-          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
-          "due": "2026-01-15",
-          "points": "20"
-        },
-        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/02_llms/00_index.md": {
-    "path": "clase/a_stack/02_llms/00_index.md",
-    "title": "Módulo 2: Large Language Models (LLMs)",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
   }
 }

@@ -760,6 +760,99 @@
       "title": "Módulo 9: Python"
     },
     {
+      "name": "10_ides",
+      "path": "10_ides",
+      "type": "directory",
+      "order": [
+        0,
+        10,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_que_es_una_ide.md",
+          "path": "10_ides/01_que_es_una_ide.md",
+          "type": "file",
+          "title": "¿Qué es una IDE?",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_vscode_instalacion_layout.md",
+          "path": "10_ides/02_vscode_instalacion_layout.md",
+          "type": "file",
+          "title": "VS Code: instalación, layout y shortcuts",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_python_en_vscode.md",
+          "path": "10_ides/03_python_en_vscode.md",
+          "type": "file",
+          "title": "Python en VS Code (entornos, ejecutar y debuggear)",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_extensiones_y_config.md",
+          "path": "10_ides/04_extensiones_y_config.md",
+          "type": "file",
+          "title": "Extensiones, settings y personalización",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_jupyter_debugging.md",
+          "path": "10_ides/05_jupyter_debugging.md",
+          "type": "file",
+          "title": "Jupyter notebooks, tabs y flujo de trabajo",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_proyecto_e2e_python_docker.md",
+          "path": "10_ides/06_proyecto_e2e_python_docker.md",
+          "type": "file",
+          "title": "Ejercicio E2E: proyecto Python + Docker en VS Code",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 10: IDEs (VS Code)"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",

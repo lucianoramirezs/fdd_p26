@@ -141,7 +141,7 @@
       "file": "07_regex/00_index.md",
       "url": "/07_regex/00_index/",
       "summary": "**URL:** [https://overthewire.org/wargames/bandit/](https://overthewire.org/wargames/bandit/)\n\n### O",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -165,7 +165,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Instala las siguientes herramientas en tu sistema:\n\n1. **Python 3** (versión 3.10+)\n2. **pip** — el ",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -177,7 +177,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python: https://app.datacamp.com/learn/courses/introduction-to-python-for-developers\n\nCompl",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -189,7 +189,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Verifica que tu instalación de Python funciona correctamente de dos formas:\nNo olvideas hacerlo en t",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -273,6 +273,18 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-fastapi\n\nCompleta el curso y ",
+      "overdue": false,
+      "type": "homework"
+    },
+    {
+      "id": "10.0",
+      "title": "Instalar y configurar VS Code para Python",
+      "due": null,
+      "points": "0",
+      "chapter": "Ides",
+      "file": "10_ides/00_index.md",
+      "url": "/10_ides/00_index/",
+      "summary": "Tu meta es que al final puedas:\n- Abrir un proyecto Python (con entorno virtual)\n- Ejecutar y debugg",
       "overdue": false,
       "type": "homework"
     },
