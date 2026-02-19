@@ -1,4 +1,4 @@
-# Certificación Introduction to Python for Developers
+# Certificación Intermediate Python for Developers
 
 **Estudiante:** Luciano Ramírez Sashida
 **Fecha:** 2025-02-18
