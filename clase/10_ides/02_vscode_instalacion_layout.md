@@ -33,10 +33,10 @@ VS Code tiene una estructura muy consistente:
 ```mermaid
 flowchart TB
   subgraph VS[VS Code]
-    A[Activity Bar\n(iconos: Explorer, Search, Source Control, Run, Extensions)] --> B[Side Bar\n(Explorer / Search / Git / etc.)]
-    B --> C[Editor\n(tabs + archivos)]
-    C --> D[Panel\n(Terminal / Problems / Output / Debug Console)]
-    C --> E[Status Bar\n(Python interpreter, branch, encoding, etc.)]
+    A["Activity Bar<br/>(iconos: Explorer, Search, Source Control, Run, Extensions)"] --> B["Side Bar<br/>(Explorer / Search / Git / etc.)"]
+    B --> C["Editor<br/>(tabs + archivos)"]
+    C --> D["Panel<br/>(Terminal / Problems / Output / Debug Console)"]
+    C --> E["Status Bar<br/>(Python interpreter, branch, encoding, etc.)"]
   end
 ```
 
