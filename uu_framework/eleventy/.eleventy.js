@@ -72,7 +72,7 @@ module.exports = function(eleventyConfig) {
   // Copy images from all content subdirectories
   // Convention: images for each section are stored in */images/ subdirectories
   // Match numbered chapters (01_, 02_, etc.) and appendices (a_, b_, etc.)
-  ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'].forEach(num => {
+  ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15'].forEach(num => {
     eleventyConfig.addPassthroughCopy(`${num}_*/**/images/**`);
   });
   ['a', 'b', 'c'].forEach(letter => {
@@ -83,7 +83,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy PDF files from content directories (exclude b_libros which is gitignored)
   // Match all PDFs in numbered directories (01_, 02_, 03_, etc.)
-  ['01', '02', '03', '04', '05', '06', '07', '08', '09'].forEach(num => {
+  ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15'].forEach(num => {
     eleventyConfig.addPassthroughCopy(`${num}_*/**/*.pdf`);
   });
   // Match all PDFs in appendix directories

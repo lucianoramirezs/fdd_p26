@@ -853,6 +853,61 @@
       "title": "Módulo 10: IDEs (VS Code)"
     },
     {
+      "name": "11_python_intermedio",
+      "path": "11_python_intermedio",
+      "type": "directory",
+      "order": [
+        0,
+        11,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_repaso_ingenieria.md",
+          "path": "11_python_intermedio/01_repaso_ingenieria.md",
+          "type": "file",
+          "title": "Repaso: Ingeniería de Software en Python",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_disenando_una_libreria.md",
+          "path": "11_python_intermedio/02_disenando_una_libreria.md",
+          "type": "file",
+          "title": "Diseñando una librería",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "code",
+          "path": "11_python_intermedio/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 11: Python Intermedio"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",

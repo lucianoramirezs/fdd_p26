@@ -11,9 +11,9 @@
     "components": [],
     "has_frontmatter": true
   },
-  "a_stack/01_introduction/01_cuentas.md": {
-    "path": "clase/a_stack/01_introduction/01_cuentas.md",
-    "title": "Configuración de Cuentas",
+  "11_python_intermedio/01_repaso_ingenieria.md": {
+    "path": "clase/11_python_intermedio/01_repaso_ingenieria.md",
+    "title": "Repaso: Ingeniería de Software en Python",
     "type": "lesson",
     "order": 1,
     "date": null,
@@ -22,56 +22,35 @@
     "due_date": null,
     "components": [
       {
-        "type": "homework",
+        "type": "exercise",
         "attrs": {
-          "id": "A.1.1",
-          "title": "Crear cuentas: LLMs y DataCamp",
-          "due": "2026-01-15",
-          "points": "0"
+          "title": "Verificación rápida",
+          "difficulty": "1"
         },
-        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/01_introduction/00_index.md": {
-    "path": "clase/a_stack/01_introduction/00_index.md",
-    "title": "Módulo 1: Introducción",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/01_wsl_install.md": {
-    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
-    "title": "Guía de Sistema Operativo: WSL2 y Linux",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
+        "content_preview": "Sin ver el material de arriba, responde:\n\n1. ¿Qué archivo necesita un directorio para ser un paquete de Python?\n2. ¿Cuál es la diferencia entre `_metodo` y `metodo` en una clase?\n3. ¿Qué hace `super()"
+      },
       {
-        "type": "homework",
+        "type": "exercise",
         "attrs": {
-          "id": "A.3.1",
-          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
-          "due": "2026-01-20",
-          "points": "0"
+          "title": "Mini-paquete",
+          "difficulty": "2"
         },
-        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
+        "content_preview": "Crea un paquete llamado `calculadora` con esta estructura:\n\n```\ncalculadora/\n├── __init__.py\n├── basica.py        # sumar, restar, multiplicar, dividir\n└── estadistica.py   # promedio, mediana\n```\n\n1."
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Revisar estructura de un paquete Python",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo un paquete de Python con esta estructura:\n\n```\n[pega aquí tu estructura de directorios]\n```\n\nY este es mi `__init__.py`:\n\n```python\n[pega aquí tu código]\n```\n\nRevisa:\n1. ¿La estructura tiene sen"
       }
     ],
     "has_frontmatter": false
   },
-  "a_stack/03_os_setup/02_browser_env.md": {
-    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
-    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
+  "11_python_intermedio/02_disenando_una_libreria.md": {
+    "path": "clase/11_python_intermedio/02_disenando_una_libreria.md",
+    "title": "Diseñando una librería",
     "type": "lesson",
     "order": 2,
     "date": null,
@@ -80,56 +59,59 @@
     "due_date": null,
     "components": [
       {
-        "type": "homework",
+        "type": "exercise",
         "attrs": {
-          "id": "A.3.2",
-          "title": "Crear cuenta de GitHub y solicitar Student Pack",
-          "due": "2026-01-20",
-          "points": "0"
+          "title": "Define tu quantum",
+          "difficulty": "1"
         },
-        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/00_index.md": {
-    "path": "clase/a_stack/03_os_setup/00_index.md",
-    "title": "Módulo 3: Configuración del Sistema Operativo",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/02_llms/01_conceptos_llm.md": {
-    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
-    "title": "Large Language Models (LLMs)",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
+        "content_preview": "Elige un dominio que te interese (o usa uno de estos):\n\n- Validación de datos (CSVs, JSONs, inputs de usuario)\n- Conversión de formatos (fechas, unidades, monedas, archivos)\n- Análisis de texto (frecu"
+      },
       {
-        "type": "homework",
+        "type": "exercise",
         "attrs": {
-          "id": "A.2.1",
-          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
-          "due": "2026-01-15",
-          "points": "20"
+          "title": "Vocabulario de tu librería",
+          "difficulty": "2"
         },
-        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
+        "content_preview": "Para la librería que elegiste en el ejercicio anterior:\n\n1. Lista **5-7 sustantivos** (las cosas con las que trabaja tu librería)\n2. Lista **5-7 verbos** (las operaciones que hace)\n3. Para cada sustan"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Dream usage",
+          "difficulty": "2"
+        },
+        "content_preview": "Escribe el **dream usage** de tu librería. Máximo 15 líneas de código.\n\nEl código no tiene que funcionar — es lo que **deseas** que exista. Incluye:\n\n1. Los imports\n2. La configuración inicial (si la "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Estructura y sketches",
+          "difficulty": "2"
+        },
+        "content_preview": "Para tu librería:\n\n1. Dibuja la **estructura del paquete** (árbol de directorios y archivos)\n2. Escribe las **firmas con docstrings** de las 3-4 funciones/clases más importantes\n3. Escribe el `__init_"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Tu documento de diseño",
+          "difficulty": "3"
+        },
+        "content_preview": "Escribe el documento de diseño completo para tu librería siguiendo la estructura de la sección 6.\n\n**Antes de empezar**, revisa:\n- ¿Tu quantum es realmente la cosa más pequeña útil?\n- ¿Tu dream usage "
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Revisión de diseño entre compañeros",
+          "for": "Un compañero"
+        },
+        "content_preview": "Lee el documento de diseño de tu compañero y responde:\n\n1. **¿Entiendes el problema?** Lee solo la sección \"Problema\". ¿Podrías explicarlo con tus propias palabras?\n2. **¿El dream usage tiene sentido?"
       }
     ],
     "has_frontmatter": false
   },
-  "a_stack/02_llms/00_index.md": {
-    "path": "clase/a_stack/02_llms/00_index.md",
-    "title": "Módulo 2: Large Language Models (LLMs)",
+  "11_python_intermedio/00_index.md": {
+    "path": "clase/11_python_intermedio/00_index.md",
+    "title": "Módulo 11: Python Intermedio",
     "type": "lesson",
     "order": 0,
     "date": null,
@@ -2283,5 +2265,133 @@
       }
     ],
     "has_frontmatter": true
+  },
+  "a_stack/01_introduction/01_cuentas.md": {
+    "path": "clase/a_stack/01_introduction/01_cuentas.md",
+    "title": "Configuración de Cuentas",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.1.1",
+          "title": "Crear cuentas: LLMs y DataCamp",
+          "due": "2026-01-15",
+          "points": "0"
+        },
+        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/01_introduction/00_index.md": {
+    "path": "clase/a_stack/01_introduction/00_index.md",
+    "title": "Módulo 1: Introducción",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/01_wsl_install.md": {
+    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
+    "title": "Guía de Sistema Operativo: WSL2 y Linux",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.1",
+          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/02_browser_env.md": {
+    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
+    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.2",
+          "title": "Crear cuenta de GitHub y solicitar Student Pack",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/00_index.md": {
+    "path": "clase/a_stack/03_os_setup/00_index.md",
+    "title": "Módulo 3: Configuración del Sistema Operativo",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/01_conceptos_llm.md": {
+    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
+    "title": "Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.2.1",
+          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
+          "due": "2026-01-15",
+          "points": "20"
+        },
+        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/00_index.md": {
+    "path": "clase/a_stack/02_llms/00_index.md",
+    "title": "Módulo 2: Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
   }
 }

@@ -201,7 +201,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/intermediate-python-for-developers\n\nCompleta ",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -213,7 +213,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Isntalar VSCode y configurar el entorno de desarrollo.\nAsegurate de instalarlo de manera correcta en",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
