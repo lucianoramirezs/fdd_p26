@@ -11,9 +11,54 @@
     "components": [],
     "has_frontmatter": true
   },
+  "11_python_intermedio/05_paquetes_instalables.md": {
+    "path": "clase/11_python_intermedio/05_paquetes_instalables.md",
+    "title": "Paquetes instalables: de código a librería",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "pyproject.toml mínimo",
+          "difficulty": "1"
+        },
+        "content_preview": "Tienes un paquete llamado `texto_utils` que depende de `unidecode>=1.3` y `regex>=2023.0`. El paquete tiene dos módulos: `limpieza.py` y `analisis.py`. Usa flat layout.\n\nEscribe un `pyproject.toml` co"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Haz tu paquete instalable",
+          "difficulty": "2"
+        },
+        "content_preview": "Toma el paquete `calculadora` que creaste en el ejercicio del repaso de ingeniería (sección 01) y hazlo instalable:\n\n1. Agrega un `pyproject.toml` con toda la metadata necesaria\n2. Crea un archivo `LI"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Elige tu licencia",
+          "difficulty": "1"
+        },
+        "content_preview": "Investiga las licencias MIT, Apache 2.0 y GPL v3. Responde:\n\n1. Cuál elegirías para una librería que quieres que cualquier empresa pueda usar? Por qué?\n2. Cuál elegirías si quieres que todo código der"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Revisa mi pyproject.toml",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy creando un paquete de Python que [describe brevemente qué hace tu paquete]. Este es mi `pyproject.toml`:\n\n```toml\n[pega aqui tu pyproject.toml completo]\n```\n\nY esta es la estructura de mi proyec"
+      }
+    ],
+    "has_frontmatter": false
+  },
   "11_python_intermedio/01_repaso_ingenieria.md": {
     "path": "clase/11_python_intermedio/01_repaso_ingenieria.md",
-    "title": "Repaso: Ingeniería de Software en Python",
+    "title": "Repaso: Paquetes, módulos e imports",
     "type": "lesson",
     "order": 1,
     "date": null,
@@ -27,7 +72,15 @@
           "title": "Verificación rápida",
           "difficulty": "1"
         },
-        "content_preview": "Sin ver el material de arriba, responde:\n\n1. ¿Qué archivo necesita un directorio para ser un paquete de Python?\n2. ¿Cuál es la diferencia entre `_metodo` y `metodo` en una clase?\n3. ¿Qué hace `super()"
+        "content_preview": "Sin ver el material de arriba, responde estas preguntas. Si no puedes responder alguna, vuelve a la sección correspondiente:\n\n1. ¿Cuál es la diferencia entre un módulo y un paquete?\n2. Si creas un arc"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar la librería estándar",
+          "difficulty": "2"
+        },
+        "content_preview": "Resuelve las siguientes tareas usando **solo la librería estándar** (no puedes usar pandas ni ningún paquete externo):\n\n**Tarea 1: pathlib**\n\nUsando `pathlib`, escribe un script que reciba un director"
       },
       {
         "type": "exercise",
@@ -35,7 +88,7 @@
           "title": "Mini-paquete",
           "difficulty": "2"
         },
-        "content_preview": "Crea un paquete llamado `calculadora` con esta estructura:\n\n```\ncalculadora/\n├── __init__.py\n├── basica.py        # sumar, restar, multiplicar, dividir\n└── estadistica.py   # promedio, mediana\n```\n\n1."
+        "content_preview": "Construye un paquete llamado `texto_utils` con esta estructura:\n\n```\ntexto_utils/\n├── __init__.py\n├── limpieza.py       # limpiar, quitar_acentos, normalizar\n├── analisis.py       # contar_palabras, c"
       },
       {
         "type": "prompt",
@@ -48,11 +101,174 @@
     ],
     "has_frontmatter": false
   },
-  "11_python_intermedio/02_disenando_una_libreria.md": {
-    "path": "clase/11_python_intermedio/02_disenando_una_libreria.md",
-    "title": "Diseñando una librería",
+  "11_python_intermedio/02_clases_y_oop.md": {
+    "path": "clase/11_python_intermedio/02_clases_y_oop.md",
+    "title": "Clases y Programación Orientada a Objetos",
     "type": "lesson",
     "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Dunder methods",
+          "difficulty": "2"
+        },
+        "content_preview": "Tienes esta clase básica. Agrega los dunder methods necesarios para que el código de prueba funcione:\n\n```python\nclass Inventario:\n    def __init__(self, nombre, productos=None):\n        self.nombre ="
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Property y validación",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea una clase `CuentaBancaria` con las siguientes reglas:\n\n1. `titular` es un string no vacío (valida con `@property`).\n2. `saldo` no puede ser negativo (valida con `@property`).\n3. Tiene un método `"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Composición vs herencia",
+          "difficulty": "2"
+        },
+        "content_preview": "Diseña un sistema de notificaciones usando **composición** (no herencia). Necesitas:\n\n1. Clase `Mensaje` que tenga `destinatario`, `asunto` y `cuerpo`.\n2. Clase `EnviadorEmail` con método `enviar(mens"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Mini-framework con ABC",
+          "difficulty": "3"
+        },
+        "content_preview": "Crea un mini-framework de transformación de datos:\n\n1. Clase abstracta `Transformacion(ABC)` con:\n   - `@abstractmethod def aplicar(self, datos: list) -> list`\n   - `@abstractmethod def describir(self"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Revisa esta clase Python y dime qué dunder methods le agregarías y por qué",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo esta clase en Python:\n\n```python\n[pega aqui tu clase]\n```\n\nAnaliza:\n\n1. Qué **dunder methods** le agregarías para que se integre mejor con Python? (`__repr__`, `__str__`, `__eq__`, `__len__`, `_"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "11_python_intermedio/04_testing_y_documentacion.md": {
+    "path": "clase/11_python_intermedio/04_testing_y_documentacion.md",
+    "title": "Testing y documentación en Python",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Docstrings estilo Google",
+          "difficulty": "1"
+        },
+        "content_preview": "Las siguientes funciones no tienen documentación. Escribe docstrings estilo Google para cada una, incluyendo Args, Returns y al menos un Example:\n\n```python\ndef limpiar_texto(texto, quitar_numeros=Fal"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Suite de tests para una Calculadora",
+          "difficulty": "2"
+        },
+        "content_preview": "Dada la siguiente clase, escribe un archivo `test_calculadora.py` con al menos 8 tests usando pytest:\n\n```python\n# calculadora.py\nclass Calculadora:\n    def __init__(self):\n        self.historial = []"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Encuentra el bug con tests",
+          "difficulty": "3"
+        },
+        "content_preview": "La siguiente función tiene un bug. No lo arregles todavía -- primero **escribe tests que expongan el bug**. Tu misión:\n\n1. Escribe al menos 5 tests para `calcular_descuento`, cubriendo happy path, cas"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Parametrize a fondo",
+          "difficulty": "2"
+        },
+        "content_preview": "Escribe una función `clasificar_nota(nota)` que recibe un número del 0 al 100 y retorna:\n\n- `\"Reprobado\"` si nota < 60\n- `\"Suficiente\"` si 60 <= nota < 70\n- `\"Bien\"` si 70 <= nota < 80\n- `\"Notable\"` s"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Generar tests para una función",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo la siguiente función de Python:\n\n```python\n[pega tu funcion aqui, con su docstring]\n```\n\nGenera tests exhaustivos usando pytest que cubran:\n\n1. El caso de uso normal (happy path)\n2. Casos borde "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "11_python_intermedio/03_estilo_y_legibilidad.md": {
+    "path": "clase/11_python_intermedio/03_estilo_y_legibilidad.md",
+    "title": "Estilo y legibilidad",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Detecta los problemas",
+          "difficulty": "1"
+        },
+        "content_preview": "Este código tiene al menos **10 problemas** de estilo, naming y legibilidad. Identifica cada uno, explica qué regla viola, y reescribe el código completo corregido:\n\n```python\nimport pandas as pd\nimpo"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Agrega type hints",
+          "difficulty": "2"
+        },
+        "content_preview": "Agrega type hints completos a estas funciones. No cambies la lógica -- solo anota parámetros y retorno. Usa la sintaxis moderna de Python 3.12:\n\n```python\ndef agrupar_por(registros, campo):\n    \"\"\"Agr"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Refactoring paso a paso",
+          "difficulty": "2"
+        },
+        "content_preview": "Toma esta función y mejórala en tres pasos, como el ejemplo de la sección 5. En cada paso, aplica un patrón de refactoring diferente (renombrar, extraer función, eliminar número mágico, guard clause, "
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Revisión de estilo y legibilidad",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Revisa el siguiente código Python y dame retroalimentación detallada sobre estilo y legibilidad:\n\n```python\n[pega aqui tu codigo]\n```\n\nEvalúa estos aspectos con ejemplos concretos de código corregido:"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "11_python_intermedio/00_index.md": {
+    "path": "clase/11_python_intermedio/00_index.md",
+    "title": "Módulo 11: Python Intermedio",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "11_python_intermedio/06_disenando_una_libreria.md": {
+    "path": "clase/11_python_intermedio/06_disenando_una_libreria.md",
+    "title": "Diseñando una librería",
+    "type": "lesson",
+    "order": 6,
     "date": null,
     "summary": null,
     "tags": [],
@@ -107,18 +323,6 @@
         "content_preview": "Lee el documento de diseño de tu compañero y responde:\n\n1. **¿Entiendes el problema?** Lee solo la sección \"Problema\". ¿Podrías explicarlo con tus propias palabras?\n2. **¿El dream usage tiene sentido?"
       }
     ],
-    "has_frontmatter": false
-  },
-  "11_python_intermedio/00_index.md": {
-    "path": "clase/11_python_intermedio/00_index.md",
-    "title": "Módulo 11: Python Intermedio",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
     "has_frontmatter": false
   },
   "06_git/03_workflow.md": {
@@ -460,6 +664,68 @@
         "content_preview": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-fastapi\n\nCompleta el curso y sube la certificacion a tu directorio de certificaciones, crea un nuevo file llamado python_fast_api"
       }
     ],
+    "has_frontmatter": false
+  },
+  "12_pandas/02_arquitectura_y_pipelines.md": {
+    "path": "clase/12_pandas/02_arquitectura_y_pipelines.md",
+    "title": "Arquitectura y pipelines de datos",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Disena tu pipeline",
+          "difficulty": "2"
+        },
+        "content_preview": "Piensa en un dataset que hayas trabajado (o inventa uno: ventas de una tienda con fecha, producto, monto, cliente). Escribe en pseudocodigo (o Python real) un pipeline con al menos 4 etapas usando `.p"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Critica mi pipeline",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Pega tu pipeline de pandas en el prompt y pregunta:\n\n\"Revisa este pipeline de limpieza de datos en pandas. Identifica: (1) pasos que podrian fallar silenciosamente, (2) oportunidades de vectorizacion "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "12_pandas/01_pandas_en_contexto.md": {
+    "path": "clase/12_pandas/01_pandas_en_contexto.md",
+    "title": "Pandas en contexto",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Reflexion",
+          "difficulty": "1"
+        },
+        "content_preview": "Piensa en un proyecto de datos que hayas hecho (o un ejercicio del curso anterior). ¿Hubo algun momento donde pandas no era la herramienta correcta? ¿Usaste `iterrows()` o un loop sobre el DataFrame? "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "12_pandas/00_index.md": {
+    "path": "clase/12_pandas/00_index.md",
+    "title": "Modulo 12: Pandas — Arquitectura y Pipelines de Datos",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
     "has_frontmatter": false
   },
   "08_containers/04_benchmarks.md": {

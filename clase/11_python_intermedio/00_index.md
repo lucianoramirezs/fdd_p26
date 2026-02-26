@@ -1,6 +1,6 @@
 # Módulo 11: Python Intermedio
 
-En el módulo de Python aprendiste los fundamentos del lenguaje y tomaste un curso de principios de ingeniería de software. Ahora vamos a **usar** todo eso: repasar los conceptos clave y empezar a pensar como alguien que diseña software, no solo alguien que escribe scripts.
+En el módulo de Python aprendiste los fundamentos del lenguaje y tomaste un curso de principios de ingeniería de software. Ahora vamos a **usar** todo eso: repasar los conceptos clave a fondo y empezar a pensar como alguien que diseña software, no solo alguien que escribe scripts.
 
 ## Proyecto: Tu propia librería de Python
 
@@ -21,10 +21,23 @@ La idea es que **compares** lo que produces en cada fase. El mismo proyecto, dif
 
 ## Contenido
 
-| Sección | Tema | Tiempo |
-|---------|------|--------|
-| [Repaso: Ingeniería de Software](./01_repaso_ingenieria.md) | Paquetes, clases, docs, testing — referencia rápida | ~30 min |
-| [Diseñando una librería](./02_disenando_una_libreria.md) | Cómo pensar en abstracciones, estructura y API | ~30 min + trabajo |
+### Parte 1: Repaso de ingeniería de software
+
+Revisión profunda de los conceptos del curso de DataCamp. No es un resumen — es una referencia detallada con ejemplos que vas a necesitar.
+
+| Sección | Tema | Tiempo estimado |
+|---------|------|-----------------|
+| [Paquetes, módulos e imports](./01_repaso_ingenieria.md) | Módulos, paquetes, `__init__.py`, `sys.path`, librería estándar, manejo de errores | ~25 min |
+| [Clases y OOP](./02_clases_y_oop.md) | Dunder methods, properties, decoradores, herencia, composición, ABC | ~25 min |
+| [Estilo y legibilidad](./03_estilo_y_legibilidad.md) | PEP 8, naming, type hints, linters, refactoring | ~20 min |
+| [Testing y documentación](./04_testing_y_documentacion.md) | Docstrings, pytest (fixtures, parametrize), doctest, cobertura | ~25 min |
+| [Paquetes instalables](./05_paquetes_instalables.md) | `pyproject.toml`, `pip install -e`, licencias, distribución | ~20 min |
+
+### Parte 2: Diseño de tu librería
+
+| Sección | Tema | Tiempo estimado |
+|---------|------|-----------------|
+| [Diseñando una librería](./06_disenando_una_libreria.md) | Quantum, vocabulario, dream usage, documento de diseño | ~30 min + trabajo |
 
 ## Prerequisitos
 

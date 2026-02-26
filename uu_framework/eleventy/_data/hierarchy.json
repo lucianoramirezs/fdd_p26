@@ -867,7 +867,7 @@
           "name": "01_repaso_ingenieria.md",
           "path": "11_python_intermedio/01_repaso_ingenieria.md",
           "type": "file",
-          "title": "Repaso: Ingeniería de Software en Python",
+          "title": "Repaso: Paquetes, módulos e imports",
           "order": [
             0,
             1,
@@ -877,13 +877,65 @@
           "summary": null
         },
         {
-          "name": "02_disenando_una_libreria.md",
-          "path": "11_python_intermedio/02_disenando_una_libreria.md",
+          "name": "02_clases_y_oop.md",
+          "path": "11_python_intermedio/02_clases_y_oop.md",
+          "type": "file",
+          "title": "Clases y Programación Orientada a Objetos",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_estilo_y_legibilidad.md",
+          "path": "11_python_intermedio/03_estilo_y_legibilidad.md",
+          "type": "file",
+          "title": "Estilo y legibilidad",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_testing_y_documentacion.md",
+          "path": "11_python_intermedio/04_testing_y_documentacion.md",
+          "type": "file",
+          "title": "Testing y documentación en Python",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_paquetes_instalables.md",
+          "path": "11_python_intermedio/05_paquetes_instalables.md",
+          "type": "file",
+          "title": "Paquetes instalables: de código a librería",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_disenando_una_libreria.md",
+          "path": "11_python_intermedio/06_disenando_una_libreria.md",
           "type": "file",
           "title": "Diseñando una librería",
           "order": [
             0,
-            2,
+            6,
             0,
             ""
           ],
@@ -906,6 +958,61 @@
       ],
       "has_index": true,
       "title": "Módulo 11: Python Intermedio"
+    },
+    {
+      "name": "12_pandas",
+      "path": "12_pandas",
+      "type": "directory",
+      "order": [
+        0,
+        12,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_pandas_en_contexto.md",
+          "path": "12_pandas/01_pandas_en_contexto.md",
+          "type": "file",
+          "title": "Pandas en contexto",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_arquitectura_y_pipelines.md",
+          "path": "12_pandas/02_arquitectura_y_pipelines.md",
+          "type": "file",
+          "title": "Arquitectura y pipelines de datos",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "code",
+          "path": "12_pandas/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Modulo 12: Pandas — Arquitectura y Pipelines de Datos"
     },
     {
       "name": "a_stack",

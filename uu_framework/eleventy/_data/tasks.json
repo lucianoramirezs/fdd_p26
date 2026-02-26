@@ -225,7 +225,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/software-engineering-principles-in-python\n\nCo",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
