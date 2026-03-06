@@ -86,7 +86,7 @@ Completa el curso y sube la certificacion a tu directorio de certificaciones, cr
 :::
 
 
-:::homework{id="9.6" title="Curso de Polars" due="2026-03-03" points="20"}
+:::homework{id="9.6" title="Curso de Polars" due="2026-03-10" points="20"}
 
 Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-polars 
 
@@ -94,7 +94,9 @@ Completa el curso y sube la certificacion a tu directorio de certificaciones, cr
 
 :::
 
-:::homework{id="9.7" title="Introduccion a APIs" due="2026-03-05" points="20"}
+
+
+<!-- :::homework{id="9.7" title="Introduccion a APIs" due="2026-03-05" points="20"}
 
 Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-apis-in-python
 
@@ -108,4 +110,4 @@ Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-fastapi
 
 Completa el curso y sube la certificacion a tu directorio de certificaciones, crea un nuevo file llamado python_fast_api_07.md y adjunta el link a la certificacion. No olvides referenciarlo en canvas (el pull request).
 
-:::
+::: -->
