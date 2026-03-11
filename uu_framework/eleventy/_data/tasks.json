@@ -243,7 +243,7 @@
     {
       "id": "9.6",
       "title": "Curso de Polars",
-      "due": "2026-03-03",
+      "due": "2026-03-10",
       "points": "20",
       "chapter": "Python",
       "file": "09_python/00_index.md",
@@ -261,7 +261,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-apis-in-python\n\nCompleta el c",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {

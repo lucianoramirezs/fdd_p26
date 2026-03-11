@@ -1138,6 +1138,115 @@
       "title": "Modulo 14: Pandas — Transformaciones y Tiempo"
     },
     {
+      "name": "15_arquitectura_de_computadoras",
+      "path": "15_arquitectura_de_computadoras",
+      "type": "directory",
+      "order": [
+        0,
+        15,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_la_maquina.md",
+          "path": "15_arquitectura_de_computadoras/01_la_maquina.md",
+          "type": "file",
+          "title": "La Máquina: Arquitectura General",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_procesadores.md",
+          "path": "15_arquitectura_de_computadoras/02_procesadores.md",
+          "type": "file",
+          "title": "Los Procesadores: CPU, GPU y NPU",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_rendimiento_y_escala.md",
+          "path": "15_arquitectura_de_computadoras/03_rendimiento_y_escala.md",
+          "type": "file",
+          "title": "Rendimiento y Escala",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "15_arquitectura_de_computadoras/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "results",
+              "path": "15_arquitectura_de_computadoras/scripts/results",
+              "type": "directory",
+              "order": [
+                2,
+                999,
+                0,
+                "results"
+              ],
+              "children": [],
+              "has_index": false,
+              "title": "Results"
+            },
+            {
+              "name": "simulations.py",
+              "path": "15_arquitectura_de_computadoras/scripts/simulations.py",
+              "type": "code",
+              "title": "simulations.py",
+              "order": [
+                2,
+                999,
+                0,
+                "simulations.py"
+              ]
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        },
+        {
+          "name": "code",
+          "path": "15_arquitectura_de_computadoras/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 15: Arquitectura de Computadoras"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",

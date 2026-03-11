@@ -638,7 +638,7 @@
         "attrs": {
           "id": "9.6",
           "title": "Curso de Polars",
-          "due": "2026-03-03",
+          "due": "2026-03-10",
           "points": "20"
         },
         "content_preview": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-polars \n\nCompleta el curso y sube la certificacion a tu directorio de certificaciones, crea un nuevo file llamado python_polars_0"
@@ -2541,6 +2541,81 @@
       }
     ],
     "has_frontmatter": false
+  },
+  "15_arquitectura_de_computadoras/01_la_maquina.md": {
+    "path": "clase/15_arquitectura_de_computadoras/01_la_maquina.md",
+    "title": "La Máquina: Arquitectura General",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Mapa mental de la máquina",
+          "difficulty": "1"
+        },
+        "content_preview": "Sin mirar el diagrama, dibuja en papel:\n1. El modelo de Von Neumann con sus componentes principales.\n2. La jerarquía de memoria con latencias aproximadas.\n3. La conexión GPU↔CPU con el cuello de botel"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "15_arquitectura_de_computadoras/02_procesadores.md": {
+    "path": "clase/15_arquitectura_de_computadoras/02_procesadores.md",
+    "title": "Los Procesadores: CPU, GPU y NPU",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Elegir procesador para una tarea",
+          "difficulty": "2"
+        },
+        "content_preview": "Para cada tarea siguiente, decide qué procesador usarías (CPU, GPU o NPU) y explica brevemente por qué:\n\n1. Limpiar un CSV de 10 millones de filas con pandas.\n2. Entrenar una red neuronal convoluciona"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "15_arquitectura_de_computadoras/03_rendimiento_y_escala.md": {
+    "path": "clase/15_arquitectura_de_computadoras/03_rendimiento_y_escala.md",
+    "title": "Rendimiento y Escala",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Estimación de Fermi — costo de entrenamiento",
+          "difficulty": "3"
+        },
+        "content_preview": "Estima el costo de entrenar un modelo de 7 billones de parámetros con 1 billón de tokens de entrenamiento:\n\n1. Usando la fórmula `FLOPs ≈ 6 × parámetros × tokens`, calcula los FLOPs totales.\n2. Asume "
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "15_arquitectura_de_computadoras/00_index.md": {
+    "path": "clase/15_arquitectura_de_computadoras/00_index.md",
+    "title": "Módulo 15: Arquitectura de Computadoras",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
   },
   "02_pipeline_de_datos/01_pipeline_de_datos.md": {
     "path": "clase/02_pipeline_de_datos/01_pipeline_de_datos.md",
