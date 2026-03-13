@@ -1247,6 +1247,180 @@
       "title": "Módulo 15: Arquitectura de Computadoras"
     },
     {
+      "name": "16_computo",
+      "path": "16_computo",
+      "type": "directory",
+      "order": [
+        0,
+        16,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_procesos_y_hilos.md",
+          "path": "16_computo/01_procesos_y_hilos.md",
+          "type": "file",
+          "title": "Procesos, Hilos y el GIL",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_secuencial.md",
+          "path": "16_computo/02_secuencial.md",
+          "type": "file",
+          "title": "El Framework Matemático y el Modelo Secuencial",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_concurrencia_y_asincronia.md",
+          "path": "16_computo/03_concurrencia_y_asincronia.md",
+          "type": "file",
+          "title": "Concurrencia, Asincronía y los Modelos M2–M4",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_paralelismo.md",
+          "path": "16_computo/05_paralelismo.md",
+          "type": "file",
+          "title": "Paralelismo — M5, Ley de Amdahl y Chatbot v3",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_librerias_y_decision.md",
+          "path": "16_computo/06_librerias_y_decision.md",
+          "type": "file",
+          "title": "Librerías Python y Árbol de Decisión",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "07_distribuido_intro.md",
+          "path": "16_computo/07_distribuido_intro.md",
+          "type": "file",
+          "title": "Cómputo Distribuido — Introducción Conceptual y Síntesis",
+          "order": [
+            0,
+            7,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04a_asyncio_fundamentos.md",
+          "path": "16_computo/04a_asyncio_fundamentos.md",
+          "type": "file",
+          "title": "asyncio — Fundamentos: Event Loop, async/await y gather",
+          "order": [
+            2,
+            999,
+            0,
+            "04a_asyncio_fundamentos.md"
+          ],
+          "summary": null
+        },
+        {
+          "name": "04b_asyncio_patrones.md",
+          "path": "16_computo/04b_asyncio_patrones.md",
+          "type": "file",
+          "title": "asyncio — Patrones Avanzados y Anti-patrones",
+          "order": [
+            2,
+            999,
+            0,
+            "04b_asyncio_patrones.md"
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "16_computo/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "generar_graficas.py",
+              "path": "16_computo/scripts/generar_graficas.py",
+              "type": "code",
+              "title": "generar_graficas.py",
+              "order": [
+                2,
+                999,
+                0,
+                "generar_graficas.py"
+              ]
+            },
+            {
+              "name": "results",
+              "path": "16_computo/scripts/results",
+              "type": "directory",
+              "order": [
+                2,
+                999,
+                0,
+                "results"
+              ],
+              "children": [],
+              "has_index": false,
+              "title": "Results"
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        },
+        {
+          "name": "code",
+          "path": "16_computo/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Cómputo: Secuencial, Concurrente, Paralelo y Distribuido"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",
@@ -1357,6 +1531,180 @@
       ],
       "has_index": false,
       "title": "Stack"
+    },
+    {
+      "name": "??_16_computo_v1",
+      "path": "??_16_computo_v1",
+      "type": "directory",
+      "order": [
+        2,
+        999,
+        0,
+        "??_16_computo_v1"
+      ],
+      "children": [
+        {
+          "name": "01_procesos_y_hilos.md",
+          "path": "??_16_computo_v1/01_procesos_y_hilos.md",
+          "type": "file",
+          "title": "Procesos, Hilos y el GIL",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_secuencial.md",
+          "path": "??_16_computo_v1/02_secuencial.md",
+          "type": "file",
+          "title": "El Framework Matemático y el Modelo Secuencial",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_concurrencia_y_asincronia.md",
+          "path": "??_16_computo_v1/03_concurrencia_y_asincronia.md",
+          "type": "file",
+          "title": "Concurrencia, Asincronía y los Modelos M2–M4",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_paralelismo.md",
+          "path": "??_16_computo_v1/05_paralelismo.md",
+          "type": "file",
+          "title": "Paralelismo — M5, Ley de Amdahl y Chatbot v3",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_librerias_y_decision.md",
+          "path": "??_16_computo_v1/06_librerias_y_decision.md",
+          "type": "file",
+          "title": "Librerías Python y Árbol de Decisión",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "07_distribuido_intro.md",
+          "path": "??_16_computo_v1/07_distribuido_intro.md",
+          "type": "file",
+          "title": "Cómputo Distribuido — Introducción Conceptual y Síntesis",
+          "order": [
+            0,
+            7,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04a_asyncio_fundamentos.md",
+          "path": "??_16_computo_v1/04a_asyncio_fundamentos.md",
+          "type": "file",
+          "title": "asyncio — Fundamentos: Event Loop, async/await y gather",
+          "order": [
+            2,
+            999,
+            0,
+            "04a_asyncio_fundamentos.md"
+          ],
+          "summary": null
+        },
+        {
+          "name": "04b_asyncio_patrones.md",
+          "path": "??_16_computo_v1/04b_asyncio_patrones.md",
+          "type": "file",
+          "title": "asyncio — Patrones Avanzados y Anti-patrones",
+          "order": [
+            2,
+            999,
+            0,
+            "04b_asyncio_patrones.md"
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "??_16_computo_v1/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "generar_graficas.py",
+              "path": "??_16_computo_v1/scripts/generar_graficas.py",
+              "type": "code",
+              "title": "generar_graficas.py",
+              "order": [
+                2,
+                999,
+                0,
+                "generar_graficas.py"
+              ]
+            },
+            {
+              "name": "results",
+              "path": "??_16_computo_v1/scripts/results",
+              "type": "directory",
+              "order": [
+                2,
+                999,
+                0,
+                "results"
+              ],
+              "children": [],
+              "has_index": false,
+              "title": "Results"
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        },
+        {
+          "name": "code",
+          "path": "??_16_computo_v1/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Cómputo: Secuencial, Concurrente, Paralelo y Distribuido"
     },
     {
       "name": "docs",

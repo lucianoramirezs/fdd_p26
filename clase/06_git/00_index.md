@@ -23,6 +23,24 @@ Completa el curso [Intermediate GitHub Concepts](https://app.datacamp.com/learn/
 
 :::
 
+:::project{id="6.P1" title="Proyecto: Página personal en GitHub Pages" due="2026-05-05" points="10"}
+
+Crea tu propia página web y despliega en GitHub Pages. La página es libre: puede ser CV, portafolio, blog, página creativa o cualquier propuesta personal interesante.
+
+La intención es que sea tu carta de presentación en la web: no tiene que verse como LinkedIn ni ser estrictamente profesional. Puedes mostrar lo que quieras, siempre que sea una página cuidada y con contenido propio.
+
+**Requisitos mínimos:**
+1. Repositorio en GitHub con el código fuente del sitio.
+2. Sitio publicado y accesible por GitHub Pages.
+3. Contenido original y coherente con tu presentación personal.
+4. Demostración en clase el día de entrega (pasarán a mostrar su página).
+
+**Entrega (Canvas):**
+1. Link al repositorio en GitHub.
+2. Link público al sitio desplegado en GitHub Pages.
+
+::::
+
 # Módulo 6: Git y GitHub
 
 Este es el módulo más importante para la logística del curso. Aquí aprenderás cómo entregar tareas, colaborar y manejar versiones de tu código.

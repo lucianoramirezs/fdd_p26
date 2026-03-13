@@ -249,7 +249,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-polars \n\nCompleta el curso y ",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -273,7 +273,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Curso de Python:https://app.datacamp.com/learn/courses/introduction-to-fastapi\n\nCompleta el curso y ",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -367,5 +367,32 @@
       "type": "exam"
     }
   ],
-  "projects": []
+  "projects": [
+    {
+      "id": "6.P1",
+      "title": "Proyecto: Página personal en GitHub Pages",
+      "due": "2026-05-05",
+      "points": "10",
+      "team_size": null,
+      "chapter": "Git",
+      "file": "06_git/00_index.md",
+      "url": "/06_git/00_index/",
+      "summary": "Crea tu propia página web y despliega en GitHub Pages. La página es libre: puede ser CV, portafolio,",
+      "overdue": false,
+      "type": "project"
+    },
+    {
+      "id": "9.P1",
+      "title": "Proyecto: Librería de Python publicable en PyPI",
+      "due": "2026-04-28",
+      "points": "10",
+      "team_size": null,
+      "chapter": "Python",
+      "file": "09_python/00_index.md",
+      "url": "/09_python/00_index/",
+      "summary": "Desarrolla una librería de Python útil y publicable. El tema es libre, pero debe resolver un problem",
+      "overdue": false,
+      "type": "project"
+    }
+  ]
 }
