@@ -67,6 +67,31 @@ resultado_A = await tarea_A    # cuando necesito A (quizá ya terminó)
 
 La concurrencia producida es la misma — la diferencia es el control de flujo. `gather` es una barrera; `create_task + await` permite continuar con el resultado disponible en cuanto se necesita.
 
+### ¿Cuándo usar cuál?
+
+```
+¿Necesitas todos los resultados antes de continuar?
+│
+├─ SÍ, en cualquier orden → gather(*fns)
+│    resultados = await asyncio.gather(fn_a(), fn_b(), fn_c())
+│    # barrera: espera a la más lenta, devuelve lista en orden de creación
+│
+├─ SÍ, pero con trabajo independiente antes de necesitarlos:
+│    tarea = asyncio.create_task(fn_a())
+│    resultado_b = await fn_b()          # trabajo durante el wait de A
+│    resultado_a = await tarea           # punto de dependencia real
+│
+├─ NO, puedes procesar cada resultado cuando llega:
+│    for t in asyncio.as_completed(tareas):
+│        resultado = await t             # el primero en terminar, primero en procesarse
+│
+└─ Solo necesitas el primero, cancela el resto:
+     completadas, pendientes = await asyncio.wait(tareas, return_when=FIRST_COMPLETED)
+     for t in pendientes: t.cancel()
+```
+
+> **Verifica en el notebook:** Notebook 03 — Sección 1 demuestra create_task con trabajo intermedio "gratis". Sección 2 compara gather vs as_completed con fuentes de latencia variable.
+
 ---
 
 ## asyncio.as_completed — procesar conforme llegan
@@ -85,8 +110,9 @@ tareas = [
 ]
 
 # Procesa resultados conforme llegan — no en orden de creación
-async for tarea in asyncio.as_completed(tareas):
-    resultado = await tarea    # await aquí nunca bloquea — ya terminó
+# Nota: as_completed() devuelve un iterador regular (no async) hasta Python 3.12
+for tarea in asyncio.as_completed(tareas):
+    resultado = await tarea    # await aquí puede esperar si la tarea no terminó aún
     print(f"  resultado recibido: {resultado[:50]}...")
     procesar_parcialmente(resultado)
 ```
@@ -131,6 +157,23 @@ El ticket rail es el carril metálico donde los meseros cuelgan los tickets de l
 
 Este mecanismo desacopla la velocidad de llegada de pedidos de la velocidad de preparación.
 
+### Por qué backpressure importa
+
+Sin límite en la cola (`maxsize=0`), un productor rápido puede encolar peticiones más rápido de lo que los consumidores las procesan. Con el tiempo, la cola crece sin límite y el proceso agota la memoria. `maxsize` controla esto:
+
+```
+Producer → [  item₁  |  item₂  |  item₃  | ← maxsize=3, llena ]  → Consumers
+
+Cuando la cola está llena:
+  await queue.put(item₄)  ←  el productor se SUSPENDE aquí
+                              el event loop cede — otros pueden ejecutar
+                              cuando un consumer hace queue.get(), hay espacio
+                              el put() continúa automáticamente
+
+Esta presión que se propaga hacia atrás (consumer → cola → producer) es el backpressure.
+Protege al servidor de aceptar más trabajo del que puede procesar.
+```
+
 ### Formalmente
 
 ```
@@ -174,6 +217,8 @@ async def pipeline(items: list, n_workers: int = 2):
 
 **Cuándo usar:** procesamiento de streaming, rate limiting, separar responsabilidades de producción y consumo, N productores / M consumidores.
 
+> **Verifica en el notebook:** Notebook 03 — Sección 3 (TAREA) implementa el patrón productor-consumidor con `asyncio.Queue`. Experimenta con distintos valores de `n_workers` (1, 2, 3) y observa cómo el tiempo total cambia cuando los workers no dan abasto.
+
 ---
 
 ## Estos patrones en el chatbot
@@ -211,7 +256,8 @@ async def enriquecer_contexto(query: str) -> list:
         asyncio.create_task(buscar_web(query)),         # puede tardar más
     ]
     contextos = []
-    async for tarea in asyncio.as_completed(tareas):
+    # Iterador regular hasta Python 3.12 — no usar async for
+    for tarea in asyncio.as_completed(tareas):
         resultado = await tarea
         contextos.append(resultado)
         if len(contextos) >= 2:    # con 2 fuentes es suficiente
@@ -293,21 +339,36 @@ async def calcular_embedding(texto: str):
 
 ### 3. Fire-and-forget sin tracking
 
-```python
-# ❌ Anti-patrón
-async def servidor():
-    for peticion in peticiones:
-        asyncio.create_task(handle(peticion))   # excepción → silenciada
+asyncio **silencia las excepciones de tareas no observadas**. Si `handle(peticion)` lanza una excepción y nadie hace `await tarea` ni revisa `tarea.exception()`, el error desaparece — Python puede emitir una advertencia al final, pero el programa no se interrumpe. En producción esto es un bug invisible.
 
-# ✓ Correcto
+```python
+# ❌ Anti-patrón: la excepción se pierde silenciosamente
 async def servidor():
-    tareas = set()
     for peticion in peticiones:
-        t = asyncio.create_task(handle(peticion))
+        asyncio.create_task(handle(peticion))
+        # Si handle() falla, nunca te enterarás.
+        # El usuario recibe silencio; el log queda vacío.
+
+# ✓ Correcto: registrar un callback que se ejecuta al terminar la tarea
+def _registrar_error(tarea: asyncio.Task) -> None:
+    """asyncio llama a este callback cuando la tarea completa (con o sin error)."""
+    if tarea.cancelled():
+        return                      # cancelación intencional — no es un error
+    exc = tarea.exception()
+    if exc is not None:
+        print(f"ERROR en {tarea.get_name()}: {type(exc).__name__}: {exc}")
+        # En producción: logger.error(..., exc_info=exc)
+
+async def servidor():
+    tareas: set = set()
+    for peticion in peticiones:
+        t = asyncio.create_task(handle(peticion), name=f"req-{id(peticion)}")
         tareas.add(t)
-        t.add_done_callback(tareas.discard)
-        t.add_done_callback(lambda t: print(f"ERROR: {t.exception()}") if not t.cancelled() and t.exception() else None)
+        t.add_done_callback(tareas.discard)      # elimina del set al terminar
+        t.add_done_callback(_registrar_error)    # registra si hubo excepción
 ```
+
+La referencia a la tarea en `tareas` también evita que el garbage collector elimine la tarea antes de que termine — un bug sutil en Python < 3.11 donde las tareas podían ser recolectadas si nada las referenciaba.
 
 ### 4. await inmediato después de create_task
 
@@ -344,6 +405,8 @@ async def obtener_datos(user_id):
     respuesta = await llamar_llm(historial, contexto)
 # Tiempo: max(T_bd, T_cache) + T_llm  ← mejora real
 ```
+
+> **Verifica en el notebook:** Notebook 03 — Sección 4 (TAREA) reproduce el fire-and-forget: lanza una tarea que falla, espera sin hacer await, y confirma que la excepción fue silenciada. Luego implementa el tracking con `add_done_callback`.
 
 ---
 

@@ -1,0 +1,177 @@
+NIVEL 6
+¿Qué necesito hacer? (en tus palabras)
+
+ Necesito encontrar un archivo en todo el servidor que cumpla tres condiciones específicas:
+
+
+que sea propiedad del usuario bandit7
+
+
+que pertenezca al grupo bandit6
+
+
+que tenga exactamente 33 bytes
+
+
+Como el enunciado dice que está “somewhere on the server”, significa que no está solamente en mi carpeta personal, entonces debo buscar desde la raíz del sistema.
+¿Qué comando(s) creo que necesito?
+
+ Necesito usar el comando find porque estoy buscando un archivo con propiedades específicas (usuario, grupo y tamaño).
+
+
+¿Dónde busqué información? (link o man page)
+
+ Utilicé el manual del sistema:
+
+ man find
+
+
+Revisé especialmente las opciones:
+-user
+-group
+-size
+Comandos que ejecuté:
+
+
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+¿Funcionó? Si no, ¿qué ajusté?
+
+ Sí funcionó.
+
+ El 2>/dev/null fue importante porque sin eso aparecían muchos errores de permisos.
+
+ El comando me devolvió la ruta correcta y pude obtener el password.
+============================================================
+
+NIVEL 7
+¿Qué necesito hacer? (en tus palabras)
+
+ Necesito encontrar dentro del archivo data.txt la línea que contiene la palabra “millionth”.
+
+ El password está en esa misma línea.
+
+
+¿Qué comando(s) creo que necesito?
+
+ Necesito usar grep para buscar texto específico dentro de un archivo.
+
+
+¿Dónde busqué información? (link o man page)
+
+ man grep
+
+
+Comandos que ejecuté:
+
+
+grep millionth data.txt
+¿Funcionó? Si no, ¿qué ajusté?
+
+ Sí funcionó.
+
+ El comando me mostró la línea completa donde aparece la palabra “millionth” y ahí estaba el password.
+
+
+============================================================
+
+NIVEL 8
+¿Qué necesito hacer? (en tus palabras)
+
+ El password es la única línea en data.txt que aparece una sola vez.
+
+ Hay muchas líneas repetidas y solo una que no se repite.
+
+
+¿Qué comando(s) creo que necesito?
+
+ Necesito usar sort y uniq, porque uniq solo detecta correctamente líneas únicas si primero el archivo está ordenado.
+
+
+¿Dónde busqué información? (link o man page)
+
+ man sort
+
+ man uniq
+
+
+Comandos que ejecuté:
+
+
+sort data.txt | uniq -u
+¿Funcionó? Si no, ¿qué ajusté?
+
+ Sí funcionó.
+
+ El pipe (|) permitió enviar la salida de sort como entrada a uniq.
+
+ La opción -u mostró únicamente la línea que aparece una sola vez.
+
+
+============================================================
+
+NIVEL 9
+¿Qué necesito hacer? (en tus palabras)
+
+ El archivo contiene datos binarios.
+
+ El password está en una de las pocas cadenas legibles y está precedido por varios signos “=”.
+
+ Necesito extraer solamente el texto legible del archivo.
+
+
+¿Qué comando(s) creo que necesito?
+
+ Necesito usar strings para extraer texto legible y después grep para buscar las líneas que contengan varios signos “=”.
+
+
+¿Dónde busqué información? (link o man page)
+
+ man strings
+
+
+Comandos que ejecuté:
+
+
+strings data.txt | grep “===”
+¿Funcionó? Si no, ¿qué ajusté?
+
+ Sí funcionó.
+
+ Primero extraje las cadenas legibles del archivo binario y después filtré las que contenían varios signos “=”.
+
+ Después de esos signos aparecía el password.
+
+
+============================================================
+NIVEL 10
+¿Qué necesito hacer? (en tus palabras)
+
+ El archivo data.txt contiene datos codificados en base64.
+
+ Necesito decodificarlos para obtener el texto original y encontrar el password.
+
+
+¿Qué comando(s) creo que necesito?
+
+ Necesito usar el comando base64 con la opción de decodificar.
+
+
+¿Dónde busqué información? (link o man page)
+
+ man base64
+
+
+Comandos que ejecuté:
+
+
+base64 -d data.txt
+¿Funcionó? Si no, ¿qué ajusté?
+
+ Sí funcionó.
+
+ El comando decodificó el contenido y mostró el password en texto plano.
+
+
+
+

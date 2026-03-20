@@ -9,3 +9,6 @@
 ![Certificado Intermedio GitHub](./github-intermedio.pdf)
 
 ![Certificado Básico Docker](./docker.pdf)
+
+
+![Certificado Básico Polars](./polars-basic.pdf)

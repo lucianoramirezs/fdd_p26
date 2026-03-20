@@ -1,0 +1,77 @@
+Nombre: Tania Hernandez Lira
+Clave única: 208237
+
+=== NIVEL 0 ===
+1. ¿Qué necesito hacer? Conectarme al servidor por SSH.
+2. ¿Qué comando(s) necesito? ssh
+3. ¿Dónde busqué información? Instrucciones del curso y man ssh.
+4. Comandos ejecutados: ssh bandit0
+5. ¿Funcionó? Sí, entré con la clave bandit0.
+
+PASSWORD PARA NIVEL 1:ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+== NIVEL 1 ==
+1. ¿Qué necesito hacer? Encontrar la contraseña para el nivel 2 dentro de un archivo llamado "-" 
+2. ¿Qué comandos necesito? pwd, cd, ls, file, cat
+3. ¿Dónde busqué información? Link de google del sitio web de overthewire.com (búsqueda "dashed filename"
+4. Comandos ejecutados: 
+$pwd
+$ls
+$cd -- -
+$file ./-
+$cat ./-
+5. ¿Funcionó? Sí, entré con cat ./-
+
+PASSWORD PARA NIVEL 2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+== NIVEL 2 ==
+1. ¿Qué necesito hacer? Abrir el documento --spaces in this filename--
+2. ¿Qué comandos necesito? ls, file, cat
+3. ¿Dónde busqué la información? En el resumen de IA de Google después de darle a la búsqueda sugerida "spaces in filename" 
+4. Comandos ejecutados: 
+$ls
+$file ./"--spaces in this filename--"
+$cat ./"--spaces in this filename--"
+5. ¿Funcionó? Sí, entré con la combinación de ./ y ""
+
+PASSWORD PARA EL NIVEL 3:MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+== NIVEL 3 ==
+1. ¿Qué necesito hacer? Encontrar el archivo oculto y abrirlo
+2. ¿Qué comandos necesito? ls -a, ls -l
+3. ¿Dónde busqué la información? El manual con man ls
+4. Comandos ejecutados: 
+$ls -la
+$ls -a
+$cat ...Hiding-From-You
+5. ¿Funcionó? Sí, me mostró los archivos ocultos y me dió el nombre exacto para abrirlo con cat
+
+PASSWORD PARA EL NIVEL 4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+== NIVEL 4 ==
+1. ¿Qué necesito hacer? Encontar el archivo en ASCII text
+2. ¿Qué comandos necesito? ls, file, cd
+3. ¿Dónde busqué la información? Usé lo que aprendí al usar file en el nivel 1 y 2
+4. Comandos ejecutados: 
+$cd inhere
+$ls
+$file ./-file01 ./-file02 ./-file03 ./-file04 ./-file05 ./-file06 ./-file07 ./-file08 ./-file09
+$cat ./-file07
+5. ¿Funcionó? Sí, todos salían que eran del tipo "data" pero únicamente uno era ASCII text
+
+PASSWORD PARA EL NIVEL 5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+== NIVEL 5 ==
+ 1. ¿Qué necesito hacer? Encontrar un archivo que sea human-readable, tenga tamaño 1033 bytes y sea not executable
+ 2. ¿Qué comandos necesito? ls, find, cat
+ 3. ¿Dónde busqué la información? manual para ls y find, Google para encontrar como usar los size specifiers de find (c para bytes) 
+ 4. Comandos ejecutados: 
+$cd inhere
+$ls
+$ls-la
+$find . -type f ! -executable
+$find . -size 1033c
+$cat ./maybehere07/.file2
+ 5. ¿Funcionó? Sí, al correr los no ejecutables me di cuenta que todos tenían "file2" en el nombre, al filtrar por el tamaño, únicamente quedaba el que estaba en el directorio maybehere07
+
+PASSWORD PARA EL NIVEL 6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

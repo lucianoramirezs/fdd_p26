@@ -5,4 +5,4 @@
 
 ## Evidencia
 
-![Certificado GitHub](./evidencia_docker.png)
+![Certificado Docker](./evidencia_docker.png)

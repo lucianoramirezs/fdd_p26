@@ -1,0 +1,44 @@
+Iker Aboitiz 213708
+
+=== NIVEL 6 ===
+1. Buscar por criterios especificos
+2. find y cat 
+3. https://www.ionos.mx/digitalguide/servidores/configuracion/comando-linux-find/
+4. Comandos que ejecuté:
+   $ find / -user bandit7 -group bandit6 -size 33c  # / busca en la raiz del servidor
+   $ cat /var/lib/dpkg/info/bandit7.password
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono, pero tuve que leer una gran lista de todo lo que se ejecuto 
+
+
+=== NIVEL 7 ===
+1. Buscar en un archivo la clave alado de una cadena conocida
+2. grep
+3. el manual de grep 
+4. Comandos que ejecuté:
+   $ grep millionth data.txt
+5. Si, primer intento 
+
+=== NIVEL 8 ===
+1. Buscar dentro de un archivo las lineas que se repiten
+2. grep 
+3. https://ss64-com.translate.goog/bash/sort.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+4. Comandos que ejecuté:
+   $ sort data.txt | uniq -u
+5. Si funciono pero no sabia que tenia que poner | hasat despues de intentar 
+
+=== NIVEL 9 ===
+1. buscar la contraseña sabiendo que antes tiene varios signos de "=" 
+2. grep 
+3. https://www.hostinger.com/tutorials/grep-command-in-linux?utm_campaign=Generic-Tutorials-DSA-t1%7CNT:Se%7CLang:EN%7CLO:MX&utm_medium=ppc&gad_source=1&gad_campaignid=20980195875&gbraid=0AAAAADMy-hZd4F4tUrUYrK7TIKOXxDciP&gclid=CjwKCAiAwNDMBhBfEiwAd7ti1EN5IejLduppMhWl3-SBeaXLUK-DKSLj4SOe0697w9yAyTJvshrwAhoCkigQAvD_BwE
+4. Comandos que ejecuté:
+   $ strings data.txt | grep -E "=+"
+5. Si, pero tuve que ajustar el regex a que fuera el archivo un string 
+
+=== NIVEL 10 ===
+1. transformar un texto que esta encriptado en base64
+2. grep, sort, uniq, strings, base64,
+3.https://rm-rf.es/codificar-y-descodificar-base64-desde-bash/#google_vignette
+4. Comandos que ejecuté:
+   $ base64 -d data.txt
+5. Si, una vez que declaro que utilizare base64 la -d decodifica 

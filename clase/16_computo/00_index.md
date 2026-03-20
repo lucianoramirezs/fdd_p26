@@ -2,6 +2,28 @@
 title: "Cómputo: Secuencial, Concurrente, Paralelo y Distribuido"
 ---
 
+:::exam{id="16.E" title="Examen: Arquitectura de Computadoras y Cómputo" date="2026-03-24" duration="1 hora"}
+
+Examen en clase sobre los módulos 15 y 16 (Arquitectura de Computadoras + Cómputo). Vale 10 puntos.
+
+::::
+
+:::homework{id="16.1" title="Entrega de notebooks: Arquitectura y Cómputo" due="2026-03-24" points="60"}
+
+Entrega los notebooks de los módulos de Arquitectura de Computadoras y Cómputo.
+
+**Incluye al menos:**
+1. `clase/15_arquitectura_de_computadoras/code/01_arquitectura.ipynb`
+2. `clase/16_computo/code/01_procesos_hilos.ipynb`
+3. `clase/16_computo/code/02_concurrencia_asyncio.ipynb`
+4. `clase/16_computo/code/03_paralelismo_benchmarks.ipynb`
+
+**Entrega obligatoria (mismo día):**
+1. Pull Request con tus notebooks completos.
+2. En Canvas: URL del Pull Request + URL a tu carpeta/archivo en GitHub.
+
+::::
+
 # Cómputo: Secuencial, Concurrente, Paralelo y Distribuido
 
 Este módulo introduce formal y sistemáticamente los modelos de ejecución que subyacen a todo el cómputo moderno. Antes de construir sistemas reales necesitamos entender con precisión qué significa que un programa sea *concurrente*, *asíncrono*, *paralelo* o *distribuido* — y sobre todo, las diferencias entre ellos.

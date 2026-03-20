@@ -1,0 +1,129 @@
+Angel Castañeda Garcia
+218822
+
+
+
+
+=== NIVEL 0 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito conectarme al ssh de bandit.
+2. ¿Qué comando(s) creo que necesito?
+ssh user@contrasena
+3. ¿Dónde busqué información? (link o man page)
+https://itsfoss.com/ssh-to-port/ aqui cambie mi port para que admitiera el 2220 desde el firewall
+https://www.wikihow.com/Use-SSH aqui me conecte al ssh
+busquedas de google y man firewall-cmd para saber bien la sintaxis
+4. Comandos que ejecuté:
+   $ sudo firewall-cmd --permanent --add-port=2220/tcp
+   $ ssh bandit0@bandit.labs.overthewire.org -p 2220
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al inicio no funciono porque estaba poniendo ssh bandit0@bandit0 porque pense que esa era la password. Despues del ajuste funciono.
+
+
+
+
+=== NIVEL 0 -> 1 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito acceder al readme en el home.
+2. ¿Qué comando(s) creo que necesito?
+ls, cat
+3. ¿Dónde busqué información? (link o man page)
+N/A
+4. Comandos que ejecuté:
+   $ pwd ~
+   $ ls ~
+   $ cat readme
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono. la contrasena al asiguinete es ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+bandit.labs.overthewire.org
+
+
+
+
+=== NIVEL 1 -> 2 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Abrir el archivo pero su nombre es problematico
+2. ¿Qué comando(s) creo que necesito?
+cat, pero con alguna notacion que ayude a abrirlo y no lo cuente como flag
+3. ¿Dónde busqué información? (link o man page)
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+4. Comandos que ejecuté:
+   $ cat ./-
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono.
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+
+
+=== NIVEL 2 -> 3 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Abrir el archivo, pero los espacios en el nombre lo complican
+2. ¿Qué comando(s) creo que necesito?
+cat
+3. ¿Dónde busqué información? (link o man page)
+https://stackoverflow.com/questions/23019471/how-can-i-go-to-a-directory-whose-file-name-has-spaces-between-them-in-the-linux
+4. Comandos que ejecuté:
+   $ cat ./'--spaces in this filename--'
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono. Con las comillas, los espacios ya no son problema.
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+
+
+=== NIVEL 3 -> 4 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito abrir un archivo oculto.
+2. ¿Qué comando(s) creo que necesito?
+cd, cat
+3. ¿Dónde busqué información? (link o man page)
+man cat
+4. Comandos que ejecuté:
+   $ cd inhere
+   $ ls -a
+   $ cat ...Hiding-From-You
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono.
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+
+
+
+=== NIVEL 4 -> 5 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Ver todos los archivos cual esta en formato legible para humanos
+2. ¿Qué comando(s) creo que necesito?
+no se, tal vez file
+3. ¿Dónde busqué información? (link o man page)
+man file
+4. Comandos que ejecuté:
+   $ cd inhere
+   $ file ./-file00
+   $ file ./-file01
+   $ file ./-file02
+   ...
+   $ file ./-file07
+   $ cat ./-file07
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono. Cheque manualmente cada archivo para ver que tipo de datos tenia, hasta que encontre uno con texto  ASCII (el 7).
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+
+
+
+=== NIVEL 5 -> 6 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito revisar todos los archivos del directorio inhere para encontrar el que cumpla las 3 condiciones.
+2. ¿Qué comando(s) creo que necesito?
+du, find, file
+3. ¿Dónde busqué información? (link o man page)
+man du, man find
+https://mayadevbe.me/posts/overthewire/bandit/level6/   (me rendi, era demasiada documentacion y no entendi bien el problema)
+4. Comandos que ejecuté:
+   $cd inhere
+   find . -type f -size 1033c ! -executable -exec file '{}' \; | grep ASCII
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Funciono, pero con trampa.
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+

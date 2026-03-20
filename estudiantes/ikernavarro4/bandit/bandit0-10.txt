@@ -1,0 +1,145 @@
+Tarea completar nivel 0-5 Bandit0
+Iker Navarro 215134
+
+=== NIVEL 0 ============================================
+1. ¿Qué necesito hacer? (en tus palabras)
+necesito abrir y ver que hay dentro del archivo readme
+2. ¿Qué comando(s) creo que necesito?
+ls y cat
+3. ¿Dónde busqué información? (link o man page)
+no busque
+4. Comandos que ejecuté:
+   $ comando1 ls
+   $ comando2 cat
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si
+level 1 password: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+=== NIVEL 1 ===============================================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar donde esta el archivo "-" y leer su contenido
+2. ¿Qué comando(s) creo que necesito?
+ls, -la, cat, cd
+3. ¿Dónde busqué información? (link o man page)
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+4. Comandos que ejecuté:
+   $ comando1 ls
+   $ comando2 cat -
+   $ comando3 cat "-"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No, despues de buscar ajuste el comando a cat ./-
+level 2 password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+=== NIVEL 2 =========================================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Leer el contenido del archivo llamado "--spaces in this filename--"
+2. ¿Qué comando(s) creo que necesito?
+ls, cat ./(para leer archivos que empiezan con --), "" (para leer archivos con espacios en el nombre)
+3. ¿Dónde busqué información? (link o man page)
+4. Comandos que ejecuté:
+   $ comando1 ls
+   $ comando2 cat ./"--spaces in this filename--"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+SI
+level 3 password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+=== NIVEL 3 ===========================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar el directorio inhere y leer el archivo
+2. ¿Qué comando(s) creo que necesito?
+ls, cd, cat
+3. ¿Dónde busqué información? (link o man page)
+4. Comandos que ejecuté:
+   $ comando1 ls, cd inhere, ls, ls -a, cat ./...Hiding-From-You
+   $ comando2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si
+level 4 password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+=== NIVEL 4 ==========================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar la contraseña en el archivo solo legible para humanos, en el directorio inherence
+2. ¿Qué comando(s) creo que necesito?
+ls, cd, ls -h, cat, ./
+3. ¿Dónde busqué información? (link o man page)
+4. Comandos que ejecuté:
+   $ comando1 cd inhere, ls -h, file ./*
+   $ comando2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si
+level 5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+=== NIVEL 5 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar un archivo dentro del directorio inhere, que cumple con las caracteristicas siguientes: que sea human-readable, 1033 bytes y not executable.
+2. ¿Qué comando(s) creo que necesito?
+cd, ls, ls -h, cat, file, ./, find
+3. ¿Dónde busqué información? (link o man page)
+https://itsfoss.com/es/comando-find-linux/#encontrar-archivos-grandes-o-peque%C3%B1os-b%C3%BAsqueda-basada-en-el-tama%C3%B1o-del-archivo
+4. Comandos que ejecuté:
+   $ comando1 find . -type f -size 1033c ! -executable
+   $ comando2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si
+level 6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+=== NIVEL 6 =============================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar el archivo que le pertenece al usuario bandit7 y al grupo bandit6 y que pesa 33 bytes.
+2. ¿Qué comando(s) creo que necesito?
+find, cat, ls, /, -type f, -size 33c
+3. ¿Dónde busqué información? (link o man page)
+https://es.ilinuxgeek.com/article/find-all-files-owned-by-a-specific-user-in-unixlinux
+4. Comandos que ejecuté:
+   $ comando1 find / -type f -user bandit7 -group bandit6 -size 33c
+   $ comando2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+SI
+level 7 password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+=== NIVEL 7 =============================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar la contraseña que se encuentra a lado de la palabra millionth dentro del archivo data.txt
+2. ¿Qué comando(s) creo que necesito?
+ls, -lah, grep, cat
+3. ¿Dónde busqué información? (link o man page)
+man page
+4. Comandos que ejecuté:
+   $ comando1 ls, cat data.txt
+   $ comando2 grep millionth data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté?
+SI, despues de ver que el archivo era inmenso, si la necesidad de usar grep.
+level8 password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+=== NIVEL 8 =============================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar en el archivo data.txt la unica linea que no se repite mas de una vez.
+2. ¿Qué comando(s) creo que necesito?
+ls, grep, uniq, sort, cat
+3. ¿Dónde busqué información? (link o man page)
+man page usando man sort y man uniq
+4. Comandos que ejecuté:
+   $ comando1 sort --uniq -u data.txt
+   $ comando2 sort data.txt | uniq -u
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si, despues, de ajustarlo a un pipe
+Level 9 password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+=== NIVEL 9 =============================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar el archivo en data.txt, que tiene pocos human-readable strings y que viene despues de unos "='.
+2. ¿Qué comando(s) creo que necesito?
+grep, ls, sort, uniq, strings
+3. ¿Dónde busqué información? (link o man page)
+man strings
+4. Comandos que ejecuté:
+   $ comando1 cat data.txt (solo para probar)
+   $ comando2 strings data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté?
+SI
+Level 10 password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+=== NIVEL 10 =============================================================================
+1. ¿Qué necesito hacer? (en tus palabras)
+encontrar la contraseña en data.txt que contiene base 64 encoded data
+2. ¿Qué comando(s) creo que necesito?
+base64, uniq, sort, strings
+3. ¿Dónde busqué información? (link o man page)
+man base64
+4. Comandos que ejecuté:
+   $ comando1 base64 -d data.txt
+   $ comando2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+SI
+Level 11 password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

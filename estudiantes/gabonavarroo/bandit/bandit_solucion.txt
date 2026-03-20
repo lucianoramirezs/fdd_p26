@@ -1,0 +1,152 @@
+BANDIT LEVEL 0 a 5
+Gabriel Navarro Cerón
+000218152
+
+=== NIVEL 0  ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Tengo que entrar al juego al nivel 0 usando ssh desde la terminal. Al parecer, debo de hacer una conexión ssh que será la del juego como si fuera un servidor.
+
+2. ¿Qué comando(s) creo que necesito?
+ssh es sugerido, entonces ese con un user@host -p #
+
+3. ¿Dónde busqué información? (link o man page)
+https://www.youtube.com/watch?v=WwGRGfLy6q8
+	
+4. Comandos que ejecuté:
+gabonavarroo@LaptopGabo:~$ ssh bandit0@bandit.labs.overthewire.org -p 2220
+password: bandit0
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funcionó.  
+
+=== NIVEL 0 -- > NIVEL 1 ===
+1. ¿Qué necesito hacer?
+Buscar un archivo llamado readme en mi directorio home y después utilizar esa contraseña para ingresar a bandit1. Por ello, seguramente deberé navegar en los directorios y ver revisar archivos.
+
+2. ¿Qué comando(s) creo que necesito?
+cd, ls, cat, find . -name "readme"
+
+3. ¿Dónde busqué información? (link o man page)
+man find
+man cat
+
+4. Comandos que ejecuté:
+find readme
+ls
+cat readme
+password: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit1@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funcionó, aunque al inicio se me hacía raro el find solo me daba de resultado readme, pero era porque ya estaba ahí el archivo. Al inicio no sabía como entrar al siguiente nivel, hasta que corrí la nueva conexión y me pedía salir.
+
+=== NIVEL 1 --> NIVEL 2 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+buscar un archivo cuyo nombre literal es '-' en mi directorio y encontrar la manera de abrirlo, puesto que no abre correctamente con cat
+
+2. ¿Qué comando(s) creo que necesito?
+find, cat, ls
+3. ¿Dónde busqué información? (link o man page)
+man cat
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+
+4. Comandos que ejecuté:
+find -
+cat ./-
+password:263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit2@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funcionó, pero tuve que encontrar la manera de abrir un archivo con - al inicio en stackoverflow. Ajuste para escribir cat ./- lo cual referencia correctamente el archivo deseado.
+
+=== NIVEL 2 --> NIVEL 3 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Abrir un archivo llamado --spaces in this filename en mi directorio. Averiguar la manera de abrir archivos que tengan espacios en ellos.
+
+2. ¿Qué comando(s) creo que necesito?
+ls, cat
+
+3. ¿Dónde busqué información? (link o man page)
+https://linuxhandbook.com/filename-spaces-linux/
+
+4. Comandos que ejecuté:
+ls
+cat ./"--spaces in this filename--"
+password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit3@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono, solamente me tarde un poco averiguando que fallaba, ya que no estaba considerando implementar el uso de ./ para que lea correctamente los guiones. 
+
+=== NIVEL3 --> NIVEL 4 ===
+1. ¿Qué necesito hacer? 
+Moverme de directorios hacia inhere y abrir un archivo oculto con la contraseña.
+
+2. ¿Qué comando(s) creo que necesito?
+ls -a, cd, cat
+
+3. ¿Dónde busqué información? (link o man page)
+man ls, pero este comando ls -a ya lo conocía
+
+4. Comandos que ejecuté:
+ls
+cd inhere
+ls -a
+cat ...Hiding-From-You
+password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit4@bandit.labs.overthewire.org -p 2220
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí, funcionó todo a la perfección.
+
+=== NIVEL 4 --> NIVEL 5 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Moverme a la carpeta inhere y averiguar el tipo de archivo de los files que haya para ver cual puede ser abierto y legible.
+
+2. ¿Qué comando(s) creo que necesito?
+ls, cd, file, cat
+
+3. ¿Dónde busqué información? (link o man page)
+man file 
+https://www.geeksforgeeks.org/linux-unix/file-command-in-linux-with-examples/
+
+4. Comandos que ejecuté:
+ls
+cd inhere
+ls
+file inhere/* (no funciono, por que daba mal la dirección)
+file ./*
+cat ./-file07
+password:4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit5@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sospechaba correctamente que tenía que usar file para ver los tipos de archivos, pero lo estaba usando incorrectamente. Revise geeksforgeeks para entender bien el formato. Quería ahorrarme el usar file uno por uno entonces por eso intente la opción de usar el *, pero al inicio no sabía bien de que manera implementarla.
+
+=== NIVEL 5 --> NIVEL 6 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Buscar de alguna manera en los directorios de inhere un archivo que tenga exactamente 1033 bytes de tamaño, que pueda ser leíble (ASCII) y que no pueda ser ejecutado. Debo encontrar dentro de el manpage de find la manera de buscar un archivo por tamaño
+
+2. ¿Qué comando(s) creo que necesito?
+ls, cd, find (por tamaño), cat
+
+3. ¿Dónde busqué información? (link o man page)
+man find
+
+4. Comandos que ejecuté:
+ls
+cd inhere
+find . -size 1033 (no había entendido que tenía que complementar con el c para buscar bytes)
+find . -size 1033c
+cat ./maybehere07/.file2
+password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit6@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono, fue tardado encontrar el comando -size y una vez encontrado parecía no funcionarme al buscar find . -size 1033 por que necesitaba agregar c para especificar que fueran bytes. Fue hasta que volví al manpage que logré entender que tenía que agregarlo.
+

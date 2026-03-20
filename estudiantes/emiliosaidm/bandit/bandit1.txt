@@ -1,0 +1,99 @@
+Nivel 0
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito iniciar sesión en el juego por medio de ssh.
+2. ¿Qué comando(s) creo que necesito?
+Necesito hacer ssh user@host, los cuales me los otorgarán. Quizá una contraseña, no creo usar archivos .cer y .key. 
+3. ¿Dónde busqué información? (link o man page)
+No busqué 
+4. Comandos que ejecuté:
+   $ ssh bandit0@bandit.labs.overthewire.org -p 2220
+   $ bandit0
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí.
+
+Nivel 1
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Encontrar una contraseña qué está guardada en un archivo llamado readme en el directorio padre. 
+2. ¿Qué comando(s) creo que necesito?
+Utilizar cat.
+3. ¿Dónde busqué información? (link o man page)
+No busqué.
+4. Comandos que ejecuté:
+   $ cat readme
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí. La contraseña es ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+Nivel 2
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito abrir una archivo llamado -. 
+2. ¿Qué comando(s) creo que necesito?
+Utilizar el comando cat.
+3. ¿Dónde busqué información? (link o man page)
+En https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+4. Comandos que ejecuté:
+   $ cat ./-
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No. Tuve que usar cat ./- La contraseña obtenida fue 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+Nivel 3
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Necesito leer un archivo llamado --spaces in this filename--
+2. ¿Qué comando(s) creo que necesito?
+Utilizar el comando cat ./"--spaces in this filename--"
+3. ¿Dónde busqué información? (link o man page)
+No busqué. 
+4. Comandos que ejecuté:
+   $ ~$ cat ./"--spaces in this filename--"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó. La contraseña obtenida es MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+Nivel 4
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Ingresar a la carpeta inhere y ver el nombre del archivo con la bandera -a. 
+2. ¿Qué comando(s) creo que necesito?
+Utilizar la bandera -a
+3. ¿Dónde busqué información? (link o man page)
+No busqué. 
+4. Comandos que ejecuté:
+   $ cd inhere
+   $ cat ...Hiding-From-You
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó. La contraseña obtenida es 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+Nivel 5
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Ingresar a la carpeta inhere y revisar cada archivo. 
+2. ¿Qué comando(s) creo que necesito?
+Cat
+3. ¿Dónde busqué información? (link o man page)
+Busqué comandos para hacer la búsqueda más fácil. 
+4. Comandos que ejecuté:
+   $ file ./*
+   $ cat ./-file07
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al hacer file ./* me salían los detalles de cada archivo, y el único que decía TEXT era el archivo -file07, por lo que hice un CAT y obtuve la información.
+Sí funcionó. La contraseña obtenida es 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+Nivel 6
+
+1. ¿Qué necesito hacer? (en tus palabras)
+Ingresar a la carpeta inhere y tratar de filtrar los archivos que no son ejecutables y que pesen 1033 bytes.
+2. ¿Qué comando(s) creo que necesito?
+Find
+3. ¿Dónde busqué información? (link o man page)
+https://manpages.ubuntu.com/manpages/noble/man1/find.1.html
+4. Comandos que ejecuté:
+   $ find . -size 1033 -not -executable
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No funcionó. Tuve que agregar -type f y 1033c para indicar que son bytes y que solo busque en archivos.
+Eso me entregó el único archivo que coincidía con esos criterios. Ejecuté un cat y asegure que fuera legible. 
+
+La contraseña obtenida fue HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

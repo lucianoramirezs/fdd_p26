@@ -130,13 +130,20 @@ resultados = Parallel(n_jobs=4)(
 
 ### 1. Lambda en ProcessPoolExecutor (PicklingError)
 
+**Por qué falla:** `multiprocessing` envía funciones a los procesos worker serializándolas con `pickle`. Las lambdas son funciones anónimas — no tienen nombre a nivel de módulo, por lo que `pickle` no puede localizarlas en el espacio de nombres global y lanza `PicklingError` en el momento de enviarlas, antes de ejecutar ningún trabajo.
+
 ```python
 # ❌ Anti-patrón
 with ProcessPoolExecutor() as pool:
     resultados = list(pool.map(lambda x: x**2, datos))
-# → PicklingError: Can't pickle <function <lambda> at ...>
+# → PicklingError: Can't pickle <function <lambda> at 0x7f...>
+# El error ocurre al serializar la función, no al ejecutarla.
+```
 
-# ✓ Fix 1: función definida a nivel de módulo
+La misma restricción aplica a funciones anidadas (`def` dentro de otra `def`) y a métodos de instancia que capturen `self` con estado no-picklable.
+
+```python
+# ✓ Fix 1: función definida a nivel de módulo (picklable por nombre)
 def al_cuadrado(x):
     return x**2
 
@@ -149,77 +156,130 @@ from functools import partial
 def potencia(x, n):
     return x**n
 
-al_cubo = partial(potencia, n=3)
+al_cubo = partial(potencia, n=3)   # partial sí es picklable
 with ProcessPoolExecutor() as pool:
     resultados = list(pool.map(al_cubo, datos))
 ```
 
+> **Notebook 03 — Sección 8:** reproduce el `PicklingError` con lambda, verifica que `partial` lo resuelve, y compara ambos con la versión de función de módulo.
+
+---
+
 ### 2. Pool creado por petición
+
+**Por qué falla:** crear un `ProcessPoolExecutor(max_workers=N)` implica lanzar N procesos del OS — cada uno cuesta entre 50 ms y 200 ms (fork + inicialización del intérprete Python). En un servidor bajo carga, esto se convierte en el cuello de botella principal:
+
+```
+100 req/s × 4 workers × ~100ms/proceso = 400 procesos/s creados y destruidos
+→ overhead de creación ≈ tiempo real de trabajo
+```
 
 ```python
 # ❌ Anti-patrón — chatbot Escenario B
 async def handle_request(peticion):
     with ProcessPoolExecutor(max_workers=4) as pool:  # nuevo pool por petición
         resultado = await loop.run_in_executor(pool, calcular, peticion)
-# Con 100 req/s: 400 procesos creados/destruidos por segundo
+# Al salir del with, pool.shutdown() destruye los 4 procesos.
+# La próxima petición los crea de nuevo.
 
-# ✓ Correcto: pool compartido a nivel de aplicación
+# ✓ Correcto: pool compartido a nivel de aplicación (creado una sola vez)
 _POOL = ProcessPoolExecutor(max_workers=os.cpu_count())
 
 async def handle_request(peticion):
     loop = asyncio.get_event_loop()
     resultado = await loop.run_in_executor(_POOL, calcular, peticion)
+# Los workers se reusan entre peticiones — costo de creación: O(1) total.
 ```
 
+> **Notebook 03 — Sección 9:** mide empíricamente el overhead de pool-por-petición vs pool compartido para N peticiones seguidas. El cociente de tiempos crece linealmente con N.
+
+---
+
 ### 3. Código bloqueante en async sin run_in_executor
+
+**Por qué falla:** el event loop de asyncio corre en **un solo hilo**. Cuando una corrutina llama a una función bloqueante (como `time.sleep()`, `requests.get()`, o `open().read()`), ese hilo queda detenido durante toda la espera. Como no hay otro hilo que ejecute el event loop, **todas las corrutinas pendientes se congelan** — no solo la que hizo la llamada bloqueante.
+
+Formalmente: exec(τ_bloqueante) ocupa el hilo del event loop durante wait(τ_bloqueante), eliminando la capacidad de M4 de explotar las esperas de otras corrutinas.
 
 ```python
 # ❌ Anti-patrón
 async def handler():
-    datos = open("archivo.csv").read()     # bloqueante → congela event loop
-    resultado = requests.get(url)          # bloqueante → congela event loop
+    datos = open("archivo.csv").read()     # bloqueante → congela TODAS las corrutinas
+    resultado = requests.get(url)          # bloqueante → ídem
+    # Mientras espera, ningún otro usuario del chatbot avanza.
 
-# ✓ Correcto
+# ✓ Fix: delegar a un executor (hilo o proceso separado)
 async def handler():
     loop = asyncio.get_event_loop()
+    # run_in_executor corre la función en un ThreadPoolExecutor y
+    # devuelve el control al event loop mientras espera.
     datos = await loop.run_in_executor(None, leer_archivo, "archivo.csv")
+
+    # Para I/O de red: usar librería async nativa (no bloquea el hilo del event loop)
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             resultado = await response.json()
 ```
 
+El `None` en `run_in_executor(None, ...)` usa el ThreadPoolExecutor por defecto del event loop — suficiente para I/O. Para CPU-bound usar explícitamente `ProcessPoolExecutor` (ver Sección 10 del Notebook 03).
+
+> **Notebook 02 — Sección 2:** usa `asyncio` debug mode y `loop.slow_callback_duration` para detectar automáticamente cuándo una corrutina bloquea el event loop. La traza muestra exactamente cuánto tiempo se congela el loop.
+>
+> **Notebook 03 — Sección 10:** implementa el patrón completo M5b: `asyncio` para I/O + `ProcessPoolExecutor` para CPU-bound en el mismo servidor, comparando con la versión donde `time.sleep()` bloquea el event loop.
+
+---
+
 ### 4. Más workers que cores para CPU-bound
+
+**Por qué falla:** para tareas CPU-bound, `wait(τᵢ) = ∅` — los workers nunca se bloquean esperando I/O. Con P cores disponibles, el OS solo puede ejecutar P procesos simultáneamente. Si hay N > P workers, los N − P extra deben esperar su turno en el scheduler, añadiendo context-switches que consumen ciclos de CPU sin hacer trabajo útil (thrashing):
+
+```
+N = 100 procesos, P = 8 cores
+→ En cualquier instante: 8 ejecutan, 92 esperan
+→ Overhead de scheduling domina cuando N >> P
+```
 
 ```python
 # ❌ Anti-patrón (thrashing)
 with ProcessPoolExecutor(max_workers=100) as pool:  # máquina tiene 8 cores
     resultados = list(pool.map(tarea_cpu_bound, datos))
-# 100 procesos compiten por 8 cores → overhead domina el trabajo útil
 
 # ✓ Correcto
 with ProcessPoolExecutor(max_workers=os.cpu_count()) as pool:
     resultados = list(pool.map(tarea_cpu_bound, datos))
 ```
 
-Para I/O-bound, más workers que cores puede ser útil (los workers esperan I/O, no compiten por CPU). Para CPU-bound, `max_workers = os.cpu_count()` es el óptimo.
+Para I/O-bound la lógica es opuesta: como `wait(τᵢ) ≠ ∅`, más workers que cores sí ayuda (los workers bloqueados en I/O no compiten por CPU). El óptimo para I/O-bound depende de la latencia del dispositivo externo y puede estar en 10× o más.
+
+> **Notebook 03 — Sección 6:** mide threading vs multiprocessing para CPU-bound con distintos valores de workers. El GIL hace que threading no escale; multiprocessing escala hasta `os.cpu_count()` y luego se aplana.
+>
+> **La gráfica `pool_size_vs_throughput.png`** (en esta página) muestra el punto de inflexión empíricamente: throughput sube hasta P = `os.cpu_count()` y cae o se aplana con workers adicionales.
+
+---
 
 ### 5. Falta de `if __name__ == "__main__"` en scripts
+
+**Por qué falla:** en Windows y macOS, `multiprocessing` usa el método `spawn` para crear procesos — cada worker lanza un nuevo intérprete Python e **importa el módulo principal desde cero**. Si el código que crea el pool está en el nivel de módulo (fuera de cualquier función), al importarse genera nuevos workers, que importan el módulo de nuevo, que generan más workers... recursión infinita hasta agotar la memoria o los PID del OS.
 
 ```python
 # ❌ En scripts .py (no en notebooks)
 from concurrent.futures import ProcessPoolExecutor
 
-pool = ProcessPoolExecutor(max_workers=4)
+pool = ProcessPoolExecutor(max_workers=4)   # se ejecuta al importar
 resultados = list(pool.map(mi_funcion, datos))
-# En Windows/macOS: cada worker importa el módulo → recursión infinita
+# En Windows/macOS: RuntimeError o cuelgue total al intentar ejecutar
 
-# ✓ Correcto en scripts
+# ✓ Correcto: el guard evita que el pool se cree durante el import
 if __name__ == "__main__":
-    pool = ProcessPoolExecutor(max_workers=4)
-    resultados = list(pool.map(mi_funcion, datos))
+    with ProcessPoolExecutor(max_workers=4) as pool:
+        resultados = list(pool.map(mi_funcion, datos))
 ```
 
-En notebooks este problema no ocurre. En scripts `.py` es obligatorio.
+En Linux el método por defecto es `fork` (copia el proceso padre tal cual), por lo que el error no aparece — pero el código sin guard seguirá fallando en producción si algún día corre en macOS/Windows o si el método se cambia a `spawn` explícitamente. El guard es obligatorio para portabilidad.
+
+En notebooks este problema no ocurre porque el kernel de Jupyter ya proporciona el proceso raíz y no re-importa el notebook al crear workers.
+
+> **Notebook 03 — Sección 8:** el ejemplo del PicklingError de lambda también cubre la picklabilidad general. Si adaptas el código del notebook a un script `.py` sin el guard, puedes reproducir el error de spawn en tu máquina.
 
 ---
 
@@ -231,6 +291,8 @@ En notebooks este problema no ocurre. En scripts `.py` es obligatorio.
 
 Tanto asyncio como ThreadPoolExecutor producen speedup ~N para N tareas I/O-bound. asyncio tiene menor overhead por tarea porque no crea hilos del OS — relevante para el Escenario A con muchos usuarios concurrentes.
 
+> **Notebook 03 — Sección 5:** mide empíricamente asyncio vs ThreadPoolExecutor para I/O-bound. Ambos producen speedup, pero asyncio escala mejor porque los hilos tienen overhead de creación y stack. La diferencia crece con N.
+
 ### CPU-bound: ProcessPoolExecutor vs threading vs secuencial
 
 ![Benchmark CPU-bound: ProcessPoolExecutor vs threading vs secuencial](./images/benchmark_cpu_bound.png)
@@ -238,11 +300,17 @@ Tanto asyncio como ThreadPoolExecutor producen speedup ~N para N tareas I/O-boun
 - `threading`: speedup ≈ 1 (o menor, por overhead del GIL) — confirma por qué threading no sirve para el Escenario B
 - `ProcessPoolExecutor`: speedup ≈ P (limitado por Amdahl con S del overhead de serialización)
 
+> **Notebook 03 — Sección 6:** reproduce este benchmark con tu máquina. La comparación threading/multiprocessing hace visible el GIL en números: threading puede ser más lento que secuencial por el overhead de sincronización, mientras multiprocessing escala hasta `os.cpu_count()`.
+>
+> **Notebook 01 — Sección 3 y 4:** establece la base: GIL bloqueado durante CPU-bound (sin speedup con threading) vs GIL liberado durante I/O-bound (sí hay speedup con threading). El benchmark de esta página es la extensión a procesamiento paralelo.
+
 ### Pool size vs throughput
 
 ![Pool size vs throughput: punto óptimo en os.cpu_count()](./images/pool_size_vs_throughput.png)
 
 El punto de inflexión para CPU-bound ocurre en `max_workers = os.cpu_count()`. Para I/O-bound, el óptimo depende de la latencia del dispositivo externo y puede estar mucho más alto.
+
+> **Notebook 03 — Sección 7:** compara joblib vs ProcessPoolExecutor con la misma tarea CPU-bound. También es el punto de partida para experimentar con distintos valores de `n_jobs` / `max_workers` y ver cómo el throughput se aplana o cae al sobrepasar el número de cores.
 
 ---
 

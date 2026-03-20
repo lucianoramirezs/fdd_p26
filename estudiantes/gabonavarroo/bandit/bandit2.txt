@@ -1,0 +1,97 @@
+Gabriel Navarro Cerón
+000218152
+
+Tarea: Bandit OverTheWire Niveles 6 al 10
+
+=== NIVEL 6 --> NIVEL 7 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+Buscar un archivo en algún lugar del servidor que cumpla con las siguientes 3 propiedades: tamaño de 33 bits, que el usuario dueño sea bandit7 y el grupo al que pertenece sea bandit6. Además se puede asumir que es un archivo, pues ahí estará la contraseña. Para buscar en todo el servidor debo buscar desde la raíz / para buscar algún archivo que cumpla con esas propiedades.
+
+2. ¿Qué comando(s) creo que necesito?
+find . -group gname
+find . -user uname
+find . -size Nc
+
+3. ¿Dónde busqué información? (link o man page)
+manpage de find
+
+4. Comandos que ejecuté:
+cd /
+ls -la
+find / -size 33c -user bandit7 -group bandit7
+find / -size 33c -user bandit7 -group bandit7 -type f (para reducir la cantidad de archivos)
+password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit7@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al inicio estaba concatenando los find con un pipe, pero después aplique todos los filtros a solamente un comando. Después agregue explícitamente que fuera un archivo para evitar tantos errores de Permission Denied
+
+=== NIVEL 7 --> NIVEL 8 ===
+1. ¿Qué necesito hacer? buscar en el archivo data.txt la linea que diga millionth e imprimirla, con grep, para así poder ver la contraseña
+2. ¿Qué comando(s) creo que necesito?
+grep "millionth" data.txt
+
+3. ¿Dónde busqué información? (link o man page)
+man grep
+
+4. Comandos que ejecuté:
+ls
+grep "millionth" data.txt
+password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+exit
+gabonavarroo@LaptopGabo:~$ ssh bandit8@bandit.labs.overthewire.org -p 2220
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si, funcionó fácilmente
+
+=== NIVEL 8 --> NIVEL 9 ===
+1. ¿Qué necesito hacer? 
+Necesito abrir el archivo data.txt y filtrar con uniq para encontrar únicamente a la línea que solamente aparece una vez en todo el archivo.
+2. ¿Qué comando(s) creo que necesito?
+uniq -ui
+3. ¿Dónde busqué información? (link o man page)
+man page uniq
+man page sort
+https://www.geeksforgeeks.org/linux-unix/uniq-command-in-linux-with-examples/
+
+4. Comandos que ejecuté:
+sort data.txt | uniq -u
+password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al inicio me extrañaba que no funcionaba el uniq como esperaba; no había entendido que solamente filtraba duplicados adyacentes. Fue hasta que busque en otros recursos que entendí que este era su funcionamiento y por ello se requería y usaba casi siempre, de la mano de sort para que los duplicados queden adyacentes y uniq funcione correctamente.
+
+=== NIVEL 9 --> NIVEL 10 ===
+1. ¿Qué necesito hacer? buscar dentro del archivo data.txt solo aquello que es un string con el comando strings y filtrar con grep buscando una concatenación de signos igual, que en teoría, me debería llevar a la respuesta
+2. ¿Qué comando(s) creo que necesito?
+strings data.txt | grep "==="
+
+3. ¿Dónde busqué información? (link o man page)
+man strings
+man grep 
+
+4. Comandos que ejecuté:
+ls
+strings data.txt | grep "==="
+password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Funcionó bastante bien, hasta se formo el mensaje 'the password is: ', lo cual creo que indica que sí era así como debía hacerlo.
+
+=== NIVEL 10 --> NIVEL 11 ===
+1. ¿Qué necesito hacer? (en tus palabras) Como la instrucción menciona que esta encoded, entonces debo de encontrar la manera de decodear el contenido de data.txt para así poder visualizar la contraseña. Es probable que tenga que usar el comando base64 para hacer este procedimiento
+2. ¿Qué comando(s) creo que necesito?
+base64 -d data.txt
+
+3. ¿Dónde busqué información? (link o man page)
+https://en.wikipedia.org/wiki/Base64
+man page base64
+
+4. Comandos que ejecuté:
+ls
+base64 -d data.txt
+password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Funciono bastante bien. Probé de igual manera sin la bandera -d lo cual creo que debió haber encodeado una vez más, puesto que no decía 'the password is'. Solo fue por curiosidad. La manpage de base64 fue bastante directa.

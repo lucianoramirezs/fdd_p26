@@ -1,0 +1,71 @@
+Paris Adrián López Ruelas 000218491
+
+=== NIVEL 6 -->7 ===
+1. ¿Qué necesito hacer? Buscar y filtrar por lo que me dice, el usuusrio, el peso y el grupo
+2. ¿Qué comando(s) creo que necesito? find con banderas de -user, -group y --size
+3. ¿Dónde busqué información? https://stackoverflow-com.translate.goog/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+    Busqué como tratar de evir los permission denied en linux
+4. Comandos que ejecuté:
+   $ ssh bandit6@bandit.labs.overthewire.org -p 2220
+   $ find / -user bandit7 -group bandit6 -size 33c 
+5. ¿Funcionó? Si no, ¿qué ajusté? Al princpio no funcionó, y por eso ajusté con 2>/dev/null, que fue lo que investigué
+   $ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+   $ cat /var/lib/dpkg/info/bandit7.password
+   $ exit
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+=== NIVEL 7 --> 8 ===
+1. ¿Qué necesito hacer? Encontrar la contraseña al lado de un texto que me pone la plataforma
+2. ¿Qué comando(s) creo que necesito? grep para buscar, simplemente palabra lugar
+3. ¿Dónde busqué información? Apuntes de clase
+4. Comandos que ejecuté:
+   $ ssh bandit7@bandit.labs.overthewire.org -p 2220
+   $ grep millionth data.txt
+   $ exit
+5. ¿Funcionó? Si no, ¿qué ajusté? Este me funcionó a la primera, debía de buscar una palabra dentro de un archivo
+    y la mejor opción a mi parecer es grep.
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+=== NIVEL 8 --> 9 ===
+1. ¿Qué necesito hacer? Diferenciar y encontrar la contraseña en un archivo, pero solo se repite una vez
+2. ¿Qué comando(s) creo que necesito? uniq, ese lo investigué, seguro se usa de alguna manera.
+3. ¿Dónde busqué información? https://www-geeksforgeeks-org.translate.goog/linux-unix/uniq-command-in-linux-with-examples/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc&_x_tr_hist=true
+    https://tldr.inbrowser.app/pages/common/sort
+4. Comandos que ejecuté:
+   $ ssh bandit8@bandit.labs.overthewire.org -p 2220
+   $ uniq data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? No funcionó, me salió una lista gigante de mucho texto. Volví a la página y una de las 
+    recomendaciones era sort, pero igual usé sort -u y seguía teniendo una lista. Y según leí uniq compara solo las
+    lineas cerca de ella, por lo que mejor puede pasar es ordenarlas y DESPUÉS el unique -u
+   $ sort data.txt | uniq -u
+   $ exit
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+=== NIVEL 9 --> 10 ===
+1. ¿Qué necesito hacer? Buscar en el documento, primero encontrar los strings para despues buscar las "="
+2. ¿Qué comando(s) creo que necesito? según la investigación y las recomendaciones de Bandit: strings. También puedo usar grep para 
+    buscar en las lineas los "="
+3. ¿Dónde busqué información? https://tldr.inbrowser.app/pages/common/strings
+4. Comandos que ejecuté:
+   $ ssh bandit9@bandit.labs.overthewire.org -p 2220
+   $ strings data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté? Sí, con ese comando y buscando en la lista ya podías encontrar la contraseña,
+    aunque para obtenerla como unsa salida usé:
+   $ strings data.txt | grep "=="
+   $ exit
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+=== NIVEL 10 --> 11 ===
+1. ¿Qué necesito hacer? Buscar la contraseña con base64 encoded data, o sea filtrar y encontrar.
+2. ¿Qué comando(s) creo que necesito? base64 seguro por las recomendaciones de bandit.
+3. ¿Dónde busqué información? https://tldr.inbrowser.app/pages/osx/base64
+    https://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line
+4. Comandos que ejecuté:
+   $ ssh bandit10@bandit.labs.overthewire.org -p 2220
+   $ base64 -i data.txt
+   $ exit
+5. ¿Funcionó? Si no, ¿qué ajusté? Esta funcionó bien, aunque si ajusté la bandera, en la paguina solo venía la -i,
+    por lo que tuve qu ehacer otra busqueda y salió:
+   $ base64 -d data.txt
+   $ exit
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

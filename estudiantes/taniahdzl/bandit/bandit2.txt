@@ -1,0 +1,71 @@
+Nombre: Tania Hernandez Lira
+Clave única: 208237
+
+== NIVEL 6 == 
+1. ¿Qué necesito hacer? Encontrar el archivo que tiene el user "bandit7", del group "bandit6" y tamaño 33 bytes en todo el servidor
+2. ¿Qué comandos necesito? pwd, ls, find, cat
+3. ¿Dónde busqué la información? Google search 
+4. Comandos ejecutados: 
+Pwd 
+Ls -a -l 
+Find -size 33c
+Find -size 33c | find -user "bandit7"
+Find -type f -size 33c -user "bandit7" -group "bandit6"
+Find ~ -type f -size 33c -user "bandit7" -group "bandit6"
+Find / -type f -size 33c -user "bandit7" -group "bandit6"
+find / -type f -size 33c -user "bandit7" -group "bandit6" 2>/dev/null (filtrar todos los que dicen "permission denied" 
+cat /var/lib/dpkg/info/bandit7.password
+5. ¿Funcionó? Sí, filtró todos aquellos files para los que no tenía permiso, dejando limpia la búsqueda con un solo archivo
+
+PASSWORD PARA EL NIVEL 7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+== NIVEL 7 ==
+1. ¿Qué necesito hacer? Encontrar el file data.txt al lado de la palabra millionth
+2. ¿Qué comandos necesito? Pwd, ls, grep 
+3. ¿Dónde busqué la información? Google
+4. Comandos ejecutados: 
+Pwd
+Ls 
+Grep -n "millionth" ./data.txt
+5. ¿Funcionó? Sí, me dió el número de línea que contenía la palabra junto con la línea de texto, y me dió la contraseña
+
+PASSWORD PARA EL NIVEL 8: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+== NIVEL 8 ==
+1. ¿Qué necesito hacer? En el file data.txt encontrar la línea que ocurre una sola vez 
+2. ¿Qué comandos necesito? Pwd, ls, sort, unique
+3. ¿En dónde busqué la información? Google
+4. Comandos ejecutados: 
+Pwd
+Ls
+Sort -u ./data.txt 
+Sort ./data.txt | uniq -u 
+5. ¿Funcionó? Sí, arrojó la única línea que no se repite en todo el documento. Primero organiza de manera alfabética y el pipe arroja únicamente las líneas que no se repiten en el sorted input
+
+PASSWORD PARA EL NIVEL 9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+== NIVEL 9 == 
+1. ¿Qué necesito hacer? Filtrar de las pocas human-readable lines que hay en el documento que se encuentran delimitadas por varios "=" 
+2. ¿Qué comandos necesito? Pwd, ls, strings, grep
+3. ¿En dónde busqué la información? Google
+4. Comandos ejecutados: 
+Pwd
+Ls
+grep -n "=" ./data.txt (No funcionó por tener binary file)
+strings data.txt | grep -n "=" (Filtra los human-readable y luego muestra las líneas que contienen "="
+5. ¿Funcionó? Sí, al filtrar por los readable y luego los que contenían "=" se limitaron las líneas a sólo unas cuantas, entre las que se encontraba la contraseña
+
+PASSWORD PARA EL NIVEL 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+== NIVEL 10 ==
+1. ¿Qué necesito hacer? Encontrar la contraseña en data.txt que es base64 encoded data
+2. ¿Qué comandos necesito? Pwd, ls, cat, echo, base64
+3. ¿En dónde busqué la información? Google y el sitio de Wikipedia enlistado en la página web
+4. Comandos ejecutados: 
+pwd
+ls
+cat data.txt
+cat data.txt |base64 -d
+5. ¿Funcionó? Sí, al usar el pipe para decodear el archivo, únicamente arrojó la contraseña decodificada. 
+
+PASSWROD PARA EL NIVEL 11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

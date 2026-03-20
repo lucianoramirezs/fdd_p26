@@ -1,0 +1,81 @@
+===Nivel 6 ===
+1. ¿Qué necesito hacer? 
+Buscar un archivo en el sistema que cumpla con requisitos específicos 
+
+2. ¿Qué comando(s) creo que necesito? 
+find con banderas -user, -group y -size
+
+3. ¿Dónde busqué información? 
+https://www.geeksforgeeks.org/linux-unix/find-command-in-linux-with-examples/
+
+4. Comandos que ejecuté: 
+  $ find / -user bandit7 -group bandit6 -size 33c
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+  Sí, el resultado fue el esperado. Lo que tuve que ajustar fueron las banderas porque no sabía como hacer una búsqueda tan especifica 
+
+===Nivel 7 ===
+1. ¿Qué necesito hacer? 
+Buscar la contraseña en un txt junto a la palabra millionth
+
+2. ¿Qué comando(s) creo que necesito? 
+grep
+
+3. ¿Dónde busqué información? 
+No fue necesario buscar información
+
+4. Comandos que ejecuté: 
+  $ grep "millionth" data.txt
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó, este fue un poco más intuitivo porque ya habíamos usado grep antes
+
+===Nivel 8 ===
+1. ¿Qué necesito hacer? 
+Buscar en un txt la única línea que se repite una sola vez
+
+2. ¿Qué comando(s) creo que necesito? 
+sort, grep
+
+3. ¿Dónde busqué información? 
+https://www.geeksforgeeks.org/linux-unix/sort-command-linuxunix-examples/
+https://www.geeksforgeeks.org/linux-unix/uniq-command-in-linux-with-examples/
+
+4. Comandos que ejecuté: 
+  $ sort data.txt | uniq -u
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+El comando sí funcionó. Lo que tuve que ajustar fue encontrar el comando uniq, en un principio pensé que este ejercicio se podía resolver solo con grep
+
+===Nivel 9 ===
+1. ¿Qué necesito hacer? 
+Es necesario filtrar filtrar las cadenas que tienen "==" y extraer cadenas legibles para humanos
+
+2. ¿Qué comando(s) creo que necesito? 
+grep, sort, strings
+
+3. ¿Dónde busqué información? 
+https://ioflood.com/blog/strings-linux-command/
+https://labex.io/es/tutorials/linux-linux-strings-command-with-practical-examples-422934
+
+4. Comandos que ejecuté: 
+  $strings data.txt | grep "=="
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó, lo que ajusté fue el uso adecuado del comando strings con el cual no me encontraba familiarizado en lo absoluto
+
+===Nivel 10 ===
+1. ¿Qué necesito hacer? 
+Decodificar el archivo en base64
+
+2. ¿Qué comando(s) creo que necesito? 
+base64
+
+3. ¿Dónde busqué información? 
+https://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line
+
+4. Comandos que ejecuté: 
+  $ base 64 -d data.txt
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+El base64 aplicado de manera correcta dio el resultado esperado

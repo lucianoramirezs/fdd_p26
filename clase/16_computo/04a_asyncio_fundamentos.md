@@ -41,9 +41,41 @@ Cuando una coroutine llega a un `await`, el event loop registra un callback para
 
 ### La traza temporal
 
+Para hacer el event loop visible, imagina 3 usuarios enviando peticiones simultáneamente. Cada petición del chatbot v2 hace:
+- exec inicial: ~1ms (parsear la petición)
+- wait BD: ~50ms (consultar historial)
+- exec: ~2ms (construir prompt)
+- wait LLM API: ~1500ms (inferencia remota)
+- exec final: ~1ms (formatear respuesta)
+
+```
+t=0.000  gather([τ₁, τ₂, τ₃]) — las 3 coroutines quedan READY en la cola
+
+t=0.001  τ₁ exec: parsea petición  →  await consultar_bd  →  τ₁: WAITING(BD)
+t=0.002  τ₂ exec: parsea petición  →  await consultar_bd  →  τ₂: WAITING(BD)
+t=0.003  τ₃ exec: parsea petición  →  await consultar_bd  →  τ₃: WAITING(BD)
+         ↑ Las 3 peticiones están "en vuelo" — la BD atiende las 3 simultáneamente.
+           El event loop no tiene nada que ejecutar: espera callbacks de I/O.
+
+t=0.051  τ₁ BD responde  →  τ₁: READY  →  exec: construye prompt  →  await llamar_llm  →  WAITING(LLM)
+t=0.052  τ₂ BD responde  →  τ₂: READY  →  exec: construye prompt  →  await llamar_llm  →  WAITING(LLM)
+t=0.053  τ₃ BD responde  →  τ₃: READY  →  exec: construye prompt  →  await llamar_llm  →  WAITING(LLM)
+         ↑ El LLM API recibe las 3 solicitudes casi al mismo tiempo.
+
+t=1.551  τ₁ LLM responde  →  τ₁: READY  →  exec: formatea  →  DONE ✓
+t=1.552  τ₂ LLM responde  →  τ₂: READY  →  exec: formatea  →  DONE ✓
+t=1.553  τ₃ LLM responde  →  τ₃: READY  →  exec: formatea  →  DONE ✓
+
+T_total ≈ 1.553s  (vs M2: 3 × 1.554s = 4.662s)
+```
+
+Dos observaciones clave:
+1. El event loop nunca hace "busy waiting" — entre t=0.003 y t=0.051, el OS monitorea los file descriptors de red y notifica cuando llegan datos.
+2. Los tramos exec (1-2ms) de distintas coroutines sí se intercalan en el hilo único, pero son tan cortos que el overhead es negligible frente a los waits (50-1500ms).
+
 ![Traza del event loop: qué coroutine ejecuta en cada momento](./images/event_loop_trace.png)
 
-La traza muestra cómo el event loop salta entre coroutines en los puntos de `await` — los momentos en que `exec(τᵢ)` se pausa y `exec(τⱼ)` comienza.
+> **Verifica en el notebook:** Notebook 02 — Sección 1 mide exactamente esta diferencia con N=5 tareas de 1s. Corre las celdas y compara el tiempo de M2 (await secuencial) con M4 (gather). La traza del event loop con `asyncio` debug mode está en Sección 2.
 
 ---
 
@@ -146,13 +178,25 @@ async def procesar_m4(usuarios):
 `asyncio.gather(*coroutines)` registra **todas** las coroutines en el event loop antes de que ninguna empiece:
 
 ```
-gather([τ₁, τ₂, τ₃]):
-  t=0:    registra τ₁, τ₂, τ₃ en Q (todas READY)
-  t=0:    ejecuta τ₁ hasta su primer await → τ₁ pasa a WAITING
-  t=0⁺:   ejecuta τ₂ hasta su primer await → τ₂ pasa a WAITING
-  t=0⁺⁺:  ejecuta τ₃ hasta su primer await → τ₃ pasa a WAITING
-  t=1.5:  τ₁ termina su wait → READY → ejecuta hasta siguiente await o return
-  ...
+gather([τ₁, τ₂, τ₃]) — lo que ocurre internamente:
+
+  Fase 1 — registro (microsegundos):
+    El event loop recibe τ₁, τ₂, τ₃ y las pone en cola como READY.
+    Ninguna ha ejecutado todavía. Ninguna espera todavía.
+
+  Fase 2 — primera ronda de exec (milisegundos):
+    El event loop toma τ₁ de la cola → la ejecuta hasta su primer `await`
+    → τ₁ pasa a WAITING. La operación I/O de τ₁ ya está en vuelo.
+    Lo mismo con τ₂, luego con τ₃.
+    Las tres operaciones I/O corren simultáneamente en el OS.
+
+  Fase 3 — espera dirigida por eventos:
+    El event loop monitorea los file descriptors (sockets de BD, LLM).
+    Cuando cualquier I/O completa, la coroutine correspondiente
+    vuelve a READY y el event loop la reanuda desde el punto de `await`.
+
+  Fase 4 — gather completa cuando la ÚLTIMA coroutine retorna.
+    El resultado es una lista en el orden de creación, no de finalización.
 ```
 
 El truco: **todas las tareas se crean antes de que el event loop empiece a esperarlas**. Con `await secuencial`, τ₂ ni siquiera existe hasta que τ₁ termina.
@@ -207,6 +251,8 @@ cursor.execute(query)   → await cursor.execute(query)   (asyncpg, aiosqlite)
 ```
 
 Si la operación no tiene versión async, delégala a un `ThreadPoolExecutor` para no bloquear el event loop.
+
+> **Verifica en el notebook:** Notebook 02 — Sección 2 usa `loop.set_debug(True)` y `loop.slow_callback_duration = 0.05` para detectar automáticamente cuándo una función bloquea el event loop más de 50ms. Corre gather con `asyncio.sleep` y luego con `time.sleep` — la diferencia en el output es inmediata.
 
 ---
 
@@ -290,6 +336,27 @@ async def handle_request_local(user_id):
 ```
 
 La llamada `inferir_llm_local(historial)` no tiene `await` — es código Python síncrono que bloquea el hilo durante 2 segundos. Durante esos 2 segundos, **ninguna otra coroutine puede avanzar**. M4 colapsa para el paso de inferencia.
+
+Visualmente, con 3 usuarios y LLM local de 2s:
+
+```
+Con asyncio puro (LLM local sin await):
+
+t=0.000  gather([τ₁, τ₂, τ₃]) — las 3 empiezan
+t=0.003  τ₁, τ₂, τ₃ todas WAITING(BD)
+t=0.053  τ₁ BD lista → exec → inferir_llm_local() → BLOQUEA EL HILO 2s
+         τ₂ y τ₃ están READY pero no pueden ejecutar — el hilo está ocupado
+t=2.053  τ₁ termina inferencia → exec → DONE
+         τ₂ resume → exec → inferir_llm_local() → BLOQUEA EL HILO 2s
+         τ₃ sigue esperando
+t=4.053  τ₂ DONE, τ₃ resume → inferencia → BLOQUEA 2s
+t=6.053  τ₃ DONE
+
+T_total ≈ 6s  (3 × 2s de inferencia en serie)
+Prometíamos M4: T_total ≈ 2s. Lo que tenemos es M1 para el paso de inferencia.
+```
+
+La solución — `loop.run_in_executor(ProcessPoolExecutor)` — es exactamente lo que hace el chatbot v3 (M5b).
 
 Necesitamos un modelo diferente: uno que pueda ejecutar la inferencia CPU-bound en procesos paralelos mientras el event loop sigue atendiendo I/O.
 

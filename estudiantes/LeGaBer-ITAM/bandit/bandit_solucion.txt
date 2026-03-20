@@ -1,0 +1,149 @@
+Leonardo García Bernal 211858
+
+=== NIVEL 0 ===
+1. ¿Qué necesito hacer?
+	Abrir el archivo readme
+2. ¿Qué comando(s) creo que necesito?
+	cat
+3. ¿Dónde busqué información?
+	No fue necesario.
+4. Comandos que ejecuté:
+	$cat readme
+5. ¿Funcionó? Si no, ¿qué ajusté?
+	Sí
+
+=== NIVEL 1 ===
+1. ¿Qué necesito hacer?                  
+        Abrir el archivo -
+2. ¿Qué comando(s) creo que necesito?
+        cat
+3. ¿Dónde busqué información?                   
+        En StackExchange, bajo el título de Usage of dash (-) in place of 
+	a filename. Fue necesario porque el nombre del archivo es igual
+	a un caractér reservardo.
+4. Comandos que ejecuté:
+        $cat /home/-
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí
+
+=== NIVEL 2 ===
+1. ¿Qué necesito hacer?                  
+        Abrir el archivo --spaces in this filename--     
+2. ¿Qué comando(s) creo que necesito?
+        cat
+3. ¿Dónde busqué información?                   
+        No fue necesario
+4. Comandos que ejecuté:
+        $cat /home/bandit2/'--spaces in this filename--'
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí
+
+=== NIVEL 3 ===
+1. ¿Qué necesito hacer?                  
+        Abrir el archivo oculto    
+2. ¿Qué comando(s) creo que necesito?
+        cat
+3. ¿Dónde busqué información?                   
+        No fue necesario.
+4. Comandos que ejecuté:
+	$cd inhere
+	$cat .*
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Funcionó parcialmente, pues tuve que buscar la contraseña
+	a ojo, pero no fue difícil porque era el único texto
+	human-readable.
+
+=== NIVEL 4 ===
+1. ¿Qué necesito hacer?                  
+        Abrir el archivo -     
+2. ¿Qué comando(s) creo que necesito?
+        cat
+3. ¿Dónde busqué información?        
+	No fue necesario.
+4. Comandos que ejecuté:
+        for file in inhere/-*; do cat $file; done
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí. Aunque no es una forma muy eficiente, aproveché que la contraseña
+	era el único archivo human-readable.
+
+=== NIVEL 5 ===
+1. ¿Qué necesito hacer?                  
+        Encontrar el archivo que tiene las características adecuadas
+	y luego abrirlo     
+2. ¿Qué comando(s) creo que necesito?
+        cat
+	find
+3. ¿Dónde busqué información?                   
+        En StackExchange, bajo el título de Find human-readable files.
+	Fue necesario porque el manual del comando find es enorme. En ese
+	hilo se proponen varias soluciones precisamente para este nivel 
+	de Bandit.
+4. Comandos que ejecuté:
+        $find -size 1033c ! -executable
+	$cd maybehere07
+	$cat .*2
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí
+
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer?
+        Encontrar un archivo tal que bandit7 sea el usuario dueño,
+	bandit6 sea grupo dueñ, que pese 33 bytes.
+2. ¿Qué comando(s) creo que necesito?
+        find, cat.
+3. ¿Dónde busqué información?
+        Tuve que buscar la solución porque mi comando inicial tenía mal
+	 asignado el directorio de búsqueda. 
+4. Comandos que ejecuté:
+        $find /home -user bandit7 -group bandit6 -size 33c
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        No, el directorio correcto era el root (/).
+
+=== NIVEL 7 ===
+1. ¿Qué necesito hacer?
+        Identificar el renglón con la cadena "millionth".
+2. ¿Qué comando(s) creo que necesito?
+        cat, grep.
+3. ¿Dónde busqué información?
+        No tuve que buscar infromación.                
+4. Comandos que ejecuté:
+        $head data.txt
+	$cat data.txt | grep millionth
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí.
+
+=== NIVEL 8 ===
+1. ¿Qué necesito hacer?
+        Identificar la cadena única del archivo data.txt.
+2. ¿Qué comando(s) creo que necesito?
+        cat, uniq, sort.
+3. ¿Dónde busqué información?
+        En el manual de uniq.
+4. Comandos que ejecuté:
+        $cat data.txt | sort | uniq -u 
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí.
+
+=== NIVEL 9 ===
+1. ¿Qué necesito hacer?
+        Identificar la cadena única cognoscible del arhivo data.txt.
+2. ¿Qué comando(s) creo que necesito?
+        cat, grep.
+3. ¿Dónde busqué información?
+        No tuve que buscar información.
+4. Comandos que ejecuté:
+        $cat data.txt                   
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí, solo tuve que buscar la cadena manualmente.
+
+=== NIVEL 10 ===
+1. ¿Qué necesito hacer?
+        Decodificar la línea de texto.
+2. ¿Qué comando(s) creo que necesito?
+        base64
+3. ¿Dónde busqué información?
+        En el manual de base64.
+4. Comandos que ejecuté:
+        $cat data.txt | base64 -d
+5. ¿Funcionó? Si no, ¿qué ajusté?
+        Sí.

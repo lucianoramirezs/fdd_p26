@@ -1,0 +1,71 @@
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer? 
+Necesito obtener la contraseña para el nivel 7 que esta en un archivo que le pertenece a bandit7 y el grupo bandit6 y pesa 33 bytes.
+2. ¿Qué comando(s) creo que necesito?
+Creo que necesito usar find y listar con detalle (-la).
+3. ¿Dónde busqué información? (link o man page)
+Man y un forum en google.
+4. Comandos que ejecuté:
+   $ find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+   $ cat /var/lib/dpkg/info/bandit7.password
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Me costó mucho el nivel; busque como utilizar el find con usuarios y grupos, pero me daba una traza de errores gigantes, hasta entender lo que hacia 2>/dev/null (redirige errores) y obtuve solo el resultado correcto de la localidad del archivo que satisfacía los requerimientos. 
+
+Contraseña obtenida: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+=== NIVEL 7 ===
+1. ¿Qué necesito hacer? 
+Hacer un cat con un reo y hacer un regex que haga match en la palabra millionth.
+2. ¿Qué comando(s) creo que necesito?
+$ cat data.txt | grep millionth
+3. ¿Dónde busqué información? (link o man page)
+No busqué.
+4. Comandos que ejecuté:
+   $ cat data.txt | grep millionth
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funcionó.
+Contraseña obtenida: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+=== NIVEL 8 ===
+1. ¿Qué necesito hacer? 
+Debo de buscar la única linea en el archivo que no este repetida. 
+2. ¿Qué comando(s) creo que necesito?
+Creo que necesito usar el comando uniq para buscar unicidad. 
+3. ¿Dónde busqué información? (link o man page)
+Stackoverflow. 
+4. Comandos que ejecuté:
+   $ cat data.txt | uniq
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No funcionó. Determiné que era necesario sortear para que no se elimine la memoria de algo que ya sucedió, y ademas era necesario usar la bandera -u para que elimine lineas innecesarias.  
+
+Contraseña obtenida: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+=== NIVEL 9 ===
+1. ¿Qué necesito hacer? 
+Necesito buscar en ele archivo con una expresión regular que haga match con "="
+2. ¿Qué comando(s) creo que necesito?
+cat data.txt | grep "="
+3. ¿Dónde busqué información? (link o man page)
+Stackoverflow
+4. Comandos que ejecuté:
+   $ cat data.txt | grep "="
+
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No, tuve que usar strings data.txt | grep "==" , sino no servia el regex porque decía que era un archivo binario. 
+
+Contraseña obtenida: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+=== NIVEL 10 ===
+1. ¿Qué necesito hacer? 
+Desencriptar un archivo en base64.
+2. ¿Qué comando(s) creo que necesito?
+No se, debo de investigar en internet como desencriptar base64. 
+3. ¿Dónde busqué información? (link o man page)
+Wikipedia
+4. Comandos que ejecuté:
+   $ base64 -d data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Si funciono. 
+Contraseña obtenida: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

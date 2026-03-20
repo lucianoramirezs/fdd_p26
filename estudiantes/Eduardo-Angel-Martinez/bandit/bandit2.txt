@@ -1,0 +1,90 @@
+Nombre: Eduardo Angel Martinez Garduño
+Clave: 208854
+
+=== NIVEL 6 ===
+¿Qué necesito hacer? (en tus palabras)
+Tengo que encontrar la contraseña del nivel 7 dentro del servidor en un archivo que cumple con las siguientes características: es del user bandit7 , del grupo bandit 6 y tiene que pesar 33 bytes.
+¿Qué comando(s) creo que necesito?
+Yo creo que voy a ocupar ls, pwd y find (con varias banderas como -user, -group o algo así), también man.
+¿Dónde busqué información? (link o man page)
+Usé la man page para poder recordar cómo se usaba size y confirmar si las banderas que utilizaba si eran user y group. 
+Comandos que ejecuté:
+$ ssh -p 2220 bandit6@bandit.labs.overthewire.org
+$ ls
+$ ls -a
+$ find -user bandit7
+$ cd ..
+$ ls
+$ find -user bandit7 -group bandit6 -size 33c -executable
+$ find -user bandit7 -group bandit6 -size 33c -readable 
+$ cat ./var/lib/dpkg/info/bandit7.password
+$ exit
+¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó solo que tuve que buscar el archivo al que podía acceder dentro de todos los resultados que me dieron. 
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+=== NIVEL 7===
+¿Qué necesito hacer? (en tus palabras)
+Necesito encontrar primero el archivo y después filtrar el archivo en la línea en la que diga "millionth", la contraseña está escrita a un lado.
+¿Qué comando(s) creo que necesito?
+Creo que usaré pwd, ls, cd, cat, grep, find y man.
+¿Dónde busqué información? (link o man page)
+Busqué información en la página de man.
+Comandos que ejecuté:
+$ ssh -p 2220 bandit7@bandit.labs.overthewire.org
+$ ls
+$ man grep
+$ grep millionth data.txt
+$ exit
+¿Funcionó? Si no, ¿qué ajusté?
+Sí, funcionó
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+=== NIVEL 8 ===
+¿Qué necesito hacer? (en tus palabras)
+Necesito encontrar la línea del archivo que es la única que no se repite, ahí está la contraseña.
+¿Qué comando(s) creo que necesito?
+Yo creo que necesito ls, cd, man, grep.
+¿Dónde busqué información? (link o man page)
+Man page para ver la sintaxis de grep. 
+Usé este link para poder ver cómo funciona uniq: El comando Linux 'uniq': Filtrando y eliminando duplicados eficientemente. Me di cuenta que uniq si detecta duplicados pero lo hace en líneas contiguas.
+Comandos que ejecuté:
+$ ls
+$ cat data.txt
+$ man uniq
+$ uniq -u data.txt
+¿Funcionó? Si no, ¿qué ajusté?
+No funcionó entonces empecé a investigar cómo funciona uniq porque no me hacía sentido que muchas líneas me salieran con una sola aparición si se supone que la única línea que tenia la contraseña era aquella con una aparición.
+Le puse:
+$ sort data.txt | uniq -u
+Y funcionó, contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+=== NIVEL 9===
+¿Qué necesito hacer? (en tus palabras)
+Necesito encontrar la contraseña en una de las únicas líneas human-readable y a parte esta al lado de una serie de ====.
+¿Qué comando(s) creo que necesito?
+Find, grep, cd, ls, cat
+¿Dónde busqué información? (link o man page)
+Man page. Me di cuenta de que decía human-readable strings. Vi el archivo y tenía muchas cosas que ni siquiera se podían printear. Entonces busque man string, que me dijo que printeaba las líneas de al menos cuatro caracteres que sí se pudieran printear.
+Comandos que ejecuté:
+$ ls
+$ cat data.txt
+$ man string
+$ string data.txt
+$ string data.txt | grep =
+$ exit
+¿Funcionó? Si no, ¿qué ajusté?
+Sí funcionó, contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+=== NIVEL 10 ===
+¿Qué necesito hacer? (en tus palabras)
+Sacar la contraseña de un archivo que está codificado en base64.
+¿Qué comando(s) creo que necesito?
+Creo que necesito: cat, ls, grep y base64.
+¿Dónde busqué información? (link o man page)
+Man page. 
+Comandos que ejecuté:
+$ ls
+$ cat data.txt
+$ man base64
+$ base64 data.txt
+¿Funcionó? Si no, ¿qué ajusté?
+No funcionó porque lo que estaba haciendo ahí es codificando el archivo que ya estaba codificado. Entonces volví a revisar y me di cuenta de que para decodificar es la bandera -d (decode).
+Puse $ base64 -d data.txt
+Y funcionó, contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
