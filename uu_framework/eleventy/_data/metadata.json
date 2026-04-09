@@ -786,7 +786,7 @@
         "attrs": {
           "id": "9.P1",
           "title": "Proyecto: Librería de Python publicable en PyPI",
-          "due": "2026-04-28",
+          "due": "2026-04-09",
           "points": "10"
         },
         "content_preview": "Desarrolla una librería de Python útil y publicable. El tema es libre, pero debe resolver un problema real y tener un caso de uso claro.\n\n**Requisitos obligatorios:**\n1. Librería instalable con `pip`."
@@ -1365,6 +1365,218 @@
     ],
     "has_frontmatter": true
   },
+  "18_intro_a_apis/10_comparacion_y_decision.md": {
+    "path": "clase/18_intro_a_apis/10_comparacion_y_decision.md",
+    "title": "Comparacion y arbol de decision",
+    "type": "lesson",
+    "order": 10,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Disena la capa de APIs para un sistema real"
+        },
+        "content_preview": "Imagina que estas disenando **un editor de documentos colaborativo en\ntiempo real con sugerencias de IA** (piensa en Google Docs + Copilot).\n\nEl sistema tiene estos componentes:\n\n1. **Editor web** don"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/06_polling_y_webhooks.md": {
+    "path": "clase/18_intro_a_apis/06_polling_y_webhooks.md",
+    "title": "Polling y Webhooks",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña un sistema de notificaciones para un pipeline de datos"
+        },
+        "content_preview": "Tienes un pipeline de datos que:\n1. Recibe un CSV con 10 millones de filas\n2. Limpia los datos (~5 minutos)\n3. Entrena un modelo (~30 minutos)\n4. Genera predicciones (~10 minutos)\n5. Exporta resultado"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/07_grpc_y_protobuf.md": {
+    "path": "clase/18_intro_a_apis/07_grpc_y_protobuf.md",
+    "title": "gRPC y Protocol Buffers",
+    "type": "lesson",
+    "order": 7,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña mensajes .proto para un sistema de e-commerce"
+        },
+        "content_preview": "Un sistema de e-commerce necesita comunicación interna entre sus microservicios. Diseña los mensajes Protocol Buffers para los siguientes casos:\n\n- **a)** Define un mensaje `Order` con campos para: id"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/04_streaming_y_sse.md": {
+    "path": "clase/18_intro_a_apis/04_streaming_y_sse.md",
+    "title": "Streaming y Server-Sent Events",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Calcula el ahorro de ancho de banda de streaming vs buffered"
+        },
+        "content_preview": "Considera una respuesta de LLM de **2,000 tokens** que tarda **8 segundos** en generarse completamente. Cada token ocupa en promedio **5 bytes** de payload.\n\n**Parte 1: Overhead por evento SSE**\n\nCada"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/05_websockets.md": {
+    "path": "clase/18_intro_a_apis/05_websockets.md",
+    "title": "WebSockets",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña el protocolo de mensajes para un editor de texto colaborativo"
+        },
+        "content_preview": "Diseña el protocolo de mensajes WebSocket para un editor de texto colaborativo (estilo Google Docs simplificado). Dos o más usuarios pueden editar el mismo documento simultáneamente.\n\n**Parte 1: Tipos"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/01_que_es_una_api.md": {
+    "path": "clase/18_intro_a_apis/01_que_es_una_api.md",
+    "title": "¿Qué es una API?",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Mapea las flechas del chatbot"
+        },
+        "content_preview": "Vuelve al diagrama de arquitectura del chatbot en `00_index.md`. Para cada flecha numerada (1-9):\n\n1. Identifica **quién es el cliente** y **quién es el servidor**\n2. ¿La comunicación es unidirecciona"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/02_http_fundamentos.md": {
+    "path": "clase/18_intro_a_apis/02_http_fundamentos.md",
+    "title": "HTTP: el protocolo base",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Anatomía de peticiones reales"
+        },
+        "content_preview": "Usando `requests` en Python (o `curl` en terminal), realiza las siguientes peticiones y para cada una documenta: método, URL, headers enviados, status code recibido, y headers de respuesta relevantes."
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/00_index.md": {
+    "path": "clase/18_intro_a_apis/00_index.md",
+    "title": "Introducción a APIs",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/03_rest_y_crud.md": {
+    "path": "clase/18_intro_a_apis/03_rest_y_crud.md",
+    "title": "REST y CRUD",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña los endpoints REST de un servicio de streaming de música"
+        },
+        "content_preview": "Diseña la API REST para un servicio de streaming de música (estilo Spotify). Debe cubrir al menos estos recursos: usuarios, playlists, canciones y artistas.\n\nPara cada endpoint indica:\n\n1. **Método HT"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/09_soap_y_legado.md": {
+    "path": "clase/18_intro_a_apis/09_soap_y_legado.md",
+    "title": "SOAP y protocolos legado",
+    "type": "lesson",
+    "order": 9,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Comparacion multi-protocolo"
+        },
+        "content_preview": "Toma la siguiente operacion: **crear un mensaje en un LLM** con modelo\n`claude-3`, mensaje de usuario `\"Explica que es una API\"`, y\n`max_tokens=500`.\n\nEscribe la representacion de esta llamada en los "
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/08_graphql.md": {
+    "path": "clase/18_intro_a_apis/08_graphql.md",
+    "title": "GraphQL",
+    "type": "lesson",
+    "order": 8,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Escribe queries GraphQL para un sistema universitario"
+        },
+        "content_preview": "Imagina que el ITAM tiene una API GraphQL para consultar información académica. Dado el siguiente schema:\n\n```graphql\ntype Estudiante {\n  matricula: ID!\n  nombre: String!\n  carrera: String!\n  semestre"
+      }
+    ],
+    "has_frontmatter": true
+  },
   "07_regex/01_que_es_regex.md": {
     "path": "clase/07_regex/01_que_es_regex.md",
     "title": "¿Qué es Regex?",
@@ -1576,6 +1788,106 @@
     "due_date": null,
     "components": [],
     "has_frontmatter": false
+  },
+  "17_polars/02_arquitectura.md": {
+    "path": "clase/17_polars/02_arquitectura.md",
+    "title": "Arquitectura de Polars",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "17_polars/04_pipeline_e2e.md": {
+    "path": "clase/17_polars/04_pipeline_e2e.md",
+    "title": "Pipeline E2E en Polars",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Extender el pipeline"
+        },
+        "content_preview": "Agrega al pipeline:\n1. Una columna `dia_semana` extraída de la fecha (lunes=1, domingo=7)\n2. Un filtro que excluya ventas de domingo\n3. Una columna calculada `total = precio * cantidad`\n4. Usa `.expla"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "17_polars/05_polars_vs_pandas.md": {
+    "path": "clase/17_polars/05_polars_vs_pandas.md",
+    "title": "Polars vs pandas",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "17_polars/06_benchmarks.md": {
+    "path": "clase/17_polars/06_benchmarks.md",
+    "title": "Benchmarks: Polars vs pandas",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "17_polars/00_index.md": {
+    "path": "clase/17_polars/00_index.md",
+    "title": "Polars — DataFrames modernos",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "17_polars/03_polars_puro.md": {
+    "path": "clase/17_polars/03_polars_puro.md",
+    "title": "Polars puro",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Predecir el plan optimizado"
+        },
+        "content_preview": "Dado este código:\n\n```python\nlf = (\n    pl.scan_csv(\"productos.csv\")         # 20 columnas\n    .filter(pl.col(\"precio\") > 50)\n    .with_columns(\n        (pl.col(\"precio\") * 1.16).alias(\"precio_con_iva"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "17_polars/01_historia_y_diseno.md": {
+    "path": "clase/17_polars/01_historia_y_diseno.md",
+    "title": "Historia y diseño de Polars",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
   },
   "05_bash/05_expansion_sustitucion.md": {
     "path": "clase/05_bash/05_expansion_sustitucion.md",
@@ -2143,7 +2455,38 @@
     "summary": null,
     "tags": [],
     "due_date": null,
-    "components": [],
+    "components": [
+      {
+        "type": "exam",
+        "attrs": {
+          "id": "16.E1",
+          "title": "Examen teórico: Secciones 15 y 16",
+          "date": "2026-03-26",
+          "duration": "1 hora"
+        },
+        "content_preview": "Examen en clase de teoría (sin código) sobre las secciones 15 y 16. Vale 20 puntos."
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "16.2",
+          "title": "Entrega de notebooks: Secciones 15 y 16",
+          "due": "2026-04-09",
+          "points": "50"
+        },
+        "content_preview": "Entrega los notebooks de las secciones 15 y 16.\n\n**Incluye al menos:**\n1. `clase/15_arquitectura_de_computadoras/code/01_arquitectura.ipynb`\n2. `clase/16_computo/code/01_procesos_hilos.ipynb`\n3. `clas"
+      },
+      {
+        "type": "exam",
+        "attrs": {
+          "id": "16.E2",
+          "title": "Examen sección 16: teoría + código/notebooks",
+          "date": "2026-04-09",
+          "duration": "1 hora"
+        },
+        "content_preview": "Examen con teoría y ejercicios sobre notebooks/código de la sección 16. Puede incluir arquitectura, pero está sesgado al código de la sección 16. Vale 10 puntos."
+      }
+    ],
     "has_frontmatter": true
   },
   "16_computo/03_concurrencia_y_asincronia.md": {

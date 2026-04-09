@@ -1,8 +1,8 @@
-# Certificación Python intermediate
+# Certificación Python Intermediate
 
 **Estudiante:** Irene E
-**Fecha:** 2026-02-23
+**Fecha:** 2026-02-19
 
 ## Evidencia
 
-![Certificado Pyton intermediate](./evidencia_python_intermediate.png)
+![Certificado Python Intermediate](./evidencia_python_intermediate.png)

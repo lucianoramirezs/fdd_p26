@@ -1421,6 +1421,299 @@
       "title": "Cómputo: Secuencial, Concurrente, Paralelo y Distribuido"
     },
     {
+      "name": "17_polars",
+      "path": "17_polars",
+      "type": "directory",
+      "order": [
+        0,
+        17,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_historia_y_diseno.md",
+          "path": "17_polars/01_historia_y_diseno.md",
+          "type": "file",
+          "title": "Historia y diseño de Polars",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_arquitectura.md",
+          "path": "17_polars/02_arquitectura.md",
+          "type": "file",
+          "title": "Arquitectura de Polars",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_polars_puro.md",
+          "path": "17_polars/03_polars_puro.md",
+          "type": "file",
+          "title": "Polars puro",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_pipeline_e2e.md",
+          "path": "17_polars/04_pipeline_e2e.md",
+          "type": "file",
+          "title": "Pipeline E2E en Polars",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_polars_vs_pandas.md",
+          "path": "17_polars/05_polars_vs_pandas.md",
+          "type": "file",
+          "title": "Polars vs pandas",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_benchmarks.md",
+          "path": "17_polars/06_benchmarks.md",
+          "type": "file",
+          "title": "Benchmarks: Polars vs pandas",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "code",
+          "path": "17_polars/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Polars — DataFrames modernos"
+    },
+    {
+      "name": "18_intro_a_apis",
+      "path": "18_intro_a_apis",
+      "type": "directory",
+      "order": [
+        0,
+        18,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_que_es_una_api.md",
+          "path": "18_intro_a_apis/01_que_es_una_api.md",
+          "type": "file",
+          "title": "¿Qué es una API?",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_http_fundamentos.md",
+          "path": "18_intro_a_apis/02_http_fundamentos.md",
+          "type": "file",
+          "title": "HTTP: el protocolo base",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_rest_y_crud.md",
+          "path": "18_intro_a_apis/03_rest_y_crud.md",
+          "type": "file",
+          "title": "REST y CRUD",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_streaming_y_sse.md",
+          "path": "18_intro_a_apis/04_streaming_y_sse.md",
+          "type": "file",
+          "title": "Streaming y Server-Sent Events",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_websockets.md",
+          "path": "18_intro_a_apis/05_websockets.md",
+          "type": "file",
+          "title": "WebSockets",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_polling_y_webhooks.md",
+          "path": "18_intro_a_apis/06_polling_y_webhooks.md",
+          "type": "file",
+          "title": "Polling y Webhooks",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "07_grpc_y_protobuf.md",
+          "path": "18_intro_a_apis/07_grpc_y_protobuf.md",
+          "type": "file",
+          "title": "gRPC y Protocol Buffers",
+          "order": [
+            0,
+            7,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "08_graphql.md",
+          "path": "18_intro_a_apis/08_graphql.md",
+          "type": "file",
+          "title": "GraphQL",
+          "order": [
+            0,
+            8,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "09_soap_y_legado.md",
+          "path": "18_intro_a_apis/09_soap_y_legado.md",
+          "type": "file",
+          "title": "SOAP y protocolos legado",
+          "order": [
+            0,
+            9,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "10_comparacion_y_decision.md",
+          "path": "18_intro_a_apis/10_comparacion_y_decision.md",
+          "type": "file",
+          "title": "Comparacion y arbol de decision",
+          "order": [
+            0,
+            10,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "18_intro_a_apis/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "generar_graficas.py",
+              "path": "18_intro_a_apis/scripts/generar_graficas.py",
+              "type": "code",
+              "title": "generar_graficas.py",
+              "order": [
+                2,
+                999,
+                0,
+                "generar_graficas.py"
+              ]
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        },
+        {
+          "name": "code",
+          "path": "18_intro_a_apis/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Introducción a APIs"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",

@@ -289,6 +289,18 @@
       "type": "homework"
     },
     {
+      "id": "16.2",
+      "title": "Entrega de notebooks: Secciones 15 y 16",
+      "due": "2026-04-09",
+      "points": "50",
+      "chapter": "Computo",
+      "file": "16_computo/00_index.md",
+      "url": "/16_computo/00_index/",
+      "summary": "Entrega los notebooks de las secciones 15 y 16.\n\n**Incluye al menos:**\n1. `clase/15_arquitectura_de_",
+      "overdue": false,
+      "type": "homework"
+    },
+    {
       "id": "A.1.1",
       "title": "Crear cuentas: LLMs y DataCamp",
       "due": "2026-01-15",
@@ -365,6 +377,34 @@
       "summary": "Examen en clase sobre el módulo 6 (Git y GitHub). Vale 10 puntos.\n\n**Temas:**\n- Flujo de trabajo: Sy",
       "overdue": true,
       "type": "exam"
+    },
+    {
+      "id": "16.E1",
+      "title": "Examen teórico: Secciones 15 y 16",
+      "date": "2026-03-26",
+      "location": null,
+      "duration": "1 hora",
+      "points": null,
+      "chapter": "Computo",
+      "file": "16_computo/00_index.md",
+      "url": "/16_computo/00_index/",
+      "summary": "Examen en clase de teoría (sin código) sobre las secciones 15 y 16. Vale 20 puntos.",
+      "overdue": false,
+      "type": "exam"
+    },
+    {
+      "id": "16.E2",
+      "title": "Examen sección 16: teoría + código/notebooks",
+      "date": "2026-04-09",
+      "location": null,
+      "duration": "1 hora",
+      "points": null,
+      "chapter": "Computo",
+      "file": "16_computo/00_index.md",
+      "url": "/16_computo/00_index/",
+      "summary": "Examen con teoría y ejercicios sobre notebooks/código de la sección 16. Puede incluir arquitectura, ",
+      "overdue": false,
+      "type": "exam"
     }
   ],
   "projects": [
@@ -384,7 +424,7 @@
     {
       "id": "9.P1",
       "title": "Proyecto: Librería de Python publicable en PyPI",
-      "due": "2026-04-28",
+      "due": "2026-04-09",
       "points": "10",
       "team_size": null,
       "chapter": "Python",
