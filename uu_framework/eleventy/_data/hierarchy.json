@@ -1714,6 +1714,179 @@
       "title": "Introducción a APIs"
     },
     {
+      "name": "19_diseno_api",
+      "path": "19_diseno_api",
+      "type": "directory",
+      "order": [
+        0,
+        19,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_por_que_disenar_apis.md",
+          "path": "19_diseno_api/01_por_que_disenar_apis.md",
+          "type": "file",
+          "title": "Por qué diseñar APIs",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_openapi_y_contratos.md",
+          "path": "19_diseno_api/02_openapi_y_contratos.md",
+          "type": "file",
+          "title": "OpenAPI y contratos",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_modelado_de_requests_y_responses.md",
+          "path": "19_diseno_api/03_modelado_de_requests_y_responses.md",
+          "type": "file",
+          "title": "Modelado de requests y responses",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_versionado_y_evolucion.md",
+          "path": "19_diseno_api/04_versionado_y_evolucion.md",
+          "type": "file",
+          "title": "Versionado y evolución",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_pruebas_de_apis.md",
+          "path": "19_diseno_api/05_pruebas_de_apis.md",
+          "type": "file",
+          "title": "Pruebas de APIs",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_gateway_y_borde.md",
+          "path": "19_diseno_api/06_gateway_y_borde.md",
+          "type": "file",
+          "title": "Gateway y borde",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "07_observabilidad_y_releases.md",
+          "path": "19_diseno_api/07_observabilidad_y_releases.md",
+          "type": "file",
+          "title": "Observabilidad y releases",
+          "order": [
+            0,
+            7,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "08_seguridad_y_amenazas.md",
+          "path": "19_diseno_api/08_seguridad_y_amenazas.md",
+          "type": "file",
+          "title": "Seguridad y amenazas",
+          "order": [
+            0,
+            8,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "09_sintesis_y_arbol_de_decision.md",
+          "path": "19_diseno_api/09_sintesis_y_arbol_de_decision.md",
+          "type": "file",
+          "title": "Sintesis y arbol de decision",
+          "order": [
+            0,
+            9,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "19_diseno_api/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "generar_graficas.py",
+              "path": "19_diseno_api/scripts/generar_graficas.py",
+              "type": "code",
+              "title": "generar_graficas.py",
+              "order": [
+                2,
+                999,
+                0,
+                "generar_graficas.py"
+              ]
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        },
+        {
+          "name": "code",
+          "path": "19_diseno_api/code",
+          "type": "directory",
+          "order": [
+            3,
+            0,
+            0,
+            ""
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Code"
+        }
+      ],
+      "has_index": true,
+      "title": "Diseño de APIs"
+    },
+    {
       "name": "a_stack",
       "path": "a_stack",
       "type": "directory",
@@ -1998,6 +2171,119 @@
       ],
       "has_index": true,
       "title": "Cómputo: Secuencial, Concurrente, Paralelo y Distribuido"
+    },
+    {
+      "name": "examenes",
+      "path": "examenes",
+      "type": "directory",
+      "order": [
+        2,
+        999,
+        0,
+        "examenes"
+      ],
+      "children": [
+        {
+          "name": "content",
+          "path": "examenes/content",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "content"
+          ],
+          "children": [],
+          "has_index": false,
+          "title": "Content"
+        },
+        {
+          "name": "exams",
+          "path": "examenes/exams",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "exams"
+          ],
+          "children": [
+            {
+              "name": "p2_arquitectura_A.md",
+              "path": "examenes/exams/p2_arquitectura_A.md",
+              "type": "file",
+              "title": "P2 Arquitectura A",
+              "order": [
+                2,
+                999,
+                0,
+                "p2_arquitectura_a.md"
+              ],
+              "summary": null
+            },
+            {
+              "name": "p2_arquitectura_B.md",
+              "path": "examenes/exams/p2_arquitectura_B.md",
+              "type": "file",
+              "title": "P2 Arquitectura B",
+              "order": [
+                2,
+                999,
+                0,
+                "p2_arquitectura_b.md"
+              ],
+              "summary": null
+            }
+          ],
+          "has_index": false,
+          "title": "Exams"
+        }
+      ],
+      "has_index": false,
+      "title": "Examenes"
+    },
+    {
+      "name": "libros",
+      "path": "libros",
+      "type": "directory",
+      "order": [
+        2,
+        999,
+        0,
+        "libros"
+      ],
+      "children": [
+        {
+          "name": "mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks",
+          "path": "libros/mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks"
+          ],
+          "children": [
+            {
+              "name": "UNDERSTANDING.md",
+              "path": "libros/mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks/UNDERSTANDING.md",
+              "type": "file",
+              "title": "What This Book Has And Does",
+              "order": [
+                2,
+                999,
+                0,
+                "understanding.md"
+              ],
+              "summary": null
+            }
+          ],
+          "has_index": false,
+          "title": "Mastering Api Architecture Design Operate And Evolve Api Based Systems 1nbsped 1492090638 9781492090632 Compress Chunks"
+        }
+      ],
+      "has_index": false,
+      "title": "Libros"
     },
     {
       "name": "docs",

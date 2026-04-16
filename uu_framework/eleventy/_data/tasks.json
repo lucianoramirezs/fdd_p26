@@ -297,7 +297,7 @@
       "file": "16_computo/00_index.md",
       "url": "/16_computo/00_index/",
       "summary": "Entrega los notebooks de las secciones 15 y 16.\n\n**Incluye al menos:**\n1. `clase/15_arquitectura_de_",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -389,7 +389,7 @@
       "file": "16_computo/00_index.md",
       "url": "/16_computo/00_index/",
       "summary": "Examen en clase de teoría (sin código) sobre las secciones 15 y 16. Vale 20 puntos.",
-      "overdue": false,
+      "overdue": true,
       "type": "exam"
     },
     {
@@ -403,7 +403,7 @@
       "file": "16_computo/00_index.md",
       "url": "/16_computo/00_index/",
       "summary": "Examen con teoría y ejercicios sobre notebooks/código de la sección 16. Puede incluir arquitectura, ",
-      "overdue": false,
+      "overdue": true,
       "type": "exam"
     }
   ],
@@ -431,7 +431,7 @@
       "file": "09_python/00_index.md",
       "url": "/09_python/00_index/",
       "summary": "Desarrolla una librería de Python útil y publicable. El tema es libre, pero debe resolver un problem",
-      "overdue": false,
+      "overdue": true,
       "type": "project"
     }
   ]

@@ -11,6 +11,18 @@
     "components": [],
     "has_frontmatter": true
   },
+  "libros/mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks/UNDERSTANDING.md": {
+    "path": "clase/libros/mastering-api-architecture-design-operate-and-evolve-api-based-systems-1nbsped-1492090638-9781492090632_compress_chunks/UNDERSTANDING.md",
+    "title": "What This Book Has And Does",
+    "type": "lesson",
+    "order": 999,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
   "a_stack/01_introduction/01_cuentas.md": {
     "path": "clase/a_stack/01_introduction/01_cuentas.md",
     "title": "Configuración de Cuentas",
@@ -601,6 +613,198 @@
     ],
     "has_frontmatter": false
   },
+  "19_diseno_api/09_sintesis_y_arbol_de_decision.md": {
+    "path": "clase/19_diseno_api/09_sintesis_y_arbol_de_decision.md",
+    "title": "Sintesis y arbol de decision",
+    "type": "lesson",
+    "order": 9,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña la estrategia completa para una API nueva"
+        },
+        "content_preview": "Vas a lanzar una API pública para un chatbot universitario.\n\nDefine en una página:\n\n1. contrato inicial\n2. shape de request/response\n3. política de versionado\n4. pruebas mínimas\n5. controles de gatewa"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/04_versionado_y_evolucion.md": {
+    "path": "clase/19_diseno_api/04_versionado_y_evolucion.md",
+    "title": "Versionado y evolución",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Decide si necesitas v2"
+        },
+        "content_preview": "Supón que tu API actual tiene:\n\n- `POST /v1/chat`\n- response con `output_text: string`\n\nQuieres migrar a una response con lista de bloques:\n\n```json\n{\n  \"content\": [\n    {\"type\": \"text\", \"text\": \"Hola"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/03_modelado_de_requests_y_responses.md": {
+    "path": "clase/19_diseno_api/03_modelado_de_requests_y_responses.md",
+    "title": "Modelado de requests y responses",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Rediseña una response frágil"
+        },
+        "content_preview": "Supón que hoy tu backend devuelve:\n\n```json\n{\n  \"reply\": \"Hola\",\n  \"tokens\": 22\n}\n```\n\nDiseña una versión más durable que permita crecer hacia:\n\n1. múltiples outputs\n2. metadata del modelo\n3. errores "
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/02_openapi_y_contratos.md": {
+    "path": "clase/19_diseno_api/02_openapi_y_contratos.md",
+    "title": "OpenAPI y contratos",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña el contrato mínimo del chatbot"
+        },
+        "content_preview": "Especifica, en OpenAPI o pseudoyaml, el endpoint `POST /v1/chat`.\n\nIncluye:\n\n1. Campos obligatorios del request\n2. Un campo opcional\n3. La respuesta `200`\n4. Al menos dos errores posibles\n5. Un ejempl"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/08_seguridad_y_amenazas.md": {
+    "path": "clase/19_diseno_api/08_seguridad_y_amenazas.md",
+    "title": "Seguridad y amenazas",
+    "type": "lesson",
+    "order": 8,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Haz un mini threat model"
+        },
+        "content_preview": "Para una API de chatbot con:\n\n- `POST /v1/chat`\n- `GET /v1/conversations/{id}`\n- `POST /v1/fine-tuning/jobs`\n\nhaz una tabla con tres columnas:\n\n1. activo o recurso\n2. amenaza plausible\n3. mitigación i"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/05_pruebas_de_apis.md": {
+    "path": "clase/19_diseno_api/05_pruebas_de_apis.md",
+    "title": "Pruebas de APIs",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña la estrategia de prueba mínima"
+        },
+        "content_preview": "Para la API del chatbot con estos endpoints:\n\n- `POST /v1/chat`\n- `GET /v1/conversations/{id}`\n- `GET /v1/usage`\n\npropón:\n\n1. un test de contrato\n2. un test de componente\n3. un test de integración\n4. "
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/06_gateway_y_borde.md": {
+    "path": "clase/19_diseno_api/06_gateway_y_borde.md",
+    "title": "Gateway y borde",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Separa responsabilidades entre gateway y servicio"
+        },
+        "content_preview": "Para una API pública de chatbot define qué pondrías en:\n\n1. gateway\n2. servicio backend\n\nConsidera:\n\n- autenticación\n- autorización\n- rate limiting\n- validación de payload\n- logging\n- retries\n- selecc"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/00_index.md": {
+    "path": "clase/19_diseno_api/00_index.md",
+    "title": "Diseño de APIs",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/07_observabilidad_y_releases.md": {
+    "path": "clase/19_diseno_api/07_observabilidad_y_releases.md",
+    "title": "Observabilidad y releases",
+    "type": "lesson",
+    "order": 7,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña un rollout seguro"
+        },
+        "content_preview": "Quieres liberar una nueva versión del endpoint `POST /v1/chat` que cambia internamente el router de modelos.\n\nPropón:\n\n1. estrategia de rollout (`canary`, `blue-green` u otra)\n2. tres métricas obligat"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "19_diseno_api/01_por_que_disenar_apis.md": {
+    "path": "clase/19_diseno_api/01_por_que_disenar_apis.md",
+    "title": "Por qué diseñar APIs",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diagnostica una API frágil"
+        },
+        "content_preview": "Piensa en la API del backend de un chatbot con estos endpoints:\n\n- `POST /sendMessage`\n- `POST /getHistory`\n- `POST /getUsage`\n\nResponde:\n\n1. ¿Qué problemas de diseño ves en estos nombres?\n2. ¿Qué con"
+      }
+    ],
+    "has_frontmatter": true
+  },
   "09_python/01_introduccion.md": {
     "path": "clase/09_python/01_introduccion.md",
     "title": "Introducción a Python",
@@ -875,6 +1079,30 @@
     "due_date": null,
     "components": [],
     "has_frontmatter": false
+  },
+  "examenes/exams/p2_arquitectura_A.md": {
+    "path": "clase/examenes/exams/p2_arquitectura_A.md",
+    "title": "P2 Arquitectura A",
+    "type": "lesson",
+    "order": 999,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "examenes/exams/p2_arquitectura_B.md": {
+    "path": "clase/examenes/exams/p2_arquitectura_B.md",
+    "title": "P2 Arquitectura B",
+    "type": "lesson",
+    "order": 999,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
   },
   "08_containers/04_benchmarks.md": {
     "path": "clase/08_containers/04_benchmarks.md",
